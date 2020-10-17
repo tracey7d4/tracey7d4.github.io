@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>g0 on Tracey Hoang</title>
+    <link>http://www.example.com/tags/g0/</link>
+    <description>Recent content in g0 on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Oct 2020 21:00:00 +1000</lastBuildDate><atom:link href="http://www.example.com/tags/g0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mira Jump</title>
+      <link>http://www.example.com/project/mirajump/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/project/mirajump/</guid>
+      <description>Source code
+Description This simple game is modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.
+Mira is running her scooter. She is going to meet objects on her way, and jumping over them is the only way to go pass. Every time when she successfully avoids an object she will get one point.
+How to play Press space key or left-click when you want to jump.</description>
+    </item>
+    
+  </channel>
+</rss>

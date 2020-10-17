@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slack on Tracey Hoang</title>
+    <link>http://www.example.com/tags/slack/</link>
+    <description>Recent content in slack on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Oct 2020 21:00:00 +1000</lastBuildDate><atom:link href="http://www.example.com/tags/slack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple Slack bot in Go using event API - Stock Bot</title>
+      <link>http://www.example.com/project/stockbot/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/project/stockbot/</guid>
+      <description>Source code
+In this application, we will discuss about stockbot that returns stock prices of a company. The architecture is as follows.
+For one who comes to this repository first, I have another repository call weatherbot in which I have described step by step how to build a weatherbot for querying weather conditon of a location. Most of the steps of implementation for two bots are similar, including building a Slack bot user, subscribing to app mentioned event, creating a Go function which is a HTTP handler.</description>
+    </item>
+    
+    <item>
+      <title>Simple Slack bot in Go using event API - Weather Bot</title>
+      <link>http://www.example.com/project/weatherbot/</link>
+      <pubDate>Fri, 16 Oct 2020 20:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/project/weatherbot/</guid>
+      <description>Source code
+In this repository, I&amp;rsquo;m going to create a weatherbot for querying weather condition of a given location. The idea of writing a Slack bot in Go was inspired by rapidloop&amp;rsquo;s slackbot for RTM API. At the moment, Slack platform provides a range of APIs that Slack apps can access to including events API, web API, Audit Logs APIs beside RTM API which was used in rapidloop&amp;rsquo;s implementation. As RTM API is being phased out in favour of events API, in this application, events API will be used.</description>
+    </item>
+    
+  </channel>
+</rss>

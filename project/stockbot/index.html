@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang='en' dir='auto'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Source code
+In this application, we will discuss about stockbot that returns stock prices of a company. The architecture is as follows.
+For one who comes to this repository first, I have another repository call weatherbot in which I have described step by step how to build a weatherbot for querying weather conditon of a location. Most of the steps of implementation for two bots are similar, including building a Slack bot user, subscribing to app mentioned event, creating a Go function which is a HTTP handler.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Simple Slack bot in Go using event API - Stock Bot • Tracey Hoang'>
+<meta property='og:description' content='Source code
+In this application, we will discuss about stockbot that returns stock prices of a company. The architecture is as follows.
+For one who comes to this repository first, I have another repository call weatherbot in which I have described step by step how to build a weatherbot for querying weather conditon of a location. Most of the steps of implementation for two bots are similar, including building a Slack bot user, subscribing to app mentioned event, creating a Go function which is a HTTP handler.'>
+<meta property='og:url' content='http://www.example.com/project/stockbot/'>
+<meta property='og:site_name' content='Tracey Hoang'>
+<meta property='og:type' content='article'><meta property='og:image' content='http://www.example.com/images/project/stockbot.png'><meta property='article:section' content='project'><meta property='article:tag' content='slack'><meta property='article:tag' content='GCP'><meta property='article:tag' content='API'><meta property='article:tag' content='project'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-16T21:00:00&#43;10:00'/><meta property='article:modified_time' content='2020-10-16T21:00:00&#43;10:00'/><meta name='twitter:card' content='summary_large_image'><meta property='twitter:image' content='http://www.example.com/images/project/stockbot.png'>
+
+<meta name="generator" content="Hugo 0.77.0-DEV" />
+
+  <title>Simple Slack bot in Go using event API - Stock Bot • Tracey Hoang</title>
+  <link rel='canonical' href='http://www.example.com/project/stockbot/'>
+  
+  
+  <link rel='icon' href='/gopher.ico'>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-project has-cover has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/Gopher.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Tracey Hoang
+      </a>
+    </h2>
+    <div class='desc'>
+    seft-taught software engineer
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-search sep-after'>
+  <header>
+    <h4 class='title widget-title'>Search</h4>
+  </header>
+
+  <form action='/search' id='search-form' class='search-form'>
+    <label>
+      <span class='screen-reader-text'>Search</span>
+      <input id='search-term' class='search-term' type='search' name='q' placeholder='Search&hellip;'>
+    </label></form>
+
+</section>
+<section class='widget widget-sidebar_menu sep-after'><nav id='sidebar-menu' class='menu sidebar-menu' aria-label='Sidebar Menu'>
+    <div class='container'>
+      <ul><li class='item'>
+  <a href='/'>Home</a></li><li class='item'>
+  <a href='/docs/'>Posts</a></li><li class='item'>
+  <a href='/project/'>Projects</a></li></ul>
+    </div>
+  </nav>
+
+</section><section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/api/' style='font-size:1.25em'>API</a>
+      </li><li>
+        <a href='/tags/channel/' style='font-size:1em'>channel</a>
+      </li><li>
+        <a href='/tags/concurrency/' style='font-size:1em'>concurrency</a>
+      </li><li>
+        <a href='/tags/example/' style='font-size:1em'>example</a>
+      </li><li>
+        <a href='/tags/g0/' style='font-size:1em'>g0</a>
+      </li><li>
+        <a href='/tags/game/' style='font-size:1em'>game</a>
+      </li><li>
+        <a href='/tags/gcp/' style='font-size:1.25em'>GCP</a>
+      </li><li>
+        <a href='/tags/go/' style='font-size:1.75em'>go</a>
+      </li><li>
+        <a href='/tags/golang/' style='font-size:2em'>golang</a>
+      </li><li>
+        <a href='/tags/project/' style='font-size:1.5em'>project</a>
+      </li><li>
+        <a href='/tags/slack/' style='font-size:1.25em'>slack</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+
+</svg>
+</span>
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/docs/'>Posts</a>
+      </li><li class='item'>
+        <a href='/project/'>Projects</a>
+      </li><li class='item'>
+        <a href='/about/'>About</a>
+      </li><li class='item'>
+        <a href='/resources/'>Resources</a>
+      </li><li class='item'>
+        <a href='https://github.com/tracey7d4'>REPO</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/project/'>Projects</a></li><li><span>Simple Slack bot in Go using event API - Stock Bot</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Tracey Hoang</p><p class='desc site-desc'>seft-taught software engineer</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Simple Slack bot in Go using event API - Stock Bot</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2020-10-16T21:00:00&#43;10:00'>2020, Oct 16</time>
+</span>
+
+  <span class='byline'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+
+</svg>
+<span class='screen-reader-text'> by </span><a href='/authors/tracey'>Tracey Hoang</a></span>
+  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+
+</svg>
+3 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  <div class='entry-cover'>
+  <figure class='container cover-normal'>
+    <img src='/images/project/stockbot.png'/>
+    
+      
+    
+  </figure>
+</div>
+  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>Table of Contents</span>
+  </summary>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#api-reference">API reference</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</details>
+
+
+  <div class='container entry-content'>
+  <p><a href="https://github.com/tracey7d4/stockbot"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
+<p>In this application, we will discuss about <code>stockbot</code> that returns stock prices of a company.
+The architecture is as follows.</p>
+<p><img src="/images/project/stockdiagram.png" alt="Architecture"></p>
+<p>For one who comes to this repository first, I have another repository call <a href="https://github.com/Tracey7d4/weatherbot"><code>weatherbot</code></a> in which I have described step by step how to build a <code>weatherbot</code> for querying weather conditon of a location. Most of the steps of implementation for two bots are similar, including building a Slack bot user, subscribing to app mentioned event, creating a Go function which is a HTTP handler. So please refer to that application for more details. In this application, I only discuss the difference in Go function. In particular, we will have a look at <code>getStock()</code>, which is used to make a call out to third-party API, receive the response, extract and format the information.</p>
+<p>The <code>getQuote()</code> is as follows.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getQuote</span>(<span style="color:#a6e22e">sym</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">error</span>) {
+     	<span style="color:#a6e22e">sym</span> = <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">ToUpper</span>(<span style="color:#a6e22e">sym</span>)
+    
+    	<span style="color:#a6e22e">fhUrl</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;https://finnhub.io/api/v1/quote?symbol=%s&#34;</span>, <span style="color:#a6e22e">sym</span>)
+    	<span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">fhUrl</span>)
+    	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">err</span>
+    	}
+    
+    	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>(){
+    		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+    	}()
+    
+    	<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>)
+    	<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">float32</span>)
+    	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">body</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">m</span>)
+    	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">err</span>
+    	}
+    
+    	<span style="color:#a6e22e">fhUrlForName</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;https://finnhub.io/api/v1/stock/profile2?symbol=%s&#34;</span>, <span style="color:#a6e22e">sym</span>)
+    	<span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">fhUrlForName</span>)
+    	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">err</span>
+    	}
+    
+    	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>(){
+    		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+    	}()
+    
+    	<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>)
+    	<span style="color:#a6e22e">m1</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>)
+    	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">body</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">m1</span>)
+    	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">err</span>
+    	}
+    
+    	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>
+    
+    	<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">m</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
+    		<span style="color:#a6e22e">s</span> = <span style="color:#e6db74">&#34;_&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">sym</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; is not a valid trading name_&#34;</span>
+    	} <span style="color:#66d9ef">else</span> {
+    		<span style="color:#a6e22e">s</span> = <span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">m1</span>[<span style="color:#e6db74">&#34;name&#34;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; (&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">sym</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;) &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Stock Price* \n&#34;</span> <span style="color:#f92672">+</span>
+    			<span style="color:#e6db74">&#34;_current_: $&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%.2f&#34;</span>, <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;c&#34;</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span>
+    			<span style="color:#e6db74">&#34;_high_: $&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%.2f&#34;</span>, <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;h&#34;</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span>
+    			<span style="color:#e6db74">&#34;_low_: $&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%.2f&#34;</span>, <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;l&#34;</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span>
+    			<span style="color:#e6db74">&#34;_open_: $&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%.2f&#34;</span>, <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;o&#34;</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span>
+    			<span style="color:#e6db74">&#34;_previous close_: $&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%.2f&#34;</span>, <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;pc&#34;</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span>
+    			<span style="color:#e6db74">&#34;_timestamp_: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">UTC</span>().<span style="color:#a6e22e">String</span>()
+    	}
+    
+    	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>, <span style="color:#66d9ef">nil</span>
+    }
+</code></pre></div><p>I use <code>http://finnhub.io API</code> this time for getting stock value of a company by its ticker symbol. You can find its API documentation in <a href="https://finnhub.io/docs/api">here</a>.</p>
+<p>I also want to display the company trading name along with its ticker symbol, so I make another call for getting the company name.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">https</span>:<span style="color:#75715e">//finnhub.io/api/v1/stock/profile2?symbol=&lt;ticker symbol&gt;
+</span></code></pre></div><p>Now let&rsquo;s deploy our <code>Go</code> function</p>
+<pre><code>gcloud functions deploy AppStockMentionHandler --runtime go111 --trigger-http
+</code></pre><p>When you see that your function has been successfully deployed, go to a Slack Channel and call your bot, remember to
+mention its name.</p>
+<pre><code>@stockbot aapl
+</code></pre><p><img src="/images/project/stockbot.png" alt="stockBot image"></p>
+<p>Hope you enjoy your bots.</p>
+<h3 id="api-reference">API reference</h3>
+<ul>
+<li><a href="https://finnhub.io/docs/api">Stock API Documentation</a></li>
+<li><a href="https://github.com/Tracey7d4/weatherbot">Weather bot repository</a></li>
+</ul>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
+</svg>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/features/'>features</a></div>
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/slack/'>slack</a>, <a class='tag' href='/tags/gcp/'>GCP</a>, <a class='tag' href='/tags/api/'>API</a>, <a class='tag' href='/tags/project/'>project</a>, <a class='tag' href='/tags/golang/'>golang</a>, <a class='tag' href='/tags/go/'>go</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/project/weatherbot/'>
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Simple Slack bot in Go using event API - Weather Bot</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/project/mirajump/'>
+        <span class='screen-reader-text'>Next post: </span>Mira Jump<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/tracey7d4' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:tracey7d4@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/tracey-hoang-91b4521b0' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p></p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

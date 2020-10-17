@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Tracey Hoang</title>
+    <link>http://www.example.com/page/</link>
+    <description>Recent content in Pages on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="http://www.example.com/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://www.example.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.example.com/about/</guid>
+      <description>Hello, I&amp;rsquo;m Tracey. I am a self-taught software engineer with applied mathematics background. After going through A Tour of Go, I found that Go was actually a neat and simple language to learn and started to develop more interest in programming. While still in my learning journey, I create this blog to share interesting problems and projects that I have done in Go, as well as some other useful resources.</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>http://www.example.com/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.example.com/resources/</guid>
+      <description>Courses  A Tour of Go  Books  Cracking the Coding Interview by Gayle Laakmann McDowell  Articles  sync.RWMutex
+A nice write up of how to use sync.RWMutex to handle concurrent read/write access to shared resources.  </description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>http://www.example.com/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.example.com/search/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

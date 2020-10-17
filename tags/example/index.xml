@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>example on Tracey Hoang</title>
+    <link>http://www.example.com/tags/example/</link>
+    <description>Recent content in example on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Oct 2020 14:00:00 +1000</lastBuildDate><atom:link href="http://www.example.com/tags/example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dining Philosopher problem in Go</title>
+      <link>http://www.example.com/docs/dining-philosopher/</link>
+      <pubDate>Fri, 16 Oct 2020 14:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/docs/dining-philosopher/</guid>
+      <description>Source code
+Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both the chopsticks down to let the others eat. There is a limit number of philosophers that can eat concurently.</description>
+    </item>
+    
+  </channel>
+</rss>

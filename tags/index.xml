@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Tracey Hoang</title>
+    <link>http://www.example.com/tags/</link>
+    <description>Recent content in Tags on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Oct 2020 21:00:00 +1000</lastBuildDate><atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API</title>
+      <link>http://www.example.com/tags/api/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>g0</title>
+      <link>http://www.example.com/tags/g0/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/g0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>game</title>
+      <link>http://www.example.com/tags/game/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GCP</title>
+      <link>http://www.example.com/tags/gcp/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/gcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>http://www.example.com/tags/go/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>http://www.example.com/tags/golang/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>project</title>
+      <link>http://www.example.com/tags/project/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slack</title>
+      <link>http://www.example.com/tags/slack/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/slack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>channel</title>
+      <link>http://www.example.com/tags/channel/</link>
+      <pubDate>Fri, 16 Oct 2020 14:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/channel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concurrency</title>
+      <link>http://www.example.com/tags/concurrency/</link>
+      <pubDate>Fri, 16 Oct 2020 14:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/concurrency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>example</title>
+      <link>http://www.example.com/tags/example/</link>
+      <pubDate>Fri, 16 Oct 2020 14:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/example/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>http://www.example.com/tags/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.example.com/tags/config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Opengraph</title>
+      <link>http://www.example.com/tags/og/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.example.com/tags/og/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
