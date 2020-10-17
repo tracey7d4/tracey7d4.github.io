@@ -4,17 +4,17 @@
   
   <url>
     <loc>http://www.example.com/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/docs/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/project/</loc>
     <lastmod>2020-10-16T21:00:00+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/docs/</loc>
-    <lastmod>2020-10-16T14:00:00+10:00</lastmod>
   </url>
   
   <url>
@@ -26,27 +26,97 @@
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/api/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
+    <loc>http://www.example.com/authors/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/authors/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
+    <loc>http://www.example.com/tags/avl-tree/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/docs/balancedbst/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/balanced-bst/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/bst/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/categories/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/example/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/categories/features/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/g0/</loc>
+    <loc>http://www.example.com/tags/go/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/golang/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/authors/tracey/</loc>
+    <lastmod>2020-10-17T23:10:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/docs/bst-others/</loc>
+    <lastmod>2020-10-17T23:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/docs/traverse-bst/</loc>
+    <lastmod>2020-10-17T22:30:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/breadth-first-traversal/</loc>
+    <lastmod>2020-10-17T22:30:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/depth-first-traversal/</loc>
+    <lastmod>2020-10-17T22:30:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/traverse/</loc>
+    <lastmod>2020-10-17T22:30:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/docs/bst/</loc>
+    <lastmod>2020-10-17T22:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/api/</loc>
     <lastmod>2020-10-16T21:00:00+10:00</lastmod>
   </url>
   
@@ -57,16 +127,6 @@
   
   <url>
     <loc>http://www.example.com/tags/gcp/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/go/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/golang/</loc>
     <lastmod>2020-10-16T21:00:00+10:00</lastmod>
   </url>
   
@@ -91,16 +151,6 @@
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/authors/tracey/</loc>
-    <lastmod>2020-10-16T21:00:00+10:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://www.example.com/project/weatherbot/</loc>
     <lastmod>2020-10-16T20:00:00+10:00</lastmod>
   </url>
@@ -117,11 +167,6 @@
   
   <url>
     <loc>http://www.example.com/docs/dining-philosopher/</loc>
-    <lastmod>2020-10-16T14:00:00+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/example/</loc>
     <lastmod>2020-10-16T14:00:00+10:00</lastmod>
   </url>
   

@@ -5,7 +5,7 @@
     <link>http://www.example.com/tags/go/</link>
     <description>Recent content in go on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 16 Oct 2020 21:00:00 +1000</lastBuildDate><atom:link href="http://www.example.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Oct 2020 23:10:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>http://www.example.com/about/</link>
@@ -13,6 +13,63 @@
       
       <guid>http://www.example.com/about/</guid>
       <description>Hello, I&amp;rsquo;m Tracey. I am a self-taught software engineer with applied mathematics background. After going through A Tour of Go, I found that Go was actually a neat and simple language to learn and started to develop more interest in programming. While still in my learning journey, I create this blog to share interesting problems and projects that I have done in Go, as well as some other useful resources.</description>
+    </item>
+    
+    <item>
+      <title>Balanced Binary Search Tree - AVL Tree</title>
+      <link>http://www.example.com/docs/balancedbst/</link>
+      <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/balancedbst/</guid>
+      <description>Source code
+Introduction AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defind as follows
+balance_factor := height(left_subtree) - height(right_subtree)According to definition of a balanced tree, the balance factor of every node in the AVL tree is either -1, 0, or 1. When an insertion or deletion operation is performed, the tree&amp;rsquo;s height may change, so do the balance factors at nodes.</description>
+    </item>
+    
+    <item>
+      <title>Binary Search Tree - Part III</title>
+      <link>http://www.example.com/docs/bst-others/</link>
+      <pubDate>Sat, 17 Oct 2020 23:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/bst-others/</guid>
+      <description>Source code
+Fetch maximum value Maximum value of a BST is the value of the most right node
+func FetchMax(t *treeNode) int { if t.Right == nil { return t.Value } return FetchMax(t.Right) } Return value: 14
+Fetch minimum value Minimum value of a BST is the value of the most left node
+func FetchMin(t *treeNode) int { if t.Left == nil { return t.Value } return FetchMin(t.Left) } Return: 1</description>
+    </item>
+    
+    <item>
+      <title>Binary Search Tree - Part II</title>
+      <link>http://www.example.com/docs/traverse-bst/</link>
+      <pubDate>Sat, 17 Oct 2020 22:30:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/traverse-bst/</guid>
+      <description>Source code
+A traversal is a process of visiting all the nodes in a tree. We can categorise tree&amp;rsquo;s traversal algorithms into 2 groups: depth-first traversal and breadth-first traversal.
+ Depth-first traversal: includes PreOrder traversal, InOrder traversal, and PostOrder traversal. Breadth-first traversal: the level order traversal. In this traversal, we visit the node by levels from top to bottom, and from left to right.  Let have a look at implementations of those traversal.</description>
+    </item>
+    
+    <item>
+      <title>Binary Search Tree - Part I</title>
+      <link>http://www.example.com/docs/bst/</link>
+      <pubDate>Sat, 17 Oct 2020 22:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/bst/</guid>
+      <description>Source code
+Introduction A Binary Tree is a tree data structure, that consists of nodes. The topmost node in the tree is the root. Every node in a Binary Tree has maximum 2 children, which are referred to as left and right child. A leaf is a node that both its left and right subtrees are empty. A node with only one subtree is called half-leaf. A parent of a node is the node immediately above it.</description>
+    </item>
+    
+    <item>
+      <title>Mira Jump</title>
+      <link>http://www.example.com/project/mirajump/</link>
+      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/project/mirajump/</guid>
+      <description>Source code
+Description This simple game is modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.
+Mira is running her scooter. She is going to meet objects on her way, and jumping over them is the only way to go pass. Every time when she successfully avoids an object she will get one point.
+How to play Press space key or left-click when you want to jump.</description>
     </item>
     
     <item>
@@ -43,7 +100,7 @@ In this repository, I&amp;rsquo;m going to create a weatherbot for querying weat
       
       <guid>http://www.example.com/docs/dining-philosopher/</guid>
       <description>Source code
-Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both the chopsticks down to let the others eat. There is a limit number of philosophers that can eat concurently.</description>
+Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat. Under problem constraint, there is a limit number of philosophers that can eat concurently.</description>
     </item>
     
   </channel>

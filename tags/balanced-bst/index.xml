@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Balanced BST on Tracey Hoang</title>
+    <link>http://www.example.com/tags/balanced-bst/</link>
+    <description>Recent content in Balanced BST on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 17 Oct 2020 23:10:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/balanced-bst/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Balanced Binary Search Tree - AVL Tree</title>
+      <link>http://www.example.com/docs/balancedbst/</link>
+      <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/balancedbst/</guid>
+      <description>Source code
+Introduction AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defind as follows
+balance_factor := height(left_subtree) - height(right_subtree)According to definition of a balanced tree, the balance factor of every node in the AVL tree is either -1, 0, or 1. When an insertion or deletion operation is performed, the tree&amp;rsquo;s height may change, so do the balance factors at nodes.</description>
+    </item>
+    
+  </channel>
+</rss>

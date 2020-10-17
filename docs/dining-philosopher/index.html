@@ -3,12 +3,12 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Source code
-Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both the chopsticks down to let the others eat. There is a limit number of philosophers that can eat concurently.'>
+Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat. Under problem constraint, there is a limit number of philosophers that can eat concurently.'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Dining Philosopher problem in Go • Tracey Hoang'>
 <meta property='og:description' content='Source code
-Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both the chopsticks down to let the others eat. There is a limit number of philosophers that can eat concurently.'>
+Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat. Under problem constraint, there is a limit number of philosophers that can eat concurently.'>
 <meta property='og:url' content='http://www.example.com/docs/dining-philosopher/'>
 <meta property='og:site_name' content='Tracey Hoang'>
 <meta property='og:type' content='article'><meta property='og:image' content='http://www.example.com/images/docs/DiningPhilosopher.png'><meta property='article:section' content='docs'><meta property='article:tag' content='concurrency'><meta property='article:tag' content='channel'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-16T14:00:00&#43;10:00'/><meta property='article:modified_time' content='2020-10-16T14:00:00&#43;10:00'/><meta name='twitter:card' content='summary_large_image'><meta property='twitter:image' content='http://www.example.com/images/docs/DiningPhilosopher.png'>
@@ -80,27 +80,37 @@ Problem description There are 5 philosophers having their dinner at a round tabl
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/tags/api/' style='font-size:1.25em'>API</a>
+        <a href='/tags/api/' style='font-size:1.125em'>API</a>
+      </li><li>
+        <a href='/tags/avl-tree/' style='font-size:1em'>AVL Tree</a>
+      </li><li>
+        <a href='/tags/balanced-bst/' style='font-size:1em'>Balanced BST</a>
+      </li><li>
+        <a href='/tags/breadth-first-traversal/' style='font-size:1em'>breadth-first traversal</a>
+      </li><li>
+        <a href='/tags/bst/' style='font-size:1.375em'>BST</a>
       </li><li>
         <a href='/tags/channel/' style='font-size:1em'>channel</a>
       </li><li>
         <a href='/tags/concurrency/' style='font-size:1em'>concurrency</a>
       </li><li>
-        <a href='/tags/example/' style='font-size:1em'>example</a>
+        <a href='/tags/depth-first-traversal/' style='font-size:1em'>depth-first traversal</a>
       </li><li>
-        <a href='/tags/g0/' style='font-size:1em'>g0</a>
+        <a href='/tags/example/' style='font-size:1.5em'>example</a>
       </li><li>
         <a href='/tags/game/' style='font-size:1em'>game</a>
       </li><li>
-        <a href='/tags/gcp/' style='font-size:1.25em'>GCP</a>
+        <a href='/tags/gcp/' style='font-size:1.125em'>GCP</a>
       </li><li>
-        <a href='/tags/go/' style='font-size:1.75em'>go</a>
+        <a href='/tags/go/' style='font-size:2em'>go</a>
       </li><li>
         <a href='/tags/golang/' style='font-size:2em'>golang</a>
       </li><li>
-        <a href='/tags/project/' style='font-size:1.5em'>project</a>
+        <a href='/tags/project/' style='font-size:1.25em'>project</a>
       </li><li>
-        <a href='/tags/slack/' style='font-size:1.25em'>slack</a>
+        <a href='/tags/slack/' style='font-size:1.125em'>slack</a>
+      </li><li>
+        <a href='/tags/traverse/' style='font-size:1em'>traverse</a>
       </li></ul>
 </div>
 
@@ -245,8 +255,8 @@ Problem description There are 5 philosophers having their dinner at a round tabl
   <div class='container entry-content'>
   <p><a href="https://github.com/tracey7d4/diningPhilosophersProblem"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
 <h3 id="problem-description">Problem description</h3>
-<p>There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both the chopsticks down to let the others eat. There is a limit number of philosophers that can eat concurently. In a larger scale, while there are more than 5 philosopher, this number may differ in range of 1 to as many as possible.</p>
-<p>The deadlock may occur when each philosopher simultaneously pickups one chopstick and waits for another chopticks forever. A host which executes in its own goroutine is introduced to resolve the deadlock situation. The host  plays a role on coordinating the dining process. In order to give a philosopher permission to eat, host needs to check for all the conditions, including whether 2 adjacent of that philosopher are not eating and how many philosophers are eating at that time.</p>
+<p>There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat. Under problem constraint, there is a limit number of philosophers that can eat concurently. And this number may differ in range of 1 to as many as possible.</p>
+<p>The deadlock may occur when each philosopher simultaneously pickups one chopstick and waits for another chopticks forever. A host which executes in its own goroutine is introduced to resolve the deadlock situation. The host  plays a role on coordinating the dining process. In order to give a philosopher permission to eat, host needs to check for all the required conditions, including current status of two adjacent of that philosopher and how many philosophers are eating at that time.</p>
 <h3 id="implementation">Implementation</h3>
 <p>Note: This design is scalable, i.e number of philosophers, number of courses per Philosopher, and number philosophers that eat concurrently can be changed.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">const</span> (
@@ -280,6 +290,21 @@ Problem description There are 5 philosophers having their dinner at a round tabl
 
 
 </article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='next-entry sep-before'>
+      <a href='/docs/bst/'>
+        <span class='screen-reader-text'>Next post: </span>Binary Search Tree - Part I<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
 
 
 

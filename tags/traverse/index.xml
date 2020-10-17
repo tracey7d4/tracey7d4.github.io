@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>traverse on Tracey Hoang</title>
+    <link>http://www.example.com/tags/traverse/</link>
+    <description>Recent content in traverse on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 17 Oct 2020 22:30:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/traverse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Binary Search Tree - Part II</title>
+      <link>http://www.example.com/docs/traverse-bst/</link>
+      <pubDate>Sat, 17 Oct 2020 22:30:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/traverse-bst/</guid>
+      <description>Source code
+A traversal is a process of visiting all the nodes in a tree. We can categorise tree&amp;rsquo;s traversal algorithms into 2 groups: depth-first traversal and breadth-first traversal.
+ Depth-first traversal: includes PreOrder traversal, InOrder traversal, and PostOrder traversal. Breadth-first traversal: the level order traversal. In this traversal, we visit the node by levels from top to bottom, and from left to right.  Let have a look at implementations of those traversal.</description>
+    </item>
+    
+  </channel>
+</rss>

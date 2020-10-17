@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang='en' dir='auto'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Part III - Common Problems'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Binary Search Tree - Part III • Tracey Hoang'>
+<meta property='og:description' content='Part III - Common Problems'>
+<meta property='og:url' content='http://www.example.com/docs/bst-others/'>
+<meta property='og:site_name' content='Tracey Hoang'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='BST'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-17T23:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-10-17T23:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.77.0-DEV" />
+
+  <title>Binary Search Tree - Part III • Tracey Hoang</title>
+  <link rel='canonical' href='http://www.example.com/docs/bst-others/'>
+  
+  
+  <link rel='icon' href='/gopher.ico'>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-docs has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/Gopher.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Tracey Hoang
+      </a>
+    </h2>
+    <div class='desc'>
+    seft-taught software engineer
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-search sep-after'>
+  <header>
+    <h4 class='title widget-title'>Search</h4>
+  </header>
+
+  <form action='/search' id='search-form' class='search-form'>
+    <label>
+      <span class='screen-reader-text'>Search</span>
+      <input id='search-term' class='search-term' type='search' name='q' placeholder='Search&hellip;'>
+    </label></form>
+
+</section>
+<section class='widget widget-sidebar_menu sep-after'><nav id='sidebar-menu' class='menu sidebar-menu' aria-label='Sidebar Menu'>
+    <div class='container'>
+      <ul><li class='item'>
+  <a href='/'>Home</a></li><li class='item'>
+  <a href='/docs/'>Posts</a></li><li class='item'>
+  <a href='/project/'>Projects</a></li></ul>
+    </div>
+  </nav>
+
+</section><section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/api/' style='font-size:1.125em'>API</a>
+      </li><li>
+        <a href='/tags/avl-tree/' style='font-size:1em'>AVL Tree</a>
+      </li><li>
+        <a href='/tags/balanced-bst/' style='font-size:1em'>Balanced BST</a>
+      </li><li>
+        <a href='/tags/breadth-first-traversal/' style='font-size:1em'>breadth-first traversal</a>
+      </li><li>
+        <a href='/tags/bst/' style='font-size:1.375em'>BST</a>
+      </li><li>
+        <a href='/tags/channel/' style='font-size:1em'>channel</a>
+      </li><li>
+        <a href='/tags/concurrency/' style='font-size:1em'>concurrency</a>
+      </li><li>
+        <a href='/tags/depth-first-traversal/' style='font-size:1em'>depth-first traversal</a>
+      </li><li>
+        <a href='/tags/example/' style='font-size:1.5em'>example</a>
+      </li><li>
+        <a href='/tags/game/' style='font-size:1em'>game</a>
+      </li><li>
+        <a href='/tags/gcp/' style='font-size:1.125em'>GCP</a>
+      </li><li>
+        <a href='/tags/go/' style='font-size:2em'>go</a>
+      </li><li>
+        <a href='/tags/golang/' style='font-size:2em'>golang</a>
+      </li><li>
+        <a href='/tags/project/' style='font-size:1.25em'>project</a>
+      </li><li>
+        <a href='/tags/slack/' style='font-size:1.125em'>slack</a>
+      </li><li>
+        <a href='/tags/traverse/' style='font-size:1em'>traverse</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+
+</svg>
+</span>
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/docs/'>Posts</a>
+      </li><li class='item'>
+        <a href='/project/'>Projects</a>
+      </li><li class='item'>
+        <a href='/about/'>About</a>
+      </li><li class='item'>
+        <a href='/resources/'>Resources</a>
+      </li><li class='item'>
+        <a href='https://github.com/tracey7d4'>REPO</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/docs/'>Posts</a></li><li><span>Binary Search Tree - Part III</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Tracey Hoang</p><p class='desc site-desc'>seft-taught software engineer</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Binary Search Tree - Part III</h1>
+      
+<p class='desc'>Part III - Common Problems</p>
+
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2020-10-17T23:00:00&#43;11:00'>2020, Oct 17</time>
+</span>
+
+  <span class='byline'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+
+</svg>
+<span class='screen-reader-text'> by </span><a href='/authors/tracey'>Tracey Hoang</a></span>
+  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+
+</svg>
+4 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>Table of Contents</span>
+  </summary>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#find-inorder-predecessor-and-successor-for-a-given-key-in-bst">Find Inorder predecessor and successor for a given key in BST</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</details>
+
+
+  <div class='container entry-content'>
+  <p><a href="https://github.com/tracey7d4/binarySearchTree"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
+<h4 id="fetch-maximum-value">Fetch maximum value</h4>
+<p>Maximum value of a BST is the value of the most right node</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FetchMax</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">FetchMax</span>(<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span>)
+}
+</code></pre></div><p>Return value: 14</p>
+<h4 id="fetch-minimum-value">Fetch minimum value</h4>
+<p>Minimum value of a BST is the value of the most left node</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FetchMin</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">FetchMin</span>(<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span>)
+}
+</code></pre></div><p>Return: 1</p>
+<h4 id="get-height">Get Height</h4>
+<p>Helper functions: <code>GetHeightLeaves</code> and <code>max</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#a6e22e">GetHeight</span>(<span style="color:#a6e22e">leaves</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">leaves</span>)
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#a6e22e">GetHeightLeaves</span>(<span style="color:#a6e22e">height</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">leaves</span> <span style="color:#f92672">*</span>[]<span style="color:#66d9ef">int</span>) []<span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#f92672">*</span><span style="color:#a6e22e">leaves</span> = append(<span style="color:#f92672">*</span><span style="color:#a6e22e">leaves</span>, <span style="color:#a6e22e">height</span>)
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">height</span><span style="color:#f92672">++</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">GetHeightLeaves</span>(<span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">leaves</span>)
+		}
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">GetHeightLeaves</span>(<span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">leaves</span>)
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">leaves</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">max</span> &lt; <span style="color:#a6e22e">v</span> {
+			<span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">v</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">max</span>
+}
+</code></pre></div><p>One can also store an information about height in type node. In that case, height of a node is the maximum height between left subtree and right subtree plus one.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">height</span> = <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">height_left</span>, <span style="color:#a6e22e">height_right</span>)
+</code></pre></div><h4 id="print-a-tree">Print a tree</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) print(<span style="color:#a6e22e">height</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">format</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;--[&#34;</span>
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span>.print(<span style="color:#a6e22e">height</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%*s%d\n&#34;</span>, <span style="color:#ae81ff">7</span><span style="color:#f92672">*</span>(<span style="color:#a6e22e">height</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>), <span style="color:#a6e22e">format</span>, <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span>)
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span>.print(<span style="color:#a6e22e">height</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+}
+</code></pre></div><p>That is what will be displayed.</p>
+<p><img src="/images/docs/PrintTree.png" alt="Print tree"></p>
+<h4 id="get-all-values-with-the-same-level-from-bst">Get all values with the same level from BST</h4>
+<p>While the function <code>BreadthFirstTraversal</code> returns an array of tree&rsquo;s values by levels, the <code>GetLevel</code> function returns a map, where map&rsquo;s keys are tree&rsquo;s levels, and map&rsquo;s values are arrays of all the nodes' values on each level.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">levelValue</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>][]<span style="color:#66d9ef">int</span>
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#a6e22e">GetLevel</span>(<span style="color:#a6e22e">level</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">levelValue</span>) <span style="color:#a6e22e">levelValue</span> {
+	(<span style="color:#f92672">*</span><span style="color:#a6e22e">m</span>)[<span style="color:#a6e22e">level</span>] = append((<span style="color:#f92672">*</span><span style="color:#a6e22e">m</span>)[<span style="color:#a6e22e">level</span>],<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">m</span>
+	}
+	<span style="color:#a6e22e">level</span> = <span style="color:#a6e22e">level</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">GetLevel</span>(<span style="color:#a6e22e">level</span>, <span style="color:#a6e22e">m</span>)
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">GetLevel</span>(<span style="color:#a6e22e">level</span>, <span style="color:#a6e22e">m</span>)
+	}
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">GetLevel</span>(<span style="color:#a6e22e">level</span>, <span style="color:#a6e22e">m</span>)
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">GetLevel</span>(<span style="color:#a6e22e">level</span>, <span style="color:#a6e22e">m</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">m</span>
+}
+</code></pre></div><p>Such as</p>
+<ol>
+<li>Level 0: 8</li>
+<li>Level 1: 3 10</li>
+<li>Level 2: 1 6 14</li>
+<li>Level 3: 4 7 13</li>
+</ol>
+<h4 id="print-left-view-of-bst">Print left view of BST</h4>
+<p>Left view of a Binary Tree is a set of nodes visible when tree is visited from left side.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#a6e22e">printLeftView</span>(<span style="color:#a6e22e">root</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span>)
+	<span style="color:#a6e22e">left</span>(<span style="color:#a6e22e">root</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">left</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Value</span>)
+	}
+	<span style="color:#a6e22e">left</span>(<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span>)
+	<span style="color:#a6e22e">left</span>(<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span>)
+}
+</code></pre></div><p>Return: 8 3 1 4 13</p>
+<h3 id="find-inorder-predecessor-and-successor-for-a-given-key-in-bst">Find Inorder predecessor and successor for a given key in BST</h3>
+<p>In a given BST highest element on the left subtree is the Predecessor and lowest element on the right subtree is the Successor of the given node.</p>
+<p><strong>1. Finding Predecessor</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Find Inorder predecessor successor for a given key in BST
+</span><span style="color:#75715e">// Return -1 if there is not any
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#a6e22e">FindPredecessor</span>(<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+      panic(<span style="color:#e6db74">&#34;root is nil&#34;</span>)
+  }
+  <span style="color:#a6e22e">node</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">nodeSearch</span>(<span style="color:#a6e22e">key</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+      panic(<span style="color:#e6db74">&#34;key does not exist in the tree&#34;</span>)
+  }
+  <span style="color:#a6e22e">parent</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">parent</span>(<span style="color:#a6e22e">node</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span> {
+          <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+      }
+
+      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> &lt; <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span> {
+          <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> &lt; <span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">Value</span> {
+              <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+          }
+          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">Value</span>
+          <span style="color:#75715e">//panic(&#34;No predecessor&#34;)
+</span><span style="color:#75715e"></span>      }
+      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> &gt; <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span> {
+          <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> &gt; <span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">Value</span> {
+              <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">Value</span>
+          }
+          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">parent</span>(<span style="color:#a6e22e">parent</span>).<span style="color:#a6e22e">Value</span>
+      }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">FetchMax</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Left</span>)
+}
+
+<span style="color:#75715e">// Find parent node for a given node in BST
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#a6e22e">parent</span>(<span style="color:#a6e22e">node</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span> {
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+      <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Tree does not exist&#34;</span>)
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+  }
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">node</span> {
+      <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Node is root node, that has no parent&#34;</span>)
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+  }
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> &lt; <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span> {
+      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">node</span> {
+          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>
+      }
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">parent</span>(<span style="color:#a6e22e">node</span>)
+  }
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">node</span> {
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">parent</span>(<span style="color:#a6e22e">node</span>)
+}
+</code></pre></div><p><strong>2. Finding Successor</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Find Inorder successor for a given key in BST
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#a6e22e">FindSuccessor</span>(<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+      panic(<span style="color:#e6db74">&#34;root is nil&#34;</span>)
+  }
+  <span style="color:#a6e22e">node</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">nodeSearch</span>(<span style="color:#a6e22e">key</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+      panic(<span style="color:#e6db74">&#34;key does not exist in the tree&#34;</span>)
+  }
+  <span style="color:#a6e22e">parent</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">parent</span>(<span style="color:#a6e22e">node</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span> {
+          <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+      }
+
+      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> &gt; <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span> {
+          <span style="color:#75715e">//panic(&#34;No successor&#34;)
+</span><span style="color:#75715e"></span>          <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">Right</span> {
+              <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+          }
+          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">Value</span>
+      }
+      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Value</span> &lt; <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Value</span> {
+          <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">Left</span> {
+              <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">Value</span>
+          }
+          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">parent</span>(<span style="color:#a6e22e">parent</span>).<span style="color:#a6e22e">Value</span>
+      }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">FetchMin</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Right</span>)
+}
+</code></pre></div><h3 id="references">References</h3>
+<ul>
+<li><a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.html">Binary Trees</a></li>
+</ul>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
+</svg>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/features/'>features</a></div>
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/bst/'>BST</a>, <a class='tag' href='/tags/example/'>example</a>, <a class='tag' href='/tags/golang/'>golang</a>, <a class='tag' href='/tags/go/'>go</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/docs/traverse-bst/'>
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Binary Search Tree - Part II</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/docs/balancedbst/'>
+        <span class='screen-reader-text'>Next post: </span>Balanced Binary Search Tree - AVL Tree<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/tracey7d4' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:tracey7d4@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/tracey-hoang-91b4521b0' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p></p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

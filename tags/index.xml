@@ -5,22 +5,94 @@
     <link>http://www.example.com/tags/</link>
     <description>Recent content in Tags on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 16 Oct 2020 21:00:00 +1000</lastBuildDate><atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Oct 2020 23:10:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AVL Tree</title>
+      <link>http://www.example.com/tags/avl-tree/</link>
+      <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/avl-tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Balanced BST</title>
+      <link>http://www.example.com/tags/balanced-bst/</link>
+      <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/balanced-bst/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BST</title>
+      <link>http://www.example.com/tags/bst/</link>
+      <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/bst/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>example</title>
+      <link>http://www.example.com/tags/example/</link>
+      <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/example/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>http://www.example.com/tags/go/</link>
+      <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>http://www.example.com/tags/golang/</link>
+      <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>breadth-first traversal</title>
+      <link>http://www.example.com/tags/breadth-first-traversal/</link>
+      <pubDate>Sat, 17 Oct 2020 22:30:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/breadth-first-traversal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>depth-first traversal</title>
+      <link>http://www.example.com/tags/depth-first-traversal/</link>
+      <pubDate>Sat, 17 Oct 2020 22:30:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/depth-first-traversal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>traverse</title>
+      <link>http://www.example.com/tags/traverse/</link>
+      <pubDate>Sat, 17 Oct 2020 22:30:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/traverse/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>API</title>
       <link>http://www.example.com/tags/api/</link>
       <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
       
       <guid>http://www.example.com/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>g0</title>
-      <link>http://www.example.com/tags/g0/</link>
-      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
-      
-      <guid>http://www.example.com/tags/g0/</guid>
       <description></description>
     </item>
     
@@ -39,24 +111,6 @@
       <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
       
       <guid>http://www.example.com/tags/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>http://www.example.com/tags/go/</link>
-      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
-      
-      <guid>http://www.example.com/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>http://www.example.com/tags/golang/</link>
-      <pubDate>Fri, 16 Oct 2020 21:00:00 +1000</pubDate>
-      
-      <guid>http://www.example.com/tags/golang/</guid>
       <description></description>
     </item>
     
@@ -93,15 +147,6 @@
       <pubDate>Fri, 16 Oct 2020 14:00:00 +1000</pubDate>
       
       <guid>http://www.example.com/tags/concurrency/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>example</title>
-      <link>http://www.example.com/tags/example/</link>
-      <pubDate>Fri, 16 Oct 2020 14:00:00 +1000</pubDate>
-      
-      <guid>http://www.example.com/tags/example/</guid>
       <description></description>
     </item>
     

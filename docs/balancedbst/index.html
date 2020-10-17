@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang='en' dir='auto'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Part I - Insertion'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Balanced Binary Search Tree - AVL Tree • Tracey Hoang'>
+<meta property='og:description' content='Part I - Insertion'>
+<meta property='og:url' content='http://www.example.com/docs/balancedbst/'>
+<meta property='og:site_name' content='Tracey Hoang'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='BST'><meta property='article:tag' content='Balanced BST'><meta property='article:tag' content='AVL Tree'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-17T23:10:00&#43;11:00'/><meta property='article:modified_time' content='2020-10-17T23:10:00&#43;11:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.77.0-DEV" />
+
+  <title>Balanced Binary Search Tree - AVL Tree • Tracey Hoang</title>
+  <link rel='canonical' href='http://www.example.com/docs/balancedbst/'>
+  
+  
+  <link rel='icon' href='/gopher.ico'>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-docs has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/Gopher.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      Tracey Hoang
+      </a>
+    </h2>
+    <div class='desc'>
+    seft-taught software engineer
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-search sep-after'>
+  <header>
+    <h4 class='title widget-title'>Search</h4>
+  </header>
+
+  <form action='/search' id='search-form' class='search-form'>
+    <label>
+      <span class='screen-reader-text'>Search</span>
+      <input id='search-term' class='search-term' type='search' name='q' placeholder='Search&hellip;'>
+    </label></form>
+
+</section>
+<section class='widget widget-sidebar_menu sep-after'><nav id='sidebar-menu' class='menu sidebar-menu' aria-label='Sidebar Menu'>
+    <div class='container'>
+      <ul><li class='item'>
+  <a href='/'>Home</a></li><li class='item'>
+  <a href='/docs/'>Posts</a></li><li class='item'>
+  <a href='/project/'>Projects</a></li></ul>
+    </div>
+  </nav>
+
+</section><section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/api/' style='font-size:1.125em'>API</a>
+      </li><li>
+        <a href='/tags/avl-tree/' style='font-size:1em'>AVL Tree</a>
+      </li><li>
+        <a href='/tags/balanced-bst/' style='font-size:1em'>Balanced BST</a>
+      </li><li>
+        <a href='/tags/breadth-first-traversal/' style='font-size:1em'>breadth-first traversal</a>
+      </li><li>
+        <a href='/tags/bst/' style='font-size:1.375em'>BST</a>
+      </li><li>
+        <a href='/tags/channel/' style='font-size:1em'>channel</a>
+      </li><li>
+        <a href='/tags/concurrency/' style='font-size:1em'>concurrency</a>
+      </li><li>
+        <a href='/tags/depth-first-traversal/' style='font-size:1em'>depth-first traversal</a>
+      </li><li>
+        <a href='/tags/example/' style='font-size:1.5em'>example</a>
+      </li><li>
+        <a href='/tags/game/' style='font-size:1em'>game</a>
+      </li><li>
+        <a href='/tags/gcp/' style='font-size:1.125em'>GCP</a>
+      </li><li>
+        <a href='/tags/go/' style='font-size:2em'>go</a>
+      </li><li>
+        <a href='/tags/golang/' style='font-size:2em'>golang</a>
+      </li><li>
+        <a href='/tags/project/' style='font-size:1.25em'>project</a>
+      </li><li>
+        <a href='/tags/slack/' style='font-size:1.125em'>slack</a>
+      </li><li>
+        <a href='/tags/traverse/' style='font-size:1em'>traverse</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+
+</svg>
+</span>
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/docs/'>Posts</a>
+      </li><li class='item'>
+        <a href='/project/'>Projects</a>
+      </li><li class='item'>
+        <a href='/about/'>About</a>
+      </li><li class='item'>
+        <a href='/resources/'>Resources</a>
+      </li><li class='item'>
+        <a href='https://github.com/tracey7d4'>REPO</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/docs/'>Posts</a></li><li><span>Balanced Binary Search Tree - AVL Tree</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Tracey Hoang</p><p class='desc site-desc'>seft-taught software engineer</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Balanced Binary Search Tree - AVL Tree</h1>
+      
+<p class='desc'>Part I - Insertion</p>
+
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2020-10-17T23:10:00&#43;11:00'>2020, Oct 17</time>
+</span>
+
+  <span class='byline'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+
+</svg>
+<span class='screen-reader-text'> by </span><a href='/authors/tracey'>Tracey Hoang</a></span>
+  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+
+</svg>
+6 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>Table of Contents</span>
+  </summary>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#insertion-operation-in-avl-tree">Insertion Operation in AVL Tree</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</details>
+
+
+  <div class='container entry-content'>
+  <p><a href="https://github.com/tracey7d4/binarySearchTree"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
+<h3 id="introduction">Introduction</h3>
+<p>AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defind as follows</p>
+<pre><code>balance_factor := height(left_subtree) - height(right_subtree)
+</code></pre><p>According to definition of a balanced tree, the balance factor of every node in the AVL tree is either -1, 0, or 1. When an insertion or deletion operation is performed, the tree&rsquo;s height may change, so do the balance factors at nodes. Whenever the balance factor of a node goes over the range, the tree will re-balance itself by operating rotation at that node. One can find more details <a href="http://www.btechsmartclass.com/data_structures/avl-trees.html">here</a>.</p>
+<h4 id="rotation">Rotation</h4>
+<p>Basically, there is 4 cases that the tree is imbalanced at a node, and correspondingly 4 rotation methods that will be performed to make the tree balanced. It is noted that the below images of illustration rotation operations
+and insertion example are borrowed from <a href="http://www.btechsmartclass.com/data_structures/avl-trees.html">BTeach Smart Class</a></p>
+<ol>
+<li>
+<p>The right subtree is too high, and the right child has a right child. In this case, Left Rotation operation is used
+to rotate the nodes one position to the left.
+<img src="/images/docs/LLRotation.png" alt="Left Rotation"></p>
+</li>
+<li>
+<p>The left subtree is too high, and the left child has a left child. Right Rotation is used in this case to
+rotate nodes one position to the right.
+<img src="/images/docs/RRRotation.png" alt="Right Rotation"></p>
+</li>
+<li>
+<p>The right subtree is too high, and the right child has a left child. This case requires double rotation operations called Right Left Rotation. At first, Right Rotation will be performed at the right node of given node, then a Left Rotation will be used at the given node.
+<img src="/images/docs/LRRotation.png" alt="Left Right Rotation"></p>
+</li>
+<li>
+<p>The left subtree is too high, and the left child has a right child. Right Left Rotation operation will be used in this case.
+<img src="/images/docs/RLRotation.png" alt="Right Left Rotation"></p>
+</li>
+</ol>
+<h3 id="insertion-operation-in-avl-tree">Insertion Operation in AVL Tree</h3>
+<p>A new element is inserted to an AVL tree in the same logic as to a BST. However, balance factor of each node is updated and checked after insertion. The tree is said to be imbalanced if the balance factor of any node is other than 0, 1 or -1. In that case, suitable rotation operation is used to re-balance the tree.</p>
+<p>It can be shown that a height-balanced tree with n nodes has height O(log(n)). Since the cost of our algorithms is proportional to the height of the tree, each operation (lookup, insertion or deletion) will take time O(log(n)) in the worst case.</p>
+<p><strong>Example - Construct an AVL tree by inserting numbers from 1 to 8</strong></p>
+<p><img src="/images/docs/AVLConstruction.png" alt="Insertion"></p>
+<h3 id="implementation">Implementation</h3>
+<p>We define a type Node with following fields: value, its left and right nodes,  and its balance value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Node</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Value</span> <span style="color:#66d9ef">int</span>   <span style="color:#75715e">// value of a node
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Left</span>  <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span> <span style="color:#75715e">// left node
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Right</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span> <span style="color:#75715e">// right node
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Bal</span>   <span style="color:#66d9ef">int</span>   <span style="color:#75715e">// Bal = h_left - h_right
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p><code>Insert()</code> first inserts a given data to an existing AVL subtree at node n, then rebalances the subtree if needed by calling helper function <code>Rebalance()</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) <span style="color:#a6e22e">Insert</span>(<span style="color:#a6e22e">data</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#75715e">// Node already exists, do no change
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Value</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Node already exists&#34;</span>)
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#75715e">// If data is less than value of Node c, traverse to the left. 
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Otherwise, traverse to the right
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">data</span> &lt; <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Value</span> {
+		<span style="color:#75715e">// Left node does not exist. Create a new one
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Node</span>{<span style="color:#a6e22e">Value</span>: <span style="color:#a6e22e">data</span>}
+			<span style="color:#75715e">// Update Balance Factor of Node n
+</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Bal</span><span style="color:#f92672">++</span>
+			<span style="color:#66d9ef">return</span>
+		}
+
+		<span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Bal</span>
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Insert</span>(<span style="color:#a6e22e">data</span>)
+		<span style="color:#75715e">// Check whether the tree&#39;s height has changed after inserting
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">a</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Bal</span> &lt; <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Bal</span> &gt; <span style="color:#ae81ff">1</span> {
+				<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Rebalance</span>(<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>)
+			} <span style="color:#66d9ef">else</span> {
+				<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Bal</span><span style="color:#f92672">++</span>
+			}
+		}
+		<span style="color:#66d9ef">return</span>
+	}
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Node</span>{<span style="color:#a6e22e">Value</span>: <span style="color:#a6e22e">data</span>}
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Bal</span><span style="color:#f92672">--</span>
+		<span style="color:#66d9ef">return</span>
+	}
+
+	<span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">Bal</span>
+	<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">Insert</span>(<span style="color:#a6e22e">data</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">b</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">Bal</span> &lt; <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">Bal</span> &gt; <span style="color:#ae81ff">1</span> {
+			<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Rebalance</span>(<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span>)
+		} <span style="color:#66d9ef">else</span> {
+			<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Bal</span><span style="color:#f92672">--</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span>
+}
+</code></pre></div><p><code>Rebalance()</code> performs suitable rotation operation to make a subtree balanced by calling either <code>LLRotation()</code>, <code>RRRotation()</code>, <code>LRRotation()</code>, or <code>RLRotation()</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) <span style="color:#a6e22e">Rebalance</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Re-Balance @ node %v \n&#34;</span>, <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Value</span>)
+
+	<span style="color:#75715e">// Left subtree is too high, and left child has a left child.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">RRRotation</span>(<span style="color:#a6e22e">c</span>)
+		<span style="color:#66d9ef">return</span>
+	}
+
+	<span style="color:#75715e">// Right subtree is too high, and right child has a right child.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">LLRotation</span>(<span style="color:#a6e22e">c</span>)
+		<span style="color:#66d9ef">return</span>
+	}
+
+	<span style="color:#75715e">// Left subtree is too high, and left child has a right child.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Left</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">LRRotation</span>(<span style="color:#a6e22e">c</span>)
+		<span style="color:#66d9ef">return</span>
+	}
+
+	<span style="color:#75715e">// Right subtree is too high, and right child has a left child.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Right</span>.<span style="color:#a6e22e">Bal</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">RLRotation</span>(<span style="color:#a6e22e">c</span>)
+		<span style="color:#66d9ef">return</span>
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) <span style="color:#a6e22e">LLRotation</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) {
+	<span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Right</span>     <span style="color:#75715e">// create a temporary node r to hold node c.Right
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Right</span> = <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Left</span> <span style="color:#75715e">//  make  left children of r become right children of c
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Left</span> = <span style="color:#a6e22e">c</span>       <span style="color:#75715e">// make c as r left child
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Update balance factor of node c and r
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bal</span> = <span style="color:#ae81ff">1</span>
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bal</span> = <span style="color:#ae81ff">0</span>
+	}
+	<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Bal</span> = <span style="color:#ae81ff">0</span>
+	<span style="color:#75715e">// Let parent node n point to new node r
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span> = <span style="color:#a6e22e">r</span>
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span> = <span style="color:#a6e22e">r</span>
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) <span style="color:#a6e22e">RRRotation</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) {
+	<span style="color:#a6e22e">l</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Left</span>      
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Left</span> = <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Right</span> 
+	<span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Right</span> = <span style="color:#a6e22e">c</span>      
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bal</span> = <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Bal</span> = <span style="color:#ae81ff">0</span>
+	}
+	<span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Bal</span> = <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span> = <span style="color:#a6e22e">l</span>
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span> = <span style="color:#a6e22e">l</span>
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) <span style="color:#a6e22e">LRRotation</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) {
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">LLRotation</span>(<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Left</span>)
+	<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">RRRotation</span>(<span style="color:#a6e22e">c</span>)
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) <span style="color:#a6e22e">RLRotation</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>) {
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">RRRotation</span>(<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Right</span>)
+	<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">LLRotation</span>(<span style="color:#a6e22e">c</span>)
+}
+</code></pre></div><p>A tree can either be empty or has a node. Each node in a tree has left and right subtrees. If a tree is empty, inserting an element to the tree is creating a root node.</p>
+<p>Performing insertion to a tree has to take care of re-balancing the root node if the tree is imbalanced at root node. The root node has no parent, to be unable to use node&rsquo;s rebalance method above a fake parent node is created. This node stores value -1, and root node is its either left child or right child.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">AVLTree</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Root</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>
+}
+
+<span style="color:#75715e">// Insertion
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">AVLTree</span>) <span style="color:#a6e22e">Insert</span>(<span style="color:#a6e22e">data</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Node</span>{<span style="color:#a6e22e">Value</span>: <span style="color:#a6e22e">data</span>}
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span>.<span style="color:#a6e22e">Insert</span>(<span style="color:#a6e22e">data</span>)
+	<span style="color:#75715e">// Check whether the root node gets out of balance
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span>.<span style="color:#a6e22e">Bal</span> &lt; <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span>.<span style="color:#a6e22e">Bal</span> &gt; <span style="color:#ae81ff">1</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">rebalance</span>()
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">AVLTree</span>) <span style="color:#a6e22e">rebalance</span>() {
+	<span style="color:#a6e22e">rootParent</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Node</span>{<span style="color:#a6e22e">Left</span>: <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span>, <span style="color:#a6e22e">Value</span>: <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>}
+	<span style="color:#a6e22e">rootParent</span>.<span style="color:#a6e22e">Rebalance</span>(<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span>)
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span> = <span style="color:#a6e22e">rootParent</span>.<span style="color:#a6e22e">Left</span>
+}
+</code></pre></div><p><code>print()</code> will print the tree with displaying nodes' heights</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">AVLTree</span>) print(<span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Node</span>, <span style="color:#a6e22e">height</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">format</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;--[&#34;</span>
+	<span style="color:#a6e22e">t</span>.print(<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Right</span>, <span style="color:#a6e22e">height</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%*s%d(%v)\n&#34;</span>, <span style="color:#ae81ff">7</span><span style="color:#f92672">*</span>(<span style="color:#a6e22e">height</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>), <span style="color:#a6e22e">format</span>, <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Value</span>, <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Bal</span>)
+	<span style="color:#a6e22e">t</span>.print(<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>, <span style="color:#a6e22e">height</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+}
+</code></pre></div><p>Now let&rsquo;s go through an example</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">values</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>,  <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>}
+	<span style="color:#75715e">// values := []int{11, 2, 13, 4, 3, 2, 5, 6, 1, 7, 8, 10, 9}
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">t</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">AVLTree</span>{}
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">values</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Insert %v------------------------------------------\n&#34;</span>, <span style="color:#a6e22e">values</span>[<span style="color:#a6e22e">i</span>])
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Insert</span>(<span style="color:#a6e22e">values</span>[<span style="color:#a6e22e">i</span>])
+		<span style="color:#a6e22e">t</span>.print(<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Root</span>, <span style="color:#ae81ff">0</span>)
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>()
+	}
+}
+</code></pre></div><h3 id="references">References</h3>
+<ul>
+<li><a href="http://www.btechsmartclass.com/data_structures/avl-trees.html">AVL Tree from BTech Smart Class</a></li>
+<li><a href="http://www.cs.ecu.edu/karl/3300/spr16/Notes/DataStructure/Tree/balance.html">Balanced BST from cs.ecu.edu</a></li>
+<li><a href="http://www.cs.ecu.edu/karl/3300/spr16/Notes/DataStructure/Tree/index.html">Trees from sc.ecu.edu</a></li>
+</ul>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
+</svg>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/features/'>features</a></div>
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/bst/'>BST</a>, <a class='tag' href='/tags/balanced-bst/'>Balanced BST</a>, <a class='tag' href='/tags/avl-tree/'>AVL Tree</a>, <a class='tag' href='/tags/example/'>example</a>, <a class='tag' href='/tags/golang/'>golang</a>, <a class='tag' href='/tags/go/'>go</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/docs/bst-others/'>
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Binary Search Tree - Part III</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/tracey7d4' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:tracey7d4@gmail.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/tracey-hoang-91b4521b0' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p></p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+
