@@ -110,7 +110,8 @@ In this repository, I&amp;rsquo;m going to create a weatherbot for querying weat
       
       <guid>http://www.example.com/docs/dining-philosopher/</guid>
       <description>Source code
-Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat. Under problem constraint, there is a limit number of philosophers that can eat concurently.</description>
+I found that it is an excellent example about Go concurrency and synchronization.
+Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat.</description>
     </item>
     
     <item>

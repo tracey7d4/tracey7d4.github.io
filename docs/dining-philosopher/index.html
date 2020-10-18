@@ -3,12 +3,14 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Source code
-Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat. Under problem constraint, there is a limit number of philosophers that can eat concurently.'>
+I found that it is an excellent example about Go concurrency and synchronization.
+Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat.'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Dining Philosopher problem in Go • Tracey Hoang'>
 <meta property='og:description' content='Source code
-Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat. Under problem constraint, there is a limit number of philosophers that can eat concurently.'>
+I found that it is an excellent example about Go concurrency and synchronization.
+Problem description There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat.'>
 <meta property='og:url' content='http://www.example.com/docs/dining-philosopher/'>
 <meta property='og:site_name' content='Tracey Hoang'>
 <meta property='og:type' content='article'><meta property='og:image' content='http://www.example.com/images/docs/DiningPhilosopher.png'><meta property='article:section' content='docs'><meta property='article:tag' content='concurrency'><meta property='article:tag' content='channel'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-16T14:00:00&#43;10:00'/><meta property='article:modified_time' content='2020-10-16T14:00:00&#43;10:00'/><meta name='twitter:card' content='summary_large_image'><meta property='twitter:image' content='http://www.example.com/images/docs/DiningPhilosopher.png'>
@@ -216,7 +218,7 @@ Problem description There are 5 philosophers having their dinner at a round tabl
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-2 mins read
+3 mins read
 </span>
 
 
@@ -254,17 +256,87 @@ Problem description There are 5 philosophers having their dinner at a round tabl
 
   <div class='container entry-content'>
   <p><a href="https://github.com/tracey7d4/diningPhilosophersProblem"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
+<p>I found that it is an excellent example about Go concurrency and synchronization.</p>
 <h3 id="problem-description">Problem description</h3>
 <p>There are 5 philosophers having their dinner at a round table with one chopstick between each adjacent pair of philosophers. A philosopher can only eat when they have both left and right chopsticks. In other words, while one philosopher is eating, his two adjacent friends have to wait. After eating he puts both chopsticks down to let the others eat. Under problem constraint, there is a limit number of philosophers that can eat concurently. And this number may differ in range of 1 to as many as possible.</p>
-<p>The deadlock may occur when each philosopher simultaneously pickups one chopstick and waits for another chopticks forever. A host which executes in its own goroutine is introduced to resolve the deadlock situation. The host  plays a role on coordinating the dining process. In order to give a philosopher permission to eat, host needs to check for all the required conditions, including current status of two adjacent of that philosopher and how many philosophers are eating at that time.</p>
+<p>The deadlock may occur when each philosopher simultaneously pickups one chopstick and waits for another chopticks forever.</p>
+<p><img src="/images/docs/deadlock.png" alt="Deadlock"></p>
+<p>A host which executes in its own goroutine is introduced to resolve the deadlock situation. The host  plays a role on coordinating the dining process. In order to give a philosopher permission to eat, host needs to check for all the required conditions, including current status of two adjacent of that philosopher and how many philosophers are eating at that time.</p>
 <h3 id="implementation">Implementation</h3>
 <p>Note: This design is scalable, i.e number of philosophers, number of courses per Philosopher, and number philosophers that eat concurrently can be changed.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">const</span> (
- <span style="color:#a6e22e">noP</span>             = <span style="color:#ae81ff">5</span> <span style="color:#75715e">// number of Philosophers
-</span><span style="color:#75715e"></span> <span style="color:#a6e22e">noCoursesPerP</span>   = <span style="color:#ae81ff">3</span> <span style="color:#75715e">// Number of courses per Philosophers
-</span><span style="color:#75715e"></span> <span style="color:#a6e22e">noPEatAtOneTime</span> = <span style="color:#ae81ff">2</span> <span style="color:#75715e">// number of Philosophers eating concurrently
+	<span style="color:#a6e22e">noP</span>             = <span style="color:#ae81ff">5</span> <span style="color:#75715e">//number of Philosophers
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">noCoursesPerP</span>   = <span style="color:#ae81ff">3</span> <span style="color:#75715e">// Number of courses per Philosophers
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">noPEatAtOneTime</span> = <span style="color:#ae81ff">2</span> <span style="color:#75715e">// number of Philosophers eating concurrently
 </span><span style="color:#75715e"></span>)
-</code></pre></div>
+</code></pre></div><p>We use goroutines to let functions run concurrently, and channels to communicate among goroutines.
+Firstly, to make sure only one Philosopher can access left and right chopticks at a time, we use sync.Mutex that allows Philosopher locking the resources while eating and unlocking them after finishing eating. Secondly, we use sync.WaitGroup to wait for all goroutines to finish before main goroutine executes. Afer finishing its task, a goroutine will notify the WaitGroup that it&rsquo;s done <code>wg.Done()</code>. The WaitGroup counter increases by one <code>wg.Add(1)</code> everytime a goroutine is launched, and decreases by one everytime receiving notification <code>wg.Done()</code> from a goroutine. So the WaitGroup counter will go back to 0 until all the goroutines notify they&rsquo;re done.</p>
+<p>We create 3 new types: <code>Chopstick</code>, <code>Philosopher</code>, and <code>Host</code> as follows</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Chopstick</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Mutex</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Philosopher</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">id</span>                <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">leftCS</span>            <span style="color:#f92672">*</span><span style="color:#a6e22e">Chopstick</span>
+	<span style="color:#a6e22e">rightCS</span>           <span style="color:#f92672">*</span><span style="color:#a6e22e">Chopstick</span>
+	<span style="color:#a6e22e">permission</span>        <span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">bool</span>
+	<span style="color:#a6e22e">notifyHostIAmDone</span> <span style="color:#66d9ef">chan</span><span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">courses</span>           <span style="color:#66d9ef">int</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Host</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">totalCourses</span>    <span style="color:#66d9ef">int</span> <span style="color:#75715e">//so host knows when to stop while all P have finished all courses
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">PStatus</span>         <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#a6e22e">Status</span>
+	<span style="color:#a6e22e">noEating</span>        <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">pFinishedEating</span> <span style="color:#f92672">&lt;-</span><span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>
+}
+</code></pre></div><p>Next, we define method for each type. In particular, the type <code>Philosopher</code> with an <code>eat</code>method, and type <code>Host</code> with <code>coordinate</code> method have been declared as follows</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Philosopher</span>) <span style="color:#a6e22e">eat</span>(<span style="color:#a6e22e">wg</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>) {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">courses</span> &gt; <span style="color:#ae81ff">0</span> {
+		<span style="color:#75715e">// get permission from Host
+</span><span style="color:#75715e"></span>		<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">permission</span>
+		<span style="color:#75715e">// lock the resources
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">leftCS</span>.<span style="color:#a6e22e">Lock</span>()
+		<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">rightCS</span>.<span style="color:#a6e22e">Lock</span>()
+		<span style="color:#75715e">// process: eating --- finishing
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;P %v started eating\n&#34;</span>, <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">id</span>)
+		<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">courses</span><span style="color:#f92672">--</span>
+		<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;P %v finished eating. Remaining courses %v\n&#34;</span>, <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">courses</span>)
+		<span style="color:#75715e">//unlock the resources
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">leftCS</span>.<span style="color:#a6e22e">Unlock</span>()
+		<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">rightCS</span>.<span style="color:#a6e22e">Unlock</span>()
+		<span style="color:#75715e">//notify Host
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">notifyHostIAmDone</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">id</span>
+	}
+	<span style="color:#75715e">// finished all course
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Done</span>()
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">h</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Host</span>) <span style="color:#a6e22e">coordinate</span>(<span style="color:#a6e22e">wg</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>) {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">totalCourses</span> &gt; <span style="color:#ae81ff">0</span> {
+		<span style="color:#66d9ef">select</span> {
+		<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">pFinishedEating</span>:
+			<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">PStatus</span>[<span style="color:#a6e22e">id</span>]
+			<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">eating</span> = <span style="color:#66d9ef">false</span>
+			<span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">PStatus</span>[<span style="color:#a6e22e">id</span>] = <span style="color:#a6e22e">m</span>
+			<span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">totalCourses</span><span style="color:#f92672">--</span>
+			<span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">noEating</span><span style="color:#f92672">--</span>
+		<span style="color:#66d9ef">default</span>:
+			<span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">letThemEat</span>()
+		}
+	}
+	<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Done</span>()
+}
+</code></pre></div><p>Each time a Philosopher finishes eating, he will notify the host by sending out his ID, so that the host can update his status. Status is a type that contains several fields as follows</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Status</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">eating</span>           <span style="color:#66d9ef">bool</span>
+	<span style="color:#a6e22e">courses</span>          <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">eatingPermission</span> <span style="color:#66d9ef">chan</span><span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">bool</span>
+}
+</code></pre></div><p>After giving eating permission to a Philosopher, the host once again updates the status of that Philosopher. At the result, the host know the status of all Philosopher at a current of time, so that he can coordinate the dining process.</p>
+<p><img src="/images/docs/eating.png" alt=""></p>
+
 </div>
 
   
