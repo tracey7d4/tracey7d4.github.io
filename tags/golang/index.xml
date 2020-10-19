@@ -5,7 +5,7 @@
     <link>http://www.example.com/tags/golang/</link>
     <description>Recent content in golang on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Oct 2020 23:10:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Oct 2020 14:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>http://www.example.com/about/</link>
@@ -13,6 +13,19 @@
       
       <guid>http://www.example.com/about/</guid>
       <description>Hello, I&amp;rsquo;m Tracey. I am a self-taught software engineer with applied mathematics background. After going through A Tour of Go, I found that Go was actually a neat and simple language to learn and started to develop more interest in programming. While still in my learning journey, I create this blog to share interesting problems and projects that I have done in Go, as well as some other useful resources.</description>
+    </item>
+    
+    <item>
+      <title>Interface Example in Go</title>
+      <link>http://www.example.com/docs/interfaceexample/</link>
+      <pubDate>Mon, 19 Oct 2020 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/interfaceexample/</guid>
+      <description>Source code
+This is an example of struct, method, and interface.
+I define an interface named geometry that has area() and perim() method signitures.
+type geometry interface { area() float64 perim() float64 } I also define 3 other types circle, rectangle and triangle that implement geometry interface. For example, type circle implements all the geometry interface methods as follows.
+type circle struct { radius float64 } func (c circle) area() float64 { return math.</description>
     </item>
     
     <item>
@@ -67,7 +80,7 @@ Introduction A Binary Tree is a tree data structure, that consists of nodes. The
       
       <guid>http://www.example.com/project/mirajump/</guid>
       <description>Source code
-Description This simple game is modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.
+Description This is a very simple game modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.
 Mira is running her scooter. She is going to meet objects on her way, and jumping over them is the only way to go pass. Every time when she successfully avoids an object she will get one point.
 How to play Press space key or left-click when you want to jump.</description>
     </item>

@@ -5,7 +5,20 @@
     <link>http://www.example.com/tags/example/</link>
     <description>Recent content in example on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Oct 2020 23:10:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/example/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Oct 2020 14:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interface Example in Go</title>
+      <link>http://www.example.com/docs/interfaceexample/</link>
+      <pubDate>Mon, 19 Oct 2020 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/interfaceexample/</guid>
+      <description>Source code
+This is an example of struct, method, and interface.
+I define an interface named geometry that has area() and perim() method signitures.
+type geometry interface { area() float64 perim() float64 } I also define 3 other types circle, rectangle and triangle that implement geometry interface. For example, type circle implements all the geometry interface methods as follows.
+type circle struct { radius float64 } func (c circle) area() float64 { return math.</description>
+    </item>
+    
     <item>
       <title>Balanced Binary Search Tree - AVL Tree</title>
       <link>http://www.example.com/docs/balancedbst/</link>

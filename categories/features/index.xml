@@ -5,7 +5,20 @@
     <link>http://www.example.com/categories/features/</link>
     <description>Recent content in features on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Oct 2020 23:10:00 +1100</lastBuildDate><atom:link href="http://www.example.com/categories/features/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Oct 2020 14:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/categories/features/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interface Example in Go</title>
+      <link>http://www.example.com/docs/interfaceexample/</link>
+      <pubDate>Mon, 19 Oct 2020 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/interfaceexample/</guid>
+      <description>Source code
+This is an example of struct, method, and interface.
+I define an interface named geometry that has area() and perim() method signitures.
+type geometry interface { area() float64 perim() float64 } I also define 3 other types circle, rectangle and triangle that implement geometry interface. For example, type circle implements all the geometry interface methods as follows.
+type circle struct { radius float64 } func (c circle) area() float64 { return math.</description>
+    </item>
+    
     <item>
       <title>Balanced Binary Search Tree - AVL Tree</title>
       <link>http://www.example.com/docs/balancedbst/</link>
@@ -58,7 +71,7 @@ Introduction A Binary Tree is a tree data structure, that consists of nodes. The
       
       <guid>http://www.example.com/project/mirajump/</guid>
       <description>Source code
-Description This simple game is modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.
+Description This is a very simple game modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.
 Mira is running her scooter. She is going to meet objects on her way, and jumping over them is the only way to go pass. Every time when she successfully avoids an object she will get one point.
 How to play Press space key or left-click when you want to jump.</description>
     </item>
