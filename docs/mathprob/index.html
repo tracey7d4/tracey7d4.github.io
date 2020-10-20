@@ -15,7 +15,7 @@ This post is about some problems that can be solved easily only by using math fo
 The least common multiple of two positive integers a and b is the least positive integer that is divisible by both a and b.'>
 <meta property='og:url' content='http://www.example.com/docs/mathprob/'>
 <meta property='og:site_name' content='Tracey Hoang'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='GCD'><meta property='article:tag' content='LCM'><meta property='article:tag' content='Fibonacci'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-19T22:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-10-19T22:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='GCD'><meta property='article:tag' content='LCM'><meta property='article:tag' content='Fibonacci'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-19T22:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-10-20T09:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.77.0-DEV" />
 
@@ -84,7 +84,7 @@ The least common multiple of two positive integers a and b is the least positive
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/tags/api/' style='font-size:1.1em'>API</a>
+        <a href='/tags/api/' style='font-size:1.0833333333333333em'>API</a>
       </li><li>
         <a href='/tags/avl-tree/' style='font-size:1em'>AVL Tree</a>
       </li><li>
@@ -92,7 +92,9 @@ The least common multiple of two positive integers a and b is the least positive
       </li><li>
         <a href='/tags/breadth-first-traversal/' style='font-size:1em'>breadth-first traversal</a>
       </li><li>
-        <a href='/tags/bst/' style='font-size:1.3em'>BST</a>
+        <a href='/tags/bst/' style='font-size:1.25em'>BST</a>
+      </li><li>
+        <a href='/tags/bubble-sort/' style='font-size:1em'>bubble sort</a>
       </li><li>
         <a href='/tags/channel/' style='font-size:1em'>channel</a>
       </li><li>
@@ -100,7 +102,7 @@ The least common multiple of two positive integers a and b is the least positive
       </li><li>
         <a href='/tags/depth-first-traversal/' style='font-size:1em'>depth-first traversal</a>
       </li><li>
-        <a href='/tags/example/' style='font-size:1.6em'>example</a>
+        <a href='/tags/example/' style='font-size:1.6666666666666665em'>example</a>
       </li><li>
         <a href='/tags/fibonacci/' style='font-size:1em'>Fibonacci</a>
       </li><li>
@@ -108,21 +110,27 @@ The least common multiple of two positive integers a and b is the least positive
       </li><li>
         <a href='/tags/gcd/' style='font-size:1em'>GCD</a>
       </li><li>
-        <a href='/tags/gcp/' style='font-size:1.1em'>GCP</a>
+        <a href='/tags/gcp/' style='font-size:1.0833333333333333em'>GCP</a>
       </li><li>
         <a href='/tags/go/' style='font-size:2em'>go</a>
       </li><li>
         <a href='/tags/golang/' style='font-size:2em'>golang</a>
       </li><li>
+        <a href='/tags/insertion-sort/' style='font-size:1em'>insertion sort</a>
+      </li><li>
         <a href='/tags/interface/' style='font-size:1em'>interface</a>
       </li><li>
         <a href='/tags/lcm/' style='font-size:1em'>LCM</a>
       </li><li>
+        <a href='/tags/merge-sort/' style='font-size:1.0833333333333333em'>merge sort</a>
+      </li><li>
         <a href='/tags/method/' style='font-size:1em'>method</a>
       </li><li>
-        <a href='/tags/project/' style='font-size:1.2em'>project</a>
+        <a href='/tags/project/' style='font-size:1.1666666666666667em'>project</a>
       </li><li>
-        <a href='/tags/slack/' style='font-size:1.1em'>slack</a>
+        <a href='/tags/slack/' style='font-size:1.0833333333333333em'>slack</a>
+      </li><li>
+        <a href='/tags/sort/' style='font-size:1.0833333333333333em'>sort</a>
       </li><li>
         <a href='/tags/traverse/' style='font-size:1em'>traverse</a>
       </li></ul>
@@ -364,7 +372,16 @@ Hence, the above <code>fibonacci()</code> is modified as follows.</p>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  <div class='container sep-before'><div class='last-updated'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34" />
+  <polygon points="18 2 22 6 12 16 8 16 8 12 18 2" />
+
+</svg>
+<span class='screen-reader-text'>Last updated: </span>
+      <time class='entry-date' datetime='2020-10-20T09:00:00&#43;11:00'>2020, Oct 20</time>
+    </div><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
     
     
     <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
@@ -398,6 +415,17 @@ Hence, the above <code>fibonacci()</code> is modified as follows.</p>
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>Interface Example in Go</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/docs/sortingalgorithms/'>
+        <span class='screen-reader-text'>Next post: </span>Sorting Algorithms<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+
+</svg>
+</span>
+      </a>
     </div></div>
 </nav>
 

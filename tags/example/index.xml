@@ -5,7 +5,31 @@
     <link>http://www.example.com/tags/example/</link>
     <description>Recent content in example on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 19 Oct 2020 22:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/example/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Oct 2020 15:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Compose the largest number out of given set of integers</title>
+      <link>http://www.example.com/docs/modifiedmergesort/</link>
+      <pubDate>Tue, 20 Oct 2020 15:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/modifiedmergesort/</guid>
+      <description>Source code
+We are given an array of positive integers, and our task is arrange them in a way that yields largest value.
+In case the given array consists of all single-digit numbers, we can achieve the largest value easily just by composing the number from a descending sorted array. All what we need to do is sorting the given array in descending order by applying any sorting algorithms.
+But how about in the case that given array consists of arbitrary positive integers?</description>
+    </item>
+    
+    <item>
+      <title>Sorting Algorithms</title>
+      <link>http://www.example.com/docs/sortingalgorithms/</link>
+      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/sortingalgorithms/</guid>
+      <description>Source code
+We are going to have a look at several sorting algorithms, their implementation, and their performance. In particular, we will discuss about Bubble Sort, Insertion Sort, and Merge Sort.
+1- Bubble Sort Bubble Sort is a sorting algorithm that repeatedly swap the adjacent elements if they are in wrong order. It repeatedly pass through the list until the list is sorted.
+&amp;ldquo;File:Bubble-sort-example-300px.gif&amp;rdquo; by Swfung8 is licensed under CC BY-SA 3.</description>
+    </item>
+    
     <item>
       <title>Nothing more than Math</title>
       <link>http://www.example.com/docs/mathprob/</link>
