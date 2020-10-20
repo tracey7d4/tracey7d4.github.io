@@ -3,7 +3,7 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Modified Merge Sort'>
-<meta name='theme-color' content='#ffcd00'>
+<meta name='theme-color' content='blue'>
 
 <meta property='og:title' content='Compose the largest number out of given set of integers • Tracey Hoang'>
 <meta property='og:description' content='Modified Merge Sort'>
@@ -19,7 +19,7 @@
   
   <link rel='icon' href='/gopher.ico'>
 <link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
-:root{--color-accent:#ffcd00;}
+:root{--color-accent:blue;}
 </style>
 
   
@@ -256,7 +256,7 @@
 
   <div class='container entry-content'>
   <p><a href="https://github.com/tracey7d4/CommonExamples/blob/main/largestNumberfromASet.go"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
-<p>We are given an array of positive integers, and our task is arrange them in a way that yields largest value.</p>
+<p>We are given an array of positive integers, and our task is arranging them in a way that yields largest value.</p>
 <p>In case the given array consists of all single-digit numbers, we can achieve the largest value easily just by composing the number from a descending sorted array. All what we need to do is sorting the given array in descending order by applying any sorting algorithms.</p>
 <p>But how about in the case that given array consists of arbitrary positive integers? In that case, using the largest number from the given array for the first number does not work. For example, with the set <code>[12 9 3]</code>, the largest composed number is <code>9312</code> instead of <code>1293</code>.</p>
 <p>Actually, we still just need to use merge sort algorithm, but with a small modification. In this modified merge sort, instead of comparing value of 2 integers <code>x</code> and <code>y</code>, we will compare the value of their combination, i.e <code>ab</code> and <code>ba</code>. If <code>ab &gt; ba</code>, then integer <code>a</code> is considered greater than <code>b</code>, and vice versa. After sorting, all we need to do is composing the largest number.</p>

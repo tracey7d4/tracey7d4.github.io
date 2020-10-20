@@ -14,8 +14,8 @@
       <guid>http://www.example.com/docs/mathprob/</guid>
       <description>Source code
 This post is about some problems that can be solved easily only by using math formula.
-1- Greatest common divisor and Least Common Multiple The greatest common divisor GCD(a,b) of two non-negative integers a and b (which are not both equal to 0) is the greatest integer that divides both a and b.
-The least common multiple of two positive integers a and b is the least positive integer that is divisible by both a and b.</description>
+1- Greatest common divisor and Least Common Multiple The greatest common divisor \( GCD(a,b) \) of two non-negative integers \( a \) and \( b \) (which are not both equal to 0) is the greatest integer that divides both \( a \) and \( b \).
+The least common multiple of two positive integers \( a \) and \( b \) is the least positive integer that is divisible by both \( a \) and \( b \).</description>
     </item>
     
   </channel>

@@ -14,7 +14,7 @@
       <guid>http://www.example.com/docs/interfaceexample/</guid>
       <description>Source code
 This is an example of struct, method, and interface.
-I define an interface named geometry that has area() and perim() method signitures.
+I define an interface named geometry that has area() and perim() method signatures.
 type geometry interface { area() float64 perim() float64 } I also define 3 other types circle, rectangle and triangle that implement geometry interface. For example, type circle implements all the geometry interface methods as follows.
 type circle struct { radius float64 } func (c circle) area() float64 { return math.</description>
     </item>

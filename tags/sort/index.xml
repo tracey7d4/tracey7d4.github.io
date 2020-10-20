@@ -13,7 +13,7 @@
       
       <guid>http://www.example.com/docs/modifiedmergesort/</guid>
       <description>Source code
-We are given an array of positive integers, and our task is arrange them in a way that yields largest value.
+We are given an array of positive integers, and our task is arranging them in a way that yields largest value.
 In case the given array consists of all single-digit numbers, we can achieve the largest value easily just by composing the number from a descending sorted array. All what we need to do is sorting the given array in descending order by applying any sorting algorithms.
 But how about in the case that given array consists of arbitrary positive integers?</description>
     </item>

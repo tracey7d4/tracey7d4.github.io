@@ -13,7 +13,7 @@
       
       <guid>http://www.example.com/docs/balancedbst/</guid>
       <description>Source code
-Introduction AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defind as follows
+Introduction AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defined as follows
 balance_factor := height(left_subtree) - height(right_subtree)According to definition of a balanced tree, the balance factor of every node in the AVL tree is either -1, 0, or 1. When an insertion or deletion operation is performed, the tree&amp;rsquo;s height may change, so do the balance factors at nodes.</description>
     </item>
     

@@ -3,7 +3,7 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Part I - Insertion'>
-<meta name='theme-color' content='#ffcd00'>
+<meta name='theme-color' content='blue'>
 
 <meta property='og:title' content='Balanced Binary Search Tree - AVL Tree • Tracey Hoang'>
 <meta property='og:description' content='Part I - Insertion'>
@@ -19,7 +19,7 @@
   
   <link rel='icon' href='/gopher.ico'>
 <link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
-:root{--color-accent:#ffcd00;}
+:root{--color-accent:blue;}
 </style>
 
   
@@ -268,7 +268,7 @@
   <div class='container entry-content'>
   <p><a href="https://github.com/tracey7d4/BinarySearchTree/blob/master/BalancedBST.md"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
 <h3 id="introduction">Introduction</h3>
-<p>AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defind as follows</p>
+<p>AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defined as follows</p>
 <pre><code>balance_factor := height(left_subtree) - height(right_subtree)
 </code></pre><p>According to definition of a balanced tree, the balance factor of every node in the AVL tree is either -1, 0, or 1. When an insertion or deletion operation is performed, the tree&rsquo;s height may change, so do the balance factors at nodes. Whenever the balance factor of a node goes over the range, the tree will re-balance itself by operating rotation at that node. One can find more details <a href="http://www.btechsmartclass.com/data_structures/avl-trees.html">here</a>.</p>
 <h4 id="rotation">Rotation</h4>
@@ -296,7 +296,9 @@ rotate nodes one position to the right.
 </ol>
 <h3 id="insertion-operation-in-avl-tree">Insertion Operation in AVL Tree</h3>
 <p>A new element is inserted to an AVL tree in the same logic as to a BST. However, balance factor of each node is updated and checked after insertion. The tree is said to be imbalanced if the balance factor of any node is other than 0, 1 or -1. In that case, suitable rotation operation is used to re-balance the tree.</p>
-<p>It can be shown that a height-balanced tree with n nodes has height O(log(n)). Since the cost of our algorithms is proportional to the height of the tree, each operation (lookup, insertion or deletion) will take time O(log(n)) in the worst case.</p>
+<p>It can be shown that a height-balanced tree with n nodes has height \(
+ O(\log n) \). Since the cost of our algorithms is proportional to the height of the tree, each operation (lookup, insertion or deletion) will take time \(
+ O(\log n) \) in the worst case.</p>
 <p><strong>Example - Construct an AVL tree by inserting numbers from 1 to 8</strong></p>
 <p><img src="/images/docs/AVLConstruction.png" alt="Insertion"></p>
 <h3 id="implementation">Implementation</h3>
@@ -464,7 +466,7 @@ rotate nodes one position to the right.
 	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%*s%d(%v)\n&#34;</span>, <span style="color:#ae81ff">7</span><span style="color:#f92672">*</span>(<span style="color:#a6e22e">height</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>), <span style="color:#a6e22e">format</span>, <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Value</span>, <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Bal</span>)
 	<span style="color:#a6e22e">t</span>.print(<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">Left</span>, <span style="color:#a6e22e">height</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
 }
-</code></pre></div><p>Now let&rsquo;s go through an example of contructing an AVL Tree by inserting numbers from 1 to 6</p>
+</code></pre></div><p>Now let&rsquo;s go through an example of constructing an AVL Tree by inserting numbers from 1 to 6</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
     <span style="color:#a6e22e">values</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>}
 	<span style="color:#a6e22e">t</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">AVLTree</span>{}
@@ -578,7 +580,13 @@ rotate nodes one position to the right.
     </div>
   </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script><link rel='stylesheet' href='//unpkg.com/katex/dist/katex.min.css'>
+<script src='//unpkg.com/katex/dist/katex.min.js'></script>
+<script src='//unpkg.com/katex/dist/contrib/auto-render.min.js'></script>
+
+<script type='text/javascript'>
+  renderMathInElement(document.querySelector('.entry-content'),{});
+</script>
 
 </body>
 

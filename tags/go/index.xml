@@ -22,7 +22,7 @@
       
       <guid>http://www.example.com/docs/modifiedmergesort/</guid>
       <description>Source code
-We are given an array of positive integers, and our task is arrange them in a way that yields largest value.
+We are given an array of positive integers, and our task is arranging them in a way that yields largest value.
 In case the given array consists of all single-digit numbers, we can achieve the largest value easily just by composing the number from a descending sorted array. All what we need to do is sorting the given array in descending order by applying any sorting algorithms.
 But how about in the case that given array consists of arbitrary positive integers?</description>
     </item>
@@ -47,8 +47,8 @@ We are going to have a look at several sorting algorithms, their implementation,
       <guid>http://www.example.com/docs/mathprob/</guid>
       <description>Source code
 This post is about some problems that can be solved easily only by using math formula.
-1- Greatest common divisor and Least Common Multiple The greatest common divisor GCD(a,b) of two non-negative integers a and b (which are not both equal to 0) is the greatest integer that divides both a and b.
-The least common multiple of two positive integers a and b is the least positive integer that is divisible by both a and b.</description>
+1- Greatest common divisor and Least Common Multiple The greatest common divisor \( GCD(a,b) \) of two non-negative integers \( a \) and \( b \) (which are not both equal to 0) is the greatest integer that divides both \( a \) and \( b \).
+The least common multiple of two positive integers \( a \) and \( b \) is the least positive integer that is divisible by both \( a \) and \( b \).</description>
     </item>
     
     <item>
@@ -59,7 +59,7 @@ The least common multiple of two positive integers a and b is the least positive
       <guid>http://www.example.com/docs/interfaceexample/</guid>
       <description>Source code
 This is an example of struct, method, and interface.
-I define an interface named geometry that has area() and perim() method signitures.
+I define an interface named geometry that has area() and perim() method signatures.
 type geometry interface { area() float64 perim() float64 } I also define 3 other types circle, rectangle and triangle that implement geometry interface. For example, type circle implements all the geometry interface methods as follows.
 type circle struct { radius float64 } func (c circle) area() float64 { return math.</description>
     </item>
@@ -71,7 +71,7 @@ type circle struct { radius float64 } func (c circle) area() float64 { return ma
       
       <guid>http://www.example.com/docs/balancedbst/</guid>
       <description>Source code
-Introduction AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defind as follows
+Introduction AVL tree is a height-balanced binary search tree (BST). In an AVL tree, every node maintains a balance factor, which is defined as follows
 balance_factor := height(left_subtree) - height(right_subtree)According to definition of a balanced tree, the balance factor of every node in the AVL tree is either -1, 0, or 1. When an insertion or deletion operation is performed, the tree&amp;rsquo;s height may change, so do the balance factors at nodes.</description>
     </item>
     

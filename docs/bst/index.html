@@ -3,7 +3,7 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Part I - Insertion, Deletion, Searching'>
-<meta name='theme-color' content='#ffcd00'>
+<meta name='theme-color' content='blue'>
 
 <meta property='og:title' content='Binary Search Tree - Part I • Tracey Hoang'>
 <meta property='og:description' content='Part I - Insertion, Deletion, Searching'>
@@ -19,7 +19,7 @@
   
   <link rel='icon' href='/gopher.ico'>
 <link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
-:root{--color-accent:#ffcd00;}
+:root{--color-accent:blue;}
 </style>
 
   
@@ -275,10 +275,15 @@
 	<span style="color:#a6e22e">Right</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>
 	<span style="color:#a6e22e">Value</span> <span style="color:#66d9ef">int</span>
 }
-</code></pre></div><p>A common operations in a binary tree are searching, insertion, and deletion. To perform those operations in binary search tree, we need to traverse all elements of the tree. Therefore, in the worst case, the time complexity of those opereation is <code>O(n)</code>.</p>
+</code></pre></div><p>A common operations in a binary tree are searching, insertion, and deletion. To perform those operations in binary search tree, we need to traverse all elements of the tree. Therefore, in the worst case, the time complexity of those operation is \(
+ O(n) \).</p>
 <p>A Binary Search Tree (BST) is a binary tree where values of the left node and right node are less than and greater than value of its parent, correspondingly.</p>
 <p><img src="/images/docs/binarySearchTree.png" alt="binary search tree"></p>
-<p>Operations in BST has time complexity is <code>O(h)</code>, where <code>h</code> is height of the BST. In the worst case where <code>h</code> is equal number of elements in the tree, the worst case complexity is <code>O(n)</code>. A BST that is built from a sorted list of keys will produce worst case performance.</p>
+<p>Operations in BST has time complexity is \(
+ O(h) \), where \(
+ h \) is height of the BST. In the worst case where \(
+ h \) is equal number of elements in the tree, the worst case complexity is \(
+ O(n) \). A BST that is built from a sorted list of keys will produce worst case performance.</p>
 <h3 id="searching-an-element-from-bst">Searching an element from BST</h3>
 <p>Searching for an element from BST is performed by comparing the search element with the value of root node.</p>
 <ul>
@@ -341,13 +346,13 @@
 <li>Node to be deleted is half leaf: setting its parent points to its child</li>
 <li>Node to be deleted has two children:
 <ul>
-<li>Find inorder successor of the node;</li>
-<li>Copy contents of the inorder successor to the node;</li>
-<li>Delete the inorder successor.</li>
+<li>Find InOrder successor of the node;</li>
+<li>Copy contents of the InOrder successor to the node;</li>
+<li>Delete the InOrder successor.</li>
 </ul>
 </li>
 </ol>
-<p>It is noted that inorder predecessor can also be used.</p>
+<p>It is noted that InOrder predecessor can also be used.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">/* ------------------------------------------------------------------------------
 </span><span style="color:#75715e">                                    DELETE
 </span><span style="color:#75715e">Delete a node from BST
@@ -410,7 +415,7 @@
 }
 </code></pre></div><p><strong>Finding Successor</strong><br>
 Helper function is <code>parent()</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Find Inorder successor for a given key in BST
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Find InOrder successor for a given key in BST
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">treeNode</span>) <span style="color:#a6e22e">FindSuccessor</span>(<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
   <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
       panic(<span style="color:#e6db74">&#34;root is nil&#34;</span>)
@@ -569,7 +574,13 @@ Helper function is <code>parent()</code></p>
     </div>
   </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script><link rel='stylesheet' href='//unpkg.com/katex/dist/katex.min.css'>
+<script src='//unpkg.com/katex/dist/katex.min.js'></script>
+<script src='//unpkg.com/katex/dist/contrib/auto-render.min.js'></script>
+
+<script type='text/javascript'>
+  renderMathInElement(document.querySelector('.entry-content'),{});
+</script>
 
 </body>
 
