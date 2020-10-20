@@ -4,12 +4,12 @@
   
   <url>
     <loc>http://www.example.com/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/docs/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
   </url>
   
   <url>
@@ -27,32 +27,62 @@
   
   <url>
     <loc>http://www.example.com/authors/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/categories/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/tags/example/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/categories/features/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/fibonacci/</loc>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/gcd/</loc>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/tags/go/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/tags/golang/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/lcm/</loc>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/docs/mathprob/</loc>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/</loc>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/authors/tracey/</loc>
+    <lastmod>2020-10-19T22:00:00+11:00</lastmod>
   </url>
   
   <url>
@@ -67,16 +97,6 @@
   
   <url>
     <loc>http://www.example.com/tags/method/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/</loc>
-    <lastmod>2020-10-19T14:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/authors/tracey/</loc>
     <lastmod>2020-10-19T14:00:00+11:00</lastmod>
   </url>
   
