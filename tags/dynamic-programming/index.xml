@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dynamic programming on Tracey Hoang</title>
+    <link>http://www.example.com/tags/dynamic-programming/</link>
+    <description>Recent content in dynamic programming on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 21 Oct 2020 16:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/dynamic-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Coin Change Problem - Dynamic Programming</title>
+      <link>http://www.example.com/docs/dynamicprogramming/</link>
+      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/dynamicprogramming/</guid>
+      <description>Source code
+Dynamic programming solves the complex problem by breaking it into simpler sub-problems, solving each of those once, and storing their solution for later use. Dynamic programming uses memoisation and tabulation technique for improving its performance.
+Memoisation is a technique of optimisation by storing the solutions of function calls and returning the cached result when the same inputs are called again.
+Tabulation is an approach by first filling up a table, then solving the original problem based on the solutions in this table.</description>
+    </item>
+    
+  </channel>
+</rss>

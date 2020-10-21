@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>recursive on Tracey Hoang</title>
+    <link>http://www.example.com/tags/recursive/</link>
+    <description>Recent content in recursive on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 21 Oct 2020 16:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/recursive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Coin Change Problem - Dynamic Programming</title>
+      <link>http://www.example.com/docs/dynamicprogramming/</link>
+      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/dynamicprogramming/</guid>
+      <description>Source code
+Dynamic programming solves the complex problem by breaking it into simpler sub-problems, solving each of those once, and storing their solution for later use. Dynamic programming uses memoisation and tabulation technique for improving its performance.
+Memoisation is a technique of optimisation by storing the solutions of function calls and returning the cached result when the same inputs are called again.
+Tabulation is an approach by first filling up a table, then solving the original problem based on the solutions in this table.</description>
+    </item>
+    
+    <item>
+      <title>Recursion in Go</title>
+      <link>http://www.example.com/docs/superdigitrecursion/</link>
+      <pubDate>Wed, 21 Oct 2020 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/superdigitrecursion/</guid>
+      <description>Source code
+Golang supports recursion, that allows function to call itself. A recursive function has a base case which is the final executable statement in recursion. The base case is needed to be defined carefully, otherwise the program will go on to infinite loop.
+Let&amp;rsquo;s consider the following example that applied recursive function directly.
+Our program is to find super digit on an given integer x, which is defined as follows.</description>
+    </item>
+    
+  </channel>
+</rss>

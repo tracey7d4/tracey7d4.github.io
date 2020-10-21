@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hash table on Tracey Hoang</title>
+    <link>http://www.example.com/tags/hash-table/</link>
+    <description>Recent content in hash table on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 21 Oct 2020 11:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/hash-table/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Find Pairs With the Same Difference from an Array- Map Example</title>
+      <link>http://www.example.com/docs/mapexample/</link>
+      <pubDate>Wed, 21 Oct 2020 11:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/mapexample/</guid>
+      <description>Source code
+Go map Go map is built-in type that implements a hash table - a very useful data structure in computer science. A Go map type is defined as
+map[Key]Value We use make function to initialise a map, and also need to define types for map&amp;rsquo;s Key and Value. For example, initialisation of a map of string keys to float64 values is as follows.
+m := make(map[string]float64) Let have a quick look at an small example about inserting, looking up, and deteting data from a map.</description>
+    </item>
+    
+  </channel>
+</rss>
