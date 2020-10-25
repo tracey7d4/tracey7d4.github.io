@@ -5,20 +5,15 @@
     <link>http://www.example.com/tags/</link>
     <description>Recent content in Tags on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Oct 2020 16:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>dynamic programming</title>
-      <link>http://www.example.com/tags/dynamic-programming/</link>
-      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/dynamic-programming/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Sat, 24 Oct 2020 22:20:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>example</title>
       <link>http://www.example.com/tags/example/</link>
-      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
+      <pubDate>Sat, 24 Oct 2020 22:20:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/example/</guid>
       <description></description>
@@ -27,7 +22,7 @@
     <item>
       <title>go</title>
       <link>http://www.example.com/tags/go/</link>
-      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
+      <pubDate>Sat, 24 Oct 2020 22:20:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/go/</guid>
       <description></description>
@@ -36,36 +31,54 @@
     <item>
       <title>golang</title>
       <link>http://www.example.com/tags/golang/</link>
-      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
+      <pubDate>Sat, 24 Oct 2020 22:20:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>map</title>
+      <link>http://www.example.com/tags/map/</link>
+      <pubDate>Sat, 24 Oct 2020 22:20:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/map/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>recursive</title>
       <link>http://www.example.com/tags/recursive/</link>
-      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
+      <pubDate>Sat, 24 Oct 2020 22:20:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/recursive/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>hash table</title>
-      <link>http://www.example.com/tags/hash-table/</link>
-      <pubDate>Wed, 21 Oct 2020 11:00:00 +1100</pubDate>
+      <title>binary search</title>
+      <link>http://www.example.com/tags/binary-search/</link>
+      <pubDate>Sat, 24 Oct 2020 22:00:00 +1100</pubDate>
       
-      <guid>http://www.example.com/tags/hash-table/</guid>
+      <guid>http://www.example.com/tags/binary-search/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>map</title>
-      <link>http://www.example.com/tags/map/</link>
-      <pubDate>Wed, 21 Oct 2020 11:00:00 +1100</pubDate>
+      <title>DP</title>
+      <link>http://www.example.com/tags/dp/</link>
+      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
       
-      <guid>http://www.example.com/tags/map/</guid>
+      <guid>http://www.example.com/tags/dp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamic programming</title>
+      <link>http://www.example.com/tags/dynamic-programming/</link>
+      <pubDate>Wed, 21 Oct 2020 16:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/dynamic-programming/</guid>
       <description></description>
     </item>
     
@@ -84,24 +97,6 @@
       <pubDate>Tue, 20 Oct 2020 15:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/sort/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bubble sort</title>
-      <link>http://www.example.com/tags/bubble-sort/</link>
-      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/bubble-sort/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>insertion sort</title>
-      <link>http://www.example.com/tags/insertion-sort/</link>
-      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/insertion-sort/</guid>
       <description></description>
     </item>
     

@@ -5,7 +5,24 @@
     <link>http://www.example.com/tags/map/</link>
     <description>Recent content in map on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Oct 2020 11:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/map/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Oct 2020 22:20:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/map/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Majority Element Of An Array</title>
+      <link>http://www.example.com/docs/majorityelement/</link>
+      <pubDate>Sat, 24 Oct 2020 22:20:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/majorityelement/</guid>
+      <description>Source code
+Problem description An array is said to have a majority element if more than half of its elements are the same.
+Given a non-empty array arr. Check to see if the array has a majority element.
+Implementation Let&amp;rsquo;s have a look at some approaches of solving the given problem.
+1- Brute Force algorithm This approach is to find the occurrences of each element. As soon as there is an occurrence of an element is greater than a half, we know that this array has majority element and then return true.</description>
+    </item>
+    
     <item>
       <title>Find Pairs With the Same Difference from an Array- Map Example</title>
       <link>http://www.example.com/docs/mapexample/</link>

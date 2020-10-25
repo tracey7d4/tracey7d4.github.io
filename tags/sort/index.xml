@@ -5,7 +5,11 @@
     <link>http://www.example.com/tags/sort/</link>
     <description>Recent content in sort on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 20 Oct 2020 15:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/sort/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Oct 2020 15:00:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/sort/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Compose the largest number out of given set of integers</title>
       <link>http://www.example.com/docs/modifiedmergesort/</link>

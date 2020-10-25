@@ -5,7 +5,11 @@
     <link>http://www.example.com/tags/dynamic-programming/</link>
     <description>Recent content in dynamic programming on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Oct 2020 16:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/dynamic-programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Oct 2020 16:00:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/dynamic-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Coin Change Problem - Dynamic Programming</title>
       <link>http://www.example.com/docs/dynamicprogramming/</link>

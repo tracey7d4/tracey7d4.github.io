@@ -4,12 +4,12 @@
   
   <url>
     <loc>http://www.example.com/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/docs/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
   </url>
   
   <url>
@@ -27,12 +27,67 @@
   
   <url>
     <loc>http://www.example.com/authors/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.example.com/categories/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/example/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/categories/features/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/go/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/golang/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/docs/majorityelement/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/map/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/recursive/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/authors/tracey/</loc>
+    <lastmod>2020-10-24T22:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/docs/binarysearch/</loc>
+    <lastmod>2020-10-24T22:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/binary-search/</loc>
+    <lastmod>2020-10-24T22:00:00+11:00</lastmod>
   </url>
   
   <url>
@@ -41,42 +96,12 @@
   </url>
   
   <url>
+    <loc>http://www.example.com/tags/dp/</loc>
+    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.example.com/tags/dynamic-programming/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/example/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/categories/features/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/go/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/golang/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/recursive/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/</loc>
-    <lastmod>2020-10-21T16:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/authors/tracey/</loc>
     <lastmod>2020-10-21T16:00:00+11:00</lastmod>
   </url>
   
@@ -87,16 +112,6 @@
   
   <url>
     <loc>http://www.example.com/docs/mapexample/</loc>
-    <lastmod>2020-10-21T11:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/hash-table/</loc>
-    <lastmod>2020-10-21T11:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/map/</loc>
     <lastmod>2020-10-21T11:00:00+11:00</lastmod>
   </url>
   
@@ -113,16 +128,6 @@
   <url>
     <loc>http://www.example.com/tags/sort/</loc>
     <lastmod>2020-10-20T15:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/bubble-sort/</loc>
-    <lastmod>2020-10-20T13:00:00+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/tags/insertion-sort/</loc>
-    <lastmod>2020-10-20T13:00:00+11:00</lastmod>
   </url>
   
   <url>

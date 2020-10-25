@@ -5,7 +5,11 @@
     <link>http://www.example.com/tags/breadth-first-traversal/</link>
     <description>Recent content in breadth-first traversal on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Oct 2020 22:30:00 +1100</lastBuildDate><atom:link href="http://www.example.com/tags/breadth-first-traversal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Oct 2020 22:30:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/breadth-first-traversal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Binary Search Tree - Part II</title>
       <link>http://www.example.com/docs/traverse-bst/</link>

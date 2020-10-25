@@ -5,7 +5,34 @@
     <link>http://www.example.com/authors/tracey/</link>
     <description>Recent content in tracey on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Oct 2020 16:00:00 +1100</lastBuildDate><atom:link href="http://www.example.com/authors/tracey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Oct 2020 22:20:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/authors/tracey/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Majority Element Of An Array</title>
+      <link>http://www.example.com/docs/majorityelement/</link>
+      <pubDate>Sat, 24 Oct 2020 22:20:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/majorityelement/</guid>
+      <description>Source code
+Problem description An array is said to have a majority element if more than half of its elements are the same.
+Given a non-empty array arr. Check to see if the array has a majority element.
+Implementation Let&amp;rsquo;s have a look at some approaches of solving the given problem.
+1- Brute Force algorithm This approach is to find the occurrences of each element. As soon as there is an occurrence of an element is greater than a half, we know that this array has majority element and then return true.</description>
+    </item>
+    
+    <item>
+      <title>Binary Search</title>
+      <link>http://www.example.com/docs/binarysearch/</link>
+      <pubDate>Sat, 24 Oct 2020 22:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/binarysearch/</guid>
+      <description>Source code
+A linear search is a searching algorithm that find the position of an element from a list by sequentially comparing the elements of the list until finding the matching element. This is the simplest searching algorithm and is practical when the list has only a few elements or when performing a single search in an unsorted array. Linear search has worst-case and average-case time complexity \( O(n) \), and best case time complexity \( O(1) \).</description>
+    </item>
+    
     <item>
       <title>Coin Change Problem - Dynamic Programming</title>
       <link>http://www.example.com/docs/dynamicprogramming/</link>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>binary search on Tracey Hoang</title>
+    <link>http://www.example.com/tags/binary-search/</link>
+    <description>Recent content in binary search on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 24 Oct 2020 22:00:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/binary-search/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Binary Search</title>
+      <link>http://www.example.com/docs/binarysearch/</link>
+      <pubDate>Sat, 24 Oct 2020 22:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/binarysearch/</guid>
+      <description>Source code
+A linear search is a searching algorithm that find the position of an element from a list by sequentially comparing the elements of the list until finding the matching element. This is the simplest searching algorithm and is practical when the list has only a few elements or when performing a single search in an unsorted array. Linear search has worst-case and average-case time complexity \( O(n) \), and best case time complexity \( O(1) \).</description>
+    </item>
+    
+  </channel>
+</rss>

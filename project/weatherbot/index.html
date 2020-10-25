@@ -13,7 +13,7 @@ In this repository, I&rsquo;m going to create a weatherbot for querying weather 
 <meta property='og:site_name' content='Tracey Hoang'>
 <meta property='og:type' content='article'><meta property='og:image' content='http://www.example.com/images/project/weatherbot.png'><meta property='article:section' content='project'><meta property='article:tag' content='slack'><meta property='article:tag' content='GCP'><meta property='article:tag' content='API'><meta property='article:tag' content='project'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-16T20:00:00&#43;10:00'/><meta property='article:modified_time' content='2020-10-16T20:00:00&#43;10:00'/><meta name='twitter:card' content='summary_large_image'><meta property='twitter:image' content='http://www.example.com/images/project/weatherbot.png'>
 
-<meta name="generator" content="Hugo 0.77.0-DEV" />
+<meta name="generator" content="Hugo 0.74.3" />
 
   <title>Simple Slack bot in Go using event API - Weather Bot • Tracey Hoang</title>
   <link rel='canonical' href='http://www.example.com/project/weatherbot/'>
@@ -37,7 +37,7 @@ In this repository, I&rsquo;m going to create a weatherbot for querying weather 
     
     <div class='logo'>
       <a href='/'>
-        <img src='/images/Gopher.png'>
+        <img src='/images/logo.png'>
       </a>
     </div>
     
@@ -80,17 +80,17 @@ In this repository, I&rsquo;m going to create a weatherbot for querying weather 
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/tags/api/' style='font-size:1.0666666666666667em'>API</a>
+        <a href='/tags/api/' style='font-size:1.0588235294117647em'>API</a>
       </li><li>
         <a href='/tags/avl-tree/' style='font-size:1em'>AVL Tree</a>
       </li><li>
         <a href='/tags/balanced-bst/' style='font-size:1em'>Balanced BST</a>
       </li><li>
+        <a href='/tags/binary-search/' style='font-size:1em'>binary search</a>
+      </li><li>
         <a href='/tags/breadth-first-traversal/' style='font-size:1em'>breadth-first traversal</a>
       </li><li>
-        <a href='/tags/bst/' style='font-size:1.2em'>BST</a>
-      </li><li>
-        <a href='/tags/bubble-sort/' style='font-size:1em'>bubble sort</a>
+        <a href='/tags/bst/' style='font-size:1.1764705882352942em'>BST</a>
       </li><li>
         <a href='/tags/channel/' style='font-size:1em'>channel</a>
       </li><li>
@@ -98,9 +98,11 @@ In this repository, I&rsquo;m going to create a weatherbot for querying weather 
       </li><li>
         <a href='/tags/depth-first-traversal/' style='font-size:1em'>depth-first traversal</a>
       </li><li>
+        <a href='/tags/dp/' style='font-size:1em'>DP</a>
+      </li><li>
         <a href='/tags/dynamic-programming/' style='font-size:1em'>dynamic programming</a>
       </li><li>
-        <a href='/tags/example/' style='font-size:1.7333333333333334em'>example</a>
+        <a href='/tags/example/' style='font-size:1.7647058823529411em'>example</a>
       </li><li>
         <a href='/tags/fibonacci/' style='font-size:1em'>Fibonacci</a>
       </li><li>
@@ -108,33 +110,29 @@ In this repository, I&rsquo;m going to create a weatherbot for querying weather 
       </li><li>
         <a href='/tags/gcd/' style='font-size:1em'>GCD</a>
       </li><li>
-        <a href='/tags/gcp/' style='font-size:1.0666666666666667em'>GCP</a>
+        <a href='/tags/gcp/' style='font-size:1.0588235294117647em'>GCP</a>
       </li><li>
         <a href='/tags/go/' style='font-size:2em'>go</a>
       </li><li>
         <a href='/tags/golang/' style='font-size:2em'>golang</a>
       </li><li>
-        <a href='/tags/hash-table/' style='font-size:1em'>hash table</a>
-      </li><li>
-        <a href='/tags/insertion-sort/' style='font-size:1em'>insertion sort</a>
-      </li><li>
         <a href='/tags/interface/' style='font-size:1em'>interface</a>
       </li><li>
         <a href='/tags/lcm/' style='font-size:1em'>LCM</a>
       </li><li>
-        <a href='/tags/map/' style='font-size:1em'>map</a>
+        <a href='/tags/map/' style='font-size:1.0588235294117647em'>map</a>
       </li><li>
-        <a href='/tags/merge-sort/' style='font-size:1.0666666666666667em'>merge sort</a>
+        <a href='/tags/merge-sort/' style='font-size:1em'>merge sort</a>
       </li><li>
         <a href='/tags/method/' style='font-size:1em'>method</a>
       </li><li>
-        <a href='/tags/project/' style='font-size:1.1333333333333333em'>project</a>
+        <a href='/tags/project/' style='font-size:1.1176470588235294em'>project</a>
       </li><li>
-        <a href='/tags/recursive/' style='font-size:1.0666666666666667em'>recursive</a>
+        <a href='/tags/recursive/' style='font-size:1.1764705882352942em'>recursive</a>
       </li><li>
-        <a href='/tags/slack/' style='font-size:1.0666666666666667em'>slack</a>
+        <a href='/tags/slack/' style='font-size:1.0588235294117647em'>slack</a>
       </li><li>
-        <a href='/tags/sort/' style='font-size:1.0666666666666667em'>sort</a>
+        <a href='/tags/sort/' style='font-size:1.0588235294117647em'>sort</a>
       </li><li>
         <a href='/tags/traverse/' style='font-size:1em'>traverse</a>
       </li></ul>
@@ -305,7 +303,7 @@ In this repository, I&rsquo;m going to create a weatherbot for querying weather 
 <p><strong>Build a Slack Bot User</strong></p>
 <p>It will need a Slack workspace as well to deploy the bot. So either an existing workspace or a new one is required. In <a href="https://api.slack.com/apps">Slack API page</a>, let&rsquo;s create a new app by clicking on the <code>Create New App</code> button. Next, create a <code>Bot User</code> for it. Invite your bot to Slack channels where you want to interact with it. Follow the <a href="https://api.slack.com/bot-users">link</a> for more details about bot users and how to build one.</p>
 <p><img src="/images/yourapps.png" alt="yourApps image"></p>
-<p>We also need to subscribe to <a href="https://api.slack.com/events/app_mention"><code>app_mention</code> event</a>. This subscription allows your bot to response to users' requests  that mention its name.</p>
+<p>We also need to subscribe to <a href="https://api.slack.com/events/app_mention"><code>app_mention</code> event</a>. This subscription allows your bot to response to users&rsquo; requests  that mention its name.</p>
 </li>
 <li>
 <p><strong>Create a project on GCP</strong></p>
