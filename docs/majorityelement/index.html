@@ -17,7 +17,7 @@
   <link rel='canonical' href='http://www.example.com/docs/majorityelement/'>
   
   
-  <link rel='icon' href='/gopher.ico'>
+  <link rel='icon' href='/favicon.ico'>
 <link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
 :root{--color-accent:blue;}
 </style>
@@ -240,7 +240,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-3 mins read
+5 mins read
 </span>
 
 
@@ -319,7 +319,8 @@ Space complexity \(
 <h5 id="3--using-map">3- Using Map</h5>
 <p>You can reduce time complexity to \(
  O(n) \) while maintaining space complexity \(
- O(n) \) by using a map. It is quite straightforward approach. We create a map with keys are array elements, and its values are element&rsquo;s occurrences. As soon as any value of a key is greater than <code>n/2</code>, the program returns.</p>
+ O(n) \) by using a map. I love this method, and it was the first one that came to my mind when I was given the problem.</p>
+<p>We will create a map with keys are array elements, and its values are element&rsquo;s occurrences. As soon as any value of a key is greater than <code>n/2</code>, the program returns.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">useMap</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">bool</span> {
 	<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> int32(len(<span style="color:#a6e22e">arr</span>))
 	<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int32</span>]<span style="color:#66d9ef">int32</span>)
@@ -332,20 +333,75 @@ Space complexity \(
 	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
 }
 </code></pre></div><h5 id="4--divide-and-conquer-technique">4- Divide and conquer technique</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
-</code></pre></div><p>Time complextiy \(
- O(n^2) \).<br>
-Space complexity \(
- O(1) \).</p>
-<h5 id="5--boyer-moore-algorithm">5- Boyer-Moore algorithm</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BoyerMoore</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">bool</span> {
-	<span style="color:#a6e22e">count</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>
-	<span style="color:#a6e22e">currentNumber</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">arr</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
-			<span style="color:#a6e22e">currentNumber</span> = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+<p>We repeatedly split the array into 2 sub-arrays and find the majority element of each array. After getting majority elements of both arrays, we do some comparisons.
+If the left and right majority are the same, it will be the majority of the whole array. Otherwise, we will see which element appears more than <code>n/2</code> in the array by making call to <code>getFrequency()</code> function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// This func is used to return bool value. Disregard this func if you want to return majority element
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">DivideAndConquer</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#a6e22e">majorityElement</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ifMajority</span>(<span style="color:#a6e22e">arr</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">majorityElement</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ifMajority</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">int32</span> {
+	<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> int32(len(<span style="color:#a6e22e">arr</span>))
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
+	}
+	<span style="color:#a6e22e">leftArray</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[:<span style="color:#a6e22e">n</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>]
+	<span style="color:#a6e22e">rightArray</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">n</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> :]
+	<span style="color:#a6e22e">elemLeft</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ifMajority</span>(<span style="color:#a6e22e">leftArray</span>)
+	<span style="color:#a6e22e">elemRight</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ifMajority</span>(<span style="color:#a6e22e">rightArray</span>)
+	
+	<span style="color:#75715e">// -1 value is referred to no-majority element in considered array.
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Check -1 condition to reduce some calls to `getFrequency()` when return element is -1
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">elemLeft</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">elemRight</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">elemRight</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">elemLeft</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">elemRight</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">elemLeft</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">elemLeft</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">elemRight</span>
+	}
+	<span style="color:#a6e22e">freqLeft</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getFrequency</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">elemLeft</span>)
+	<span style="color:#a6e22e">freqRight</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getFrequency</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">elemRight</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">freqLeft</span> &gt; <span style="color:#a6e22e">n</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">freqLeft</span>
+	} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">freqRight</span> &gt; <span style="color:#a6e22e">n</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">freqRight</span>
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+	}
+}
+
+<span style="color:#75715e">// To get frequency of value k appears in arr
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getFrequency</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>, <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">int32</span> {
+	<span style="color:#a6e22e">count</span> <span style="color:#f92672">:=</span> int32(<span style="color:#ae81ff">0</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>,<span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">v</span> {
+			<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 		}
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">currentNumber</span> {
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>
+}
+</code></pre></div><p>Time complexity \(
+ O(n \log n) \).<br>
+Space complexity \(
+ O(\log n) \).</p>
+<h5 id="5--boyer-moore-voting-algorithm">5- Boyer-Moore voting algorithm</h5>
+<p>The idea of this method is that, if the array has majority element, so that element should be repeating more than <code>n/2</code> times. Hence, if at every occurrences of majority element we count 1, and the other elements we count -1, the total count should be greater than 0.</p>
+<p>In implementation of the method, we are going to have 2 loops. The first loop is to obtain the majority element if there is such majority. The second loop is to check is the obtained number actually majority by checking its frequency. More details can be found at that <a href="https://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html">link</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BoyerMoore</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#a6e22e">count</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#a6e22e">currentNumber</span> <span style="color:#f92672">:=</span> int32(<span style="color:#ae81ff">0</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>,<span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+			<span style="color:#a6e22e">currentNumber</span> = <span style="color:#a6e22e">v</span>
+			<span style="color:#a6e22e">count</span> = <span style="color:#ae81ff">1</span>
+		}
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">currentNumber</span> {
 			<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 		} <span style="color:#66d9ef">else</span> {
 			<span style="color:#a6e22e">count</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
@@ -363,7 +419,7 @@ Space complexity \(
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
 }
-</code></pre></div><p>Time complextiy \(
+</code></pre></div><p>Time complexity \(
  O(n) \).<br>
 Space complexity \(
  O(1) \).</p>
