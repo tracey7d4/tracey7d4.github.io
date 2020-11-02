@@ -9,7 +9,7 @@
 <meta property='og:description' content='Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, Heap Sort'>
 <meta property='og:url' content='http://www.example.com/docs/sortingalgorithms/'>
 <meta property='og:site_name' content='Tracey Hoang'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='sort'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-20T13:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-10-20T13:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='sort'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-20T13:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-10-28T11:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.74.3" />
 
@@ -240,7 +240,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-3 mins read
+4 mins read
 </span>
 
 
@@ -263,6 +263,7 @@
         <li><a href="#1--bubble-sort">1- Bubble Sort</a></li>
         <li><a href="#2--insertion-sort">2- Insertion Sort</a></li>
         <li><a href="#3--merge-sort">3- Merge Sort</a></li>
+        <li><a href="#4--quicksort---3-ways-partition">4- QuickSort - 3 ways partition</a></li>
       </ul>
     </li>
   </ul>
@@ -363,12 +364,66 @@
  O(n \times \log n) \) in all the cases, and space complexity \(
  O(n) \).</p>
 <p>You can have a visual look at different sorting algorithms by visit the following link: <a href="https://www.toptal.com/developers/sorting-algorithms">Toptal Sorting Algorithms Animation</a></p>
+<h3 id="4--quicksort---3-ways-partition">4- QuickSort - 3 ways partition</h3>
+<p>This algorithms splits the array into three sub-arrays based on a pivot number:</p>
+<ul>
+<li><code>arr[left .. i-1]</code> - elements less than pivot number</li>
+<li><code>arr[i .. j]</code> - elements equal to pivot number</li>
+<li><code>arr[j+1 .. right]</code> - elements greater than pivot number</li>
+</ul>
+<p>To do so, our <code>quickSort()</code> function will call function <code>sort()</code> and pass in 3 input variables - the original array, left and right indices that indicate start and end of a sub-array. We are going to sort the indicated sub-array only.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">quickSort</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) []<span style="color:#66d9ef">int32</span> {
+	<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#ae81ff">0</span>, int32(len(<span style="color:#a6e22e">arr</span>))<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#66d9ef">int32</span>) {
+	<span style="color:#75715e">//n := int32(len(arr))
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">left</span>
+	<span style="color:#a6e22e">stop</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">right</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">stop</span><span style="color:#f92672">-</span><span style="color:#a6e22e">start</span> &lt; <span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">splitIndex</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>
+	<span style="color:#75715e">//pivot := rand.Int31n(n)
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">pivot</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">start</span><span style="color:#f92672">+</span>(<span style="color:#a6e22e">stop</span><span style="color:#f92672">-</span><span style="color:#a6e22e">start</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>]
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">splitIndex</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">stop</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">splitIndex</span>] &lt; <span style="color:#a6e22e">pivot</span> {
+			<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">start</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">splitIndex</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">splitIndex</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">start</span>]
+			<span style="color:#a6e22e">splitIndex</span><span style="color:#f92672">++</span>
+			<span style="color:#a6e22e">start</span><span style="color:#f92672">++</span>
+		} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">splitIndex</span>] &gt; <span style="color:#a6e22e">pivot</span> {
+			<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">stop</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">splitIndex</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">splitIndex</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">stop</span>]
+			<span style="color:#a6e22e">stop</span><span style="color:#f92672">--</span>
+		} <span style="color:#66d9ef">else</span> {
+			<span style="color:#a6e22e">splitIndex</span><span style="color:#f92672">++</span>
+		}
+	}
+	<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">stop</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+	<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">i</span>)
+	<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">j</span>, <span style="color:#a6e22e">right</span>)
+}
+</code></pre></div><p>A pivot number is a random number. In my implementation, it is chosen to be the number at the middle of the array. <code>splitIndex</code> is the index where the array splits into sub-arrays.
+At first, the <code>splitIndex</code> is given to be equal to the <code>start</code> variable. We then compare the value at <code>splitIndex</code> with pivot. After comparison, the value is moved to left sub-array if less than pivot, or to right sub-array if greater than pivot. After getting 3 sub-arrays, we recursively sort the left and right sub-arrays until the original array is sorted.</p>
+<p>The 3 way partition algorithm is an improved quicksort algorithm as it handles input with many replicated elements.</p>
+<p>Quicksort has time complexity \(
+ O(n \times \log n) \), and space complexity \(
+ O(1) \).</p>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  <div class='container sep-before'><div class='last-updated'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34" />
+  <polygon points="18 2 22 6 12 16 8 16 8 12 18 2" />
+
+</svg>
+<span class='screen-reader-text'>Last updated: </span>
+      <time class='entry-date' datetime='2020-10-28T11:00:00&#43;11:00'>2020, Oct 28</time>
+    </div><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
     
     
     <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
