@@ -25,8 +25,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://www.example.com/resources/</guid>
-      <description>Courses  A Tour of Go  Books  Cracking the Coding Interview by Gayle Laakmann McDowell  Articles  sync.RWMutex
-A nice write up of how to use sync.RWMutex to handle concurrent read/write access to shared resources.  </description>
+      <description>Courses  A Tour of Go Data Structures and Algorithms Specialization
+Some programming course from Coursera offered by University of California San Diego.  Books  Cracking the Coding Interview by Gayle Laakmann McDowell  Resources  sync.RWMutex
+A nice write up of how to use sync.RWMutex to handle concurrent read/write access to shared resources. HackerRank
+A website where you can practice your programming skills  </description>
     </item>
     
     <item>

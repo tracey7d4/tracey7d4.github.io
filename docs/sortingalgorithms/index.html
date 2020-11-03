@@ -9,7 +9,7 @@
 <meta property='og:description' content='Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, Heap Sort'>
 <meta property='og:url' content='http://www.example.com/docs/sortingalgorithms/'>
 <meta property='og:site_name' content='Tracey Hoang'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='sort'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-20T13:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-10-28T11:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='sort'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-20T13:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-11-03T16:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.74.3" />
 
@@ -240,7 +240,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-4 mins read
+6 mins read
 </span>
 
 
@@ -262,8 +262,10 @@
       <ul>
         <li><a href="#1--bubble-sort">1- Bubble Sort</a></li>
         <li><a href="#2--insertion-sort">2- Insertion Sort</a></li>
-        <li><a href="#3--merge-sort">3- Merge Sort</a></li>
-        <li><a href="#4--quicksort---3-ways-partition">4- QuickSort - 3 ways partition</a></li>
+        <li><a href="#3--selection-sort">3- Selection Sort</a></li>
+        <li><a href="#4--merge-sort">4- Merge Sort</a></li>
+        <li><a href="#5--quicksort---2-ways-partition">5- QuickSort - 2 ways partition</a></li>
+        <li><a href="#6--improved-quicksort---3-ways-partition">6- Improved QuickSort - 3 ways partition</a></li>
       </ul>
     </li>
   </ul>
@@ -322,7 +324,37 @@
  O(n^2) \), and best case time complexity \(
  O(n) \), space complexity \(
  O(1) \).</p>
-<h3 id="3--merge-sort">3- Merge Sort</h3>
+<h3 id="3--selection-sort">3- Selection Sort</h3>
+<p>Selection sort iterates through the array to find the minimum number, and swap it with the beginning element in the array. It hence divides the given array into 2 sub-arrays - sorted at the left, and unsorted at the right. In other word, in every iteration, the minimum element from the unsorted sub-array is found and moved to the end of the sorted sub-array. The unsorted sub-array hence narrows by one element.</p>
+<p><img src="/images/docs/selectionSort.gif" alt="SelectionSort">
+<div class='text-shortcode' style='font-size:0.7em;'>&ldquo;By Joestape89, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=3330231">https://commons.wikimedia.org/w/index.php?curid=3330231</a></div>
+</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectionSort</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) []<span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">arr</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">minIndex</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">findIndexMin</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">i</span>)
+		<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">minIndex</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">minIndex</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">findIndexMin</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">start</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>
+	<span style="color:#a6e22e">min</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">start</span>]
+	<span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> &lt; len(<span style="color:#a6e22e">arr</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#a6e22e">j</span><span style="color:#f92672">++</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">min</span> &gt; <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] {
+			<span style="color:#a6e22e">min</span> = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>]
+			<span style="color:#a6e22e">i</span> = <span style="color:#a6e22e">j</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">i</span>
+}
+</code></pre></div><p>Time complexity \(
+ O(n^2) \).<br>
+Space complexity \(
+ O(1) \).</p>
+<h3 id="4--merge-sort">4- Merge Sort</h3>
 <p>Merge Sort works as follows:</p>
 <ul>
 <li>Break the array into multiple sub-arrays with single element. Or in other words, break down the problem into base problems.</li>
@@ -363,21 +395,53 @@
 </code></pre></div><p>Merge sort has time complexity \(
  O(n \times \log n) \) in all the cases, and space complexity \(
  O(n) \).</p>
-<p>You can have a visual look at different sorting algorithms by visit the following link: <a href="https://www.toptal.com/developers/sorting-algorithms">Toptal Sorting Algorithms Animation</a></p>
-<h3 id="4--quicksort---3-ways-partition">4- QuickSort - 3 ways partition</h3>
+<h3 id="5--quicksort---2-ways-partition">5- QuickSort - 2 ways partition</h3>
+<p>QuickSort is a Divide and Conquer algorithm. It picks a random element as pivot, and rearranges the ordinary array based on that pivot number. The procedure of rearrange the elements in array as above is call partitioning. In 2 way partition QuickSort, the array is divided into 2 sub-arrays: the left one with all numbers less than pivot number, and the right one with all number greater than pivot number.After partitioning the pivot is in its final position. Recursively the above process for the left and right sub-arrays</p>
+<p><img src="/images/docs/quickSort.gif" alt="QuickSort">
+<div class='text-shortcode' style='font-size:0.7em;'>&ldquo;File:Quicksort-example.gif&rdquo; by Matt Chan (jacky&rsquo;s brother) is licensed under CC BY-SA 3.0, via Wikimedia Commons</div>
+</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">quicksort2way</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) []<span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">sort2way</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">arr</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sort2way</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#66d9ef">int</span>){
+	<span style="color:#a6e22e">pivot</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[(<span style="color:#a6e22e">right</span><span style="color:#f92672">+</span><span style="color:#a6e22e">left</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>]
+	<span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">left</span>
+	<span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">right</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">j</span> {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] &lt; <span style="color:#a6e22e">pivot</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">j</span> {
+			<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+		}
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] &gt; <span style="color:#a6e22e">pivot</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">j</span> {
+			<span style="color:#a6e22e">j</span><span style="color:#f92672">--</span>
+		}
+		<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+		<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+		<span style="color:#a6e22e">j</span><span style="color:#f92672">--</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">left</span> &lt; <span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> {
+		<span style="color:#a6e22e">sort2way</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">right</span> &gt; <span style="color:#a6e22e">i</span> {
+		<span style="color:#a6e22e">sort2way</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">right</span>)
+	}
+}
+</code></pre></div><h3 id="6--improved-quicksort---3-ways-partition">6- Improved QuickSort - 3 ways partition</h3>
 <p>This algorithms splits the array into three sub-arrays based on a pivot number:</p>
 <ul>
 <li><code>arr[left .. i-1]</code> - elements less than pivot number</li>
 <li><code>arr[i .. j]</code> - elements equal to pivot number</li>
 <li><code>arr[j+1 .. right]</code> - elements greater than pivot number</li>
 </ul>
-<p>To do so, our <code>quickSort()</code> function will call function <code>sort()</code> and pass in 3 input variables - the original array, left and right indices that indicate start and end of a sub-array. We are going to sort the indicated sub-array only.</p>
+<p>After a partition, the elements equal to pivot number are already in their correct position, and we only need to rearrange  left and right sub-arrays.</p>
+<p>To do so, our <code>quickSort()</code> function will call function <code>sortArr()</code> and pass in 3 input variables - the original array, left and right indices that indicate start and end of a sub-array. We are going to sort the indicated sub-array only.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">quickSort</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) []<span style="color:#66d9ef">int32</span> {
-	<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#ae81ff">0</span>, int32(len(<span style="color:#a6e22e">arr</span>))<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#a6e22e">sortArr</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#ae81ff">0</span>, int32(len(<span style="color:#a6e22e">arr</span>))<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>
 }
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#66d9ef">int32</span>) {
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sortArr</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#66d9ef">int32</span>) {
 	<span style="color:#75715e">//n := int32(len(arr))
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">left</span>
 	<span style="color:#a6e22e">stop</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">right</span>
@@ -400,8 +464,8 @@
 		}
 	}
 	<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">stop</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
-	<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">i</span>)
-	<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">j</span>, <span style="color:#a6e22e">right</span>)
+	<span style="color:#a6e22e">sortArr</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">i</span>)
+	<span style="color:#a6e22e">sortArr</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">j</span>, <span style="color:#a6e22e">right</span>)
 }
 </code></pre></div><p>A pivot number is a random number. In my implementation, it is chosen to be the number at the middle of the array. <code>splitIndex</code> is the index where the array splits into sub-arrays.
 At first, the <code>splitIndex</code> is given to be equal to the <code>start</code> variable. We then compare the value at <code>splitIndex</code> with pivot. After comparison, the value is moved to left sub-array if less than pivot, or to right sub-array if greater than pivot. After getting 3 sub-arrays, we recursively sort the left and right sub-arrays until the original array is sorted.</p>
@@ -409,6 +473,7 @@ At first, the <code>splitIndex</code> is given to be equal to the <code>start</c
 <p>Quicksort has time complexity \(
  O(n \times \log n) \), and space complexity \(
  O(1) \).</p>
+<p>You can have a visual look at different sorting algorithms by visit the following link: <a href="https://www.toptal.com/developers/sorting-algorithms">Toptal Sorting Algorithms Animation</a></p>
 
 </div>
 
@@ -422,7 +487,7 @@ At first, the <code>splitIndex</code> is given to be equal to the <code>start</c
 
 </svg>
 <span class='screen-reader-text'>Last updated: </span>
-      <time class='entry-date' datetime='2020-10-28T11:00:00&#43;11:00'>2020, Oct 28</time>
+      <time class='entry-date' datetime='2020-11-03T16:00:00&#43;11:00'>2020, Nov 03</time>
     </div><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
     
     
