@@ -24,10 +24,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://www.example.com/resources/</guid>
-      <description>Courses  A Tour of Go Data Structures and Algorithms Specialization
-Some programming course from Coursera offered by University of California San Diego.  Books  Cracking the Coding Interview by Gayle Laakmann McDowell  Resources  sync.RWMutex
-A nice write up of how to use sync.RWMutex to handle concurrent read/write access to shared resources. HackerRank
-A website where you can practice your programming skills  </description>
+      <description>Courses  A Tour of Go
+A tour that covers most important features of the Go language Programming with Google Go Specialization
+This course introduces the Go language and provides you with Go&amp;rsquo;s features. This specialization is from Coursera and offered by University of California, Irvine (UCI) Data Structures and Algorithms Specialization
+Some programming courses from Coursera offered by University of California San Diego &amp;amp; National Research University Higher School of Economics  Books  Cracking the Coding Interview by Gayle Laakmann McDowell Learning Algorithms through programming and puzzle solving by Alexander Kulikov and Pavel Pevzner  Resources  sync.</description>
     </item>
     
     <item>
