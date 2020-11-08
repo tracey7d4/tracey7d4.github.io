@@ -5,20 +5,35 @@
     max-width: 100%;
 }
 
-body.home {
-    background-image: url("/images/3.jfif");
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 100%;
+body.page.type-docs {
+    background-image: url("/images/typedocs.png");
+    background-repeat: repeat-y;
+    background-position: fixed right;
+    background-size: 25%;
 }
 
-body {
-    background-image: url("/images/2.jfif");
+body.home {
+    background-image: url("/images/home.png");
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 40%;
 }
 
-.siderbar {
-    background-image: url("/images/Background.jfif");
+body.page {
+    background-image: url("/images/page.jfif");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 40%;
 }
+
+body {
+    background-image: url("/images/main.jfif");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 30%;
+}
+
+.sidebar {
+    background-color: rgb(130, 220, 243);
+}
+
