@@ -2,13 +2,23 @@
     max-width: 950px;
 }
 .siderbar {
-    max-width: 70%;
+    max-width: 100%;
 }
-.comments-container #disqus_thread:before,
-.entry-header:after,
-.entry-nav-links:before,
-.footer:before,
-.prev-entry~.next-entry:before,
-.site-header:after {
-  border-bottom-color: violet;
+
+body.home {
+    background-image: url("/images/3.jfif");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 100%;
+}
+
+body {
+    background-image: url("/images/2.jfif");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 40%;
+}
+
+.siderbar {
+    background-image: url("/images/Background.jfif");
 }

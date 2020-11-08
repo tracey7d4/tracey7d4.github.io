@@ -323,7 +323,7 @@ where \(
   arr_1[i-1] \neq arr_2[j-1] \) then \[
   arr[i][j] = max \{ arr[i-1][j], arr[i][j-1]\} \]</li>
 </ul>
-<p>For example, the 2D array created when finding LCS of 2 sequences <code>{11,12,13}</code> and <code>{11,13,15}</code> is as follows (note that the 2 sequences are given in letters instead of numbers so that it&rsquo;s easier to be distinguished from their indices)</p>
+<p>For example, the 2D array created when finding LCS of 2 sequences <code>{11,12,13}</code> and <code>{11,13,15}</code> is as follows.</p>
 <table>
 <thead>
 <tr>
@@ -395,7 +395,7 @@ where \(
 				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">arr1</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">arr2</span>[<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] {
 					<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>] = <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
 				} <span style="color:#66d9ef">else</span> {
-					<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">maxab</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+					<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
 				}
 			}
 		}
@@ -405,7 +405,7 @@ where \(
 }
 
 <span style="color:#75715e">// utility function to get max of 2 integers
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxab</span>(<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span> &gt; <span style="color:#a6e22e">b</span> {
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span>
 	}
@@ -443,26 +443,27 @@ Base case is when one of two array is empty, or when <code>n == 0 || m == 0</cod
 		<span style="color:#a6e22e">mapOf2</span>[[<span style="color:#ae81ff">2</span>]<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">m</span>}] = <span style="color:#a6e22e">res</span>
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
 	}
-	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">maxOf2</span>(<span style="color:#a6e22e">LCSof2</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">mapOf2</span>), <span style="color:#a6e22e">LCSof2</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">m</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">mapOf2</span>))
+	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">LCSof2</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">mapOf2</span>), <span style="color:#a6e22e">LCSof2</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">m</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">mapOf2</span>))
 	<span style="color:#a6e22e">mapOf2</span>[[<span style="color:#ae81ff">2</span>]<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">m</span>}] = <span style="color:#a6e22e">res</span>
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
 }
 }
 
 <span style="color:#75715e">// utility function to get max of 2 integers
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxOf2</span>(<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span> &gt; <span style="color:#a6e22e">b</span> {
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span>
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span>
 }
 </code></pre></div><h3 id="lcs-of-three-sequences">LCS of three sequences</h3>
-<p>How about finding the LCS of three sequences \(
+<p>Now our problem is finding the LCS of three sequences \(
   arr_1 = [a_1, a_2, ... , a_n] \) , \(
   arr_2 = [b_1, b_2, ..., b_m] \), and \(
-  arr_3 = [c_1, c_2, ..., c_l] \)</p>
-<p>This problem is an extension of the LCS problem of two sequences above.</p>
+  arr_3 = [c_1, c_2, ..., c_l] \).</p>
+<p>This problem is just an extension of the LCS problem of two sequences above.</p>
 <h5 id="tabulation-approach">Tabulation approach</h5>
+<p>We are going to use a 3D array to store the calculated values.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">LCSof3Table</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">arr3</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">int</span> {
 	<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr1</span>)
 	<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr2</span>)
@@ -478,7 +479,7 @@ Base case is when one of two array is empty, or when <code>n == 0 || m == 0</cod
 					<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">arr1</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">arr2</span>[<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">arr1</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">arr3</span>[<span style="color:#a6e22e">k</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] {
 						<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>][<span style="color:#a6e22e">k</span>] = <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">k</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
 					} <span style="color:#66d9ef">else</span> {
-						<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>][<span style="color:#a6e22e">k</span>] = <span style="color:#a6e22e">maxabc</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">j</span>][<span style="color:#a6e22e">k</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">k</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>][<span style="color:#a6e22e">k</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+						<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>][<span style="color:#a6e22e">k</span>] = <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">j</span>][<span style="color:#a6e22e">k</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">k</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>][<span style="color:#a6e22e">k</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
 					}
 				}
 			}
@@ -489,7 +490,7 @@ Base case is when one of two array is empty, or when <code>n == 0 || m == 0</cod
 }
 
 <span style="color:#75715e">// Utility function
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxabc</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
 	<span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">a</span>
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span> &lt; <span style="color:#a6e22e">b</span> {
 		<span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">b</span>
@@ -520,7 +521,7 @@ Base case is when one of two array is empty, or when <code>n == 0 || m == 0</cod
 		<span style="color:#a6e22e">mx</span>[[<span style="color:#ae81ff">3</span>]<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">l</span>}] = <span style="color:#a6e22e">res</span>
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
 	}
-	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">maxMap</span>(<span style="color:#a6e22e">LCSof3</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">arr3</span>, <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">l</span>, <span style="color:#a6e22e">mx</span>),
+	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">LCSof3</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">arr3</span>, <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">l</span>, <span style="color:#a6e22e">mx</span>),
 		<span style="color:#a6e22e">LCSof3</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">arr3</span>, <span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">m</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">l</span>, <span style="color:#a6e22e">mx</span>),
 		<span style="color:#a6e22e">LCSof3</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>, <span style="color:#a6e22e">arr3</span>, <span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">l</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">mx</span>))
 	<span style="color:#a6e22e">mx</span>[[<span style="color:#ae81ff">3</span>]<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">l</span>}] = <span style="color:#a6e22e">res</span>
@@ -528,7 +529,7 @@ Base case is when one of two array is empty, or when <code>n == 0 || m == 0</cod
 }
 
 <span style="color:#75715e">// Utility function
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxMap</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
 	<span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">a</span>
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span> &lt; <span style="color:#a6e22e">b</span> {
 		<span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">b</span>
