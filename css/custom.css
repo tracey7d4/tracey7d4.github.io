@@ -47,13 +47,13 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    body * {
+    body {
         background-image: url("/images/3.jfif");
         background-repeat: no-repeat;
         background-position: right top;
         background-size: 100%;
     }
-    /*body.home {
+    body.home {
         background-image: url("/images/3.jfif");
         background-repeat: no-repeat;
         background-position: right top;
@@ -68,7 +68,7 @@ body {
    /* body.page.type-docs {
         background-image: none;
     }
-   
+   */
 
    body.page.type-docs {
         background-image: url("/images/3.jfif");
@@ -83,7 +83,7 @@ body {
         background-position: right top;
         background-size: 100%;
     }
-   */
+   
 }
 
 .sidebar {
