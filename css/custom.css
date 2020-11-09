@@ -5,21 +5,14 @@
     max-width: 100%;
 }
 
+/* For background */
+
 body.page.type-docs {
     background-image: url("/images/typedocs.png");
     background-repeat: no-repeat;
     background-position: fixed right;
     background-size: 25%;
     background-attachment: fixed;
-}
-
-@media only screen and (max-width: 400px) {
-    body {
-        background-image: url("/images/3.jfif");
-        background-repeat: no-repeat;
-        background-position: right top;
-        background-size: 100%;
-    }
 }
 
 body.home {
@@ -42,6 +35,15 @@ body {
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 30%;
+}
+
+@media only screen and (max-device-width: 480px) {
+    body {
+        background-image: url("/images/3.jfif");
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: 100%;
+    }
 }
 
 .sidebar {
