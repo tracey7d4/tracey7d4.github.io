@@ -10,7 +10,7 @@
 body.page.type-docs {
     background-image: url("/images/typedocs.png");
     background-repeat: no-repeat;
-    background-position: fixed right;
+    background-position: right;
     background-size: 25%;
     background-attachment: fixed;
 }
@@ -18,7 +18,7 @@ body.page.type-docs {
 body.page.type-project {
     background-image: url("/images/typedocs.png");
     background-repeat: no-repeat;
-    background-position: fixed right;
+    background-position: right;
     background-size: 25%;
     background-attachment: fixed;
 }
@@ -26,7 +26,7 @@ body.page.type-project {
 body.home {
     background-image: url("/images/home.png");
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: right;
     background-size: 30%;
 }
 
@@ -35,24 +35,25 @@ body.page {
     background-image: url("/images/page.jfif");
     background-repeat: no-repeat;
     background-position: right top;
-    background-size: 40%;
+    background-size: 30%;
 }
 
 body {
     background-image: url("/images/main.jfif");
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: right;
     background-size: 30%;
+    background-attachment: fixed;
 }
 
-@media only screen and (max-width: 480px) {
-    body {
+@media only screen and (max-width: 768px) {
+    body* {
         background-image: url("/images/3.jfif");
         background-repeat: no-repeat;
         background-position: right top;
         background-size: 100%;
     }
-    body.home {
+    /*body.home {
         background-image: url("/images/3.jfif");
         background-repeat: no-repeat;
         background-position: right top;
@@ -67,7 +68,7 @@ body {
    /* body.page.type-docs {
         background-image: none;
     }
-   */
+   
 
    body.page.type-docs {
         background-image: url("/images/3.jfif");
@@ -82,7 +83,7 @@ body {
         background-position: right top;
         background-size: 100%;
     }
-
+   */
 }
 
 .sidebar {
