@@ -24,10 +24,10 @@ body.page.type-project {
 }
 
 body.home {
-    background-image: url("/images/home.png");
+    background-image: url("/images/tree.jpg");
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 30%;
+    background-size: 40%;
 }
 
 
