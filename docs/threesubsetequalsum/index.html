@@ -78,7 +78,7 @@
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/tags/api/' style='font-size:1.0526315789473684em'>API</a>
+        <a href='/tags/api/' style='font-size:1.05em'>API</a>
       </li><li>
         <a href='/tags/avl-tree/' style='font-size:1em'>AVL Tree</a>
       </li><li>
@@ -88,7 +88,7 @@
       </li><li>
         <a href='/tags/breadth-first-traversal/' style='font-size:1em'>breadth-first traversal</a>
       </li><li>
-        <a href='/tags/bst/' style='font-size:1.1578947368421053em'>BST</a>
+        <a href='/tags/bst/' style='font-size:1.15em'>BST</a>
       </li><li>
         <a href='/tags/channel/' style='font-size:1em'>channel</a>
       </li><li>
@@ -96,11 +96,11 @@
       </li><li>
         <a href='/tags/depth-first-traversal/' style='font-size:1em'>depth-first traversal</a>
       </li><li>
-        <a href='/tags/dp/' style='font-size:1.1052631578947367em'>DP</a>
+        <a href='/tags/dp/' style='font-size:1.1em'>DP</a>
       </li><li>
-        <a href='/tags/dynamic-programming/' style='font-size:1.1052631578947367em'>dynamic programming</a>
+        <a href='/tags/dynamic-programming/' style='font-size:1.1em'>dynamic programming</a>
       </li><li>
-        <a href='/tags/example/' style='font-size:1.7894736842105263em'>example</a>
+        <a href='/tags/example/' style='font-size:1.8em'>example</a>
       </li><li>
         <a href='/tags/fibonacci/' style='font-size:1em'>Fibonacci</a>
       </li><li>
@@ -108,7 +108,7 @@
       </li><li>
         <a href='/tags/gcd/' style='font-size:1em'>GCD</a>
       </li><li>
-        <a href='/tags/gcp/' style='font-size:1.0526315789473684em'>GCP</a>
+        <a href='/tags/gcp/' style='font-size:1.05em'>GCP</a>
       </li><li>
         <a href='/tags/go/' style='font-size:2em'>go</a>
       </li><li>
@@ -118,19 +118,19 @@
       </li><li>
         <a href='/tags/lcm/' style='font-size:1em'>LCM</a>
       </li><li>
-        <a href='/tags/map/' style='font-size:1.0526315789473684em'>map</a>
+        <a href='/tags/map/' style='font-size:1.05em'>map</a>
       </li><li>
         <a href='/tags/merge-sort/' style='font-size:1em'>merge sort</a>
       </li><li>
         <a href='/tags/method/' style='font-size:1em'>method</a>
       </li><li>
-        <a href='/tags/project/' style='font-size:1.1052631578947367em'>project</a>
+        <a href='/tags/project/' style='font-size:1.1em'>project</a>
       </li><li>
-        <a href='/tags/recursive/' style='font-size:1.263157894736842em'>recursive</a>
+        <a href='/tags/recursive/' style='font-size:1.25em'>recursive</a>
       </li><li>
-        <a href='/tags/slack/' style='font-size:1.0526315789473684em'>slack</a>
+        <a href='/tags/slack/' style='font-size:1.05em'>slack</a>
       </li><li>
-        <a href='/tags/sort/' style='font-size:1.0526315789473684em'>sort</a>
+        <a href='/tags/sort/' style='font-size:1.05em'>sort</a>
       </li><li>
         <a href='/tags/tabulation/' style='font-size:1em'>tabulation</a>
       </li><li>
@@ -289,7 +289,7 @@
 <p>Otherwise, go further to check all the possibilities.</p>
 <p>Let&rsquo;s think about a smaller problem that is checking the possibility <code>P(arr, k)</code> of forming a subset from a given array that elements sum up to a target number <code>k</code>. To do so, we will need to recursively check the possibility of including the element <code>arr[i]</code> to the subset <code>P(arr,k) = P(arr, k-arr[i])</code>. Our base case is when <code>k == 0</code> stated that we have reached to target value. In case there is no more element in the given array while we have not yet reached to target value (when we have use all elements in given array but not yet reached to the targer), return value is <code>false</code>.</p>
 <p>Come back to our three subsets problem, we will need to form 3 such subsets instead of one. It is noted that 3 subsets are formed simultaneously, not separately. The base case is when all subsets have reached to their target values <code>k1 == 0 &amp;&amp; k2 == 0 &amp;&amp; k3 == 0</code>.</p>
-<p>We will cache the overlapping case using a map, where key is a string formed form from <code>k1</code>, <code>k2</code>, <code>k3</code> and length of the input array.</p>
+<p>We will cache the overlapping cases using a map, where key is a string formed form from <code>k1</code>, <code>k2</code>, <code>k3</code> and length of the input array.</p>
 </li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">partitionArray</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
@@ -385,6 +385,17 @@
 </svg>
  Previous</span>
         <span class='screen-reader-text'>Previous post: </span>Longest Common Subsequence (LCS) - Dynamic Programming</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/docs/maxsubarray/'>
+        <span class='screen-reader-text'>Next post: </span>Define a sub-array with maximum sum<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+
+</svg>
+</span>
+      </a>
     </div></div>
 </nav>
 

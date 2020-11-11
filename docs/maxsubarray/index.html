@@ -3,24 +3,24 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Source code
-Description This is a very simple game modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.
-Mira is running her scooter. She is going to meet objects on her way, and jumping over them is the only way to go pass. Every time when she successfully avoids an object she will get one point.
-How to play Press space key or left-click when you want to jump.'>
+Problem description Given a non-empty array of integers. Define a sub-array with maximum sub-array sum. A sub-array of an array is a subset composed from a contiguous block of original array&rsquo;s elements.
+Input: \( arr = [a_1, a_2, ... , a_n] \), \( n  0 \)
+Output: maximum sub-array sum maxSum and subarray \( subarr = [a_i, a_{i&#43;1}, ... , a_j] \) where \( 1 \leq i Implementation   In case elements of given array are all negative, then maxSum is the maximum element in the array'>
 <meta name='theme-color' content='blue'>
 
-<meta property='og:title' content='Mira Jump • Tracey Hoang'>
+<meta property='og:title' content='Define a sub-array with maximum sum • Tracey Hoang'>
 <meta property='og:description' content='Source code
-Description This is a very simple game modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.
-Mira is running her scooter. She is going to meet objects on her way, and jumping over them is the only way to go pass. Every time when she successfully avoids an object she will get one point.
-How to play Press space key or left-click when you want to jump.'>
-<meta property='og:url' content='http://www.example.com/project/mirajump/'>
+Problem description Given a non-empty array of integers. Define a sub-array with maximum sub-array sum. A sub-array of an array is a subset composed from a contiguous block of original array&rsquo;s elements.
+Input: \( arr = [a_1, a_2, ... , a_n] \), \( n  0 \)
+Output: maximum sub-array sum maxSum and subarray \( subarr = [a_i, a_{i&#43;1}, ... , a_j] \) where \( 1 \leq i Implementation   In case elements of given array are all negative, then maxSum is the maximum element in the array'>
+<meta property='og:url' content='http://www.example.com/docs/maxsubarray/'>
 <meta property='og:site_name' content='Tracey Hoang'>
-<meta property='og:type' content='article'><meta property='og:image' content='http://www.example.com/images/project/mirajump.gif'><meta property='article:section' content='project'><meta property='article:tag' content='game'><meta property='article:tag' content='project'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-16T21:00:00&#43;10:00'/><meta property='article:modified_time' content='2020-10-16T21:00:00&#43;10:00'/><meta name='twitter:card' content='summary_large_image'><meta property='twitter:image' content='http://www.example.com/images/project/mirajump.gif'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-11-11T22:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-11-11T22:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.74.3" />
 
-  <title>Mira Jump • Tracey Hoang</title>
-  <link rel='canonical' href='http://www.example.com/project/mirajump/'>
+  <title>Define a sub-array with maximum sum • Tracey Hoang</title>
+  <link rel='canonical' href='http://www.example.com/docs/maxsubarray/'>
   
   
   <link rel='icon' href='/favicon.ico'>
@@ -31,7 +31,7 @@ How to play Press space key or left-click when you want to jump.'>
   
 
 </head>
-<body class='page type-project has-cover has-sidebar'>
+<body class='page type-docs has-sidebar'>
 
   <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
@@ -193,7 +193,7 @@ How to play Press space key or left-click when you want to jump.'>
     <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/'>Home</a></li><li><a href='/project/'>Projects</a></li><li><span>Mira Jump</span></li></ol>
+      <ol><li><a href='/'>Home</a></li><li><a href='/docs/'>Posts</a></li><li><span>Define a sub-array with maximum sum</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -212,7 +212,7 @@ How to play Press space key or left-click when you want to jump.'>
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Mira Jump</h1>
+      <h1 class='title'>Define a sub-array with maximum sum</h1>
       
 
     </div>
@@ -227,7 +227,7 @@ How to play Press space key or left-click when you want to jump.'>
 
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2020-10-16T21:00:00&#43;10:00'>2020, Oct 16</time>
+  <time class='entry-date' datetime='2020-11-11T22:00:00&#43;11:00'>2020, Nov 11</time>
 </span>
 
   <span class='byline'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -246,7 +246,7 @@ How to play Press space key or left-click when you want to jump.'>
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-One min read
+2 mins read
 </span>
 
 
@@ -256,14 +256,7 @@ One min read
   </div>
 </header>
 
-  <div class='entry-cover'>
-  <figure class='container cover-normal'>
-    <img src='/images/project/mirajump.gif'/>
-    
-      
-    
-  </figure>
-</div>
+  
   
 <details class='container entry-toc'>
   <summary class='title'>
@@ -273,9 +266,8 @@ One min read
   <ul>
     <li>
       <ul>
-        <li><a href="#description">Description</a></li>
-        <li><a href="#how-to-play">How to play</a></li>
-        <li><a href="#some-modifications-that-have-been-made">Some modifications that have been made</a></li>
+        <li><a href="#problem-description">Problem description</a></li>
+        <li><a href="#implementation">Implementation</a></li>
       </ul>
     </li>
   </ul>
@@ -284,26 +276,70 @@ One min read
 
 
   <div class='container entry-content'>
-  <p><a href="https://github.com/tracey7d4/mirajump"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
-<h3 id="description">Description</h3>
-<p>This is a very simple game modified from Flappy Gopher game from Ebiten. It is written in Go using Ebiten library.</p>
-<p>Mira is running her scooter. She is going to meet objects on her way, and jumping over them is the only way to go pass. Every time when she successfully avoids an object she will get one point.</p>
-<h3 id="how-to-play">How to play</h3>
-<p>Press <code>space</code> key or left-click when you want to jump.</p>
-<h3 id="some-modifications-that-have-been-made">Some modifications that have been made</h3>
+  <p><a href="https://github.com/tracey7d4/CommonExamples/blob/main/maxSubarray.go"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
+<h3 id="problem-description">Problem description</h3>
+<p>Given a non-empty array of integers. Define a sub-array with maximum sub-array sum. A sub-array of an array is a subset composed from a contiguous block of original array&rsquo;s elements.</p>
+<p>Input: \(
+  arr = [a_1, a_2, ... , a_n] \), \(
+  n > 0 \)</p>
+<p>Output: maximum sub-array sum <code>maxSum</code> and subarray \(
+  subarr = [a_i, a_{i+1}, ... , a_j] \) where \(
+  1 \leq i < j \leq n \)</p>
+<h3 id="implementation">Implementation</h3>
 <ul>
-<li>Changing Gopher image to Mira image. The new image is stored locally in personal github folder</li>
+<li>
+<p>In case elements of given array are all negative, then <code>maxSum</code> is the maximum element in the array</p>
+</li>
+<li>
+<p>Otherwise, there is at least one element is non-negative, or <code>maxSum &gt;= 0</code>. The beginning value of <code>maxSum := 0</code>. We then will iterate through the original array and compute the <code>currentSum</code> - the sum of all elements till the iteration.</p>
+<ul>
+<li>
+<p>If <code>currentSum &gt;= 0</code>, we need to compare <code>currentSum</code> and <code>maxSum</code> and update <code>maxSum</code> if needed. If the <code>currentSum &lt; maxSum</code>, we don&rsquo;t update the <code>maxSum</code> but will move to the next elements to see whether the total sum is greater than <code>maxSum</code>. The <code>maxSum</code> will be updated only if <code>currentSum &gt;= maxSum</code>. It is noted that I want to compose a subarray as long as possible, so I will update even when <code>currentSum = maxSum</code>.</p>
+</li>
+<li>
+<p>If at any iteration, adding the element to <code>currentSum</code> make it negative, that element is not going to be used for composing the sub-array. And hence, the subarray may be the block of elements before or after the iterated index. The <code>currentSum</code> is reset back to <code>0</code>, and continue to find other subarrays with non-negative sum.</p>
+</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">   <span style="color:#a6e22e">localsrc</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">tracey7d4</span><span style="color:#f92672">/</span><span style="color:#a6e22e">mirajump</span><span style="color:#f92672">/</span><span style="color:#a6e22e">resources</span><span style="color:#f92672">/</span><span style="color:#a6e22e">images</span>
-</code></pre></div><ul>
-<li>Un-rotating image during jumping period</li>
-<li>Deleting upper pipes</li>
-<li>Increasing gap between two adjacent pipes</li>
-<li>Making pipes&rsquo; height fixed</li>
-<li>Changing to automatically running on the ground</li>
-<li>Jumping only once at a time. Another jump can only be done as long as Mira is on the ground.</li>
+</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxSubarray</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) (<span style="color:#66d9ef">int32</span>, []<span style="color:#66d9ef">int32</span>) {
+	<span style="color:#75715e">// In case elements of Array are all negative, return maximum element 
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">maxArray</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
+	<span style="color:#a6e22e">index</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span> &gt; <span style="color:#a6e22e">maxArray</span> {
+			<span style="color:#a6e22e">maxArray</span> = <span style="color:#a6e22e">v</span>
+			<span style="color:#a6e22e">index</span> = <span style="color:#a6e22e">i</span>
+		}
+	}
 
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">maxArray</span> &lt; <span style="color:#ae81ff">0</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">maxArray</span>, <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">index</span> : <span style="color:#a6e22e">index</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]
+	}
+
+	<span style="color:#a6e22e">maxSum</span> <span style="color:#f92672">:=</span> int32(<span style="color:#ae81ff">0</span>)
+	<span style="color:#a6e22e">currentSum</span> <span style="color:#f92672">:=</span> int32(<span style="color:#ae81ff">0</span>)
+	<span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#a6e22e">tempIndex</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">currentSum</span><span style="color:#f92672">+</span><span style="color:#a6e22e">v</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> {
+			<span style="color:#a6e22e">currentSum</span> = <span style="color:#a6e22e">currentSum</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">v</span>
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">maxSum</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">currentSum</span> {
+				<span style="color:#a6e22e">maxSum</span> = <span style="color:#a6e22e">currentSum</span>
+				<span style="color:#a6e22e">i</span> = <span style="color:#a6e22e">tempIndex</span>
+				<span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">k</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+			}
+		} <span style="color:#66d9ef">else</span> {
+			<span style="color:#a6e22e">tempIndex</span> = <span style="color:#a6e22e">k</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+			<span style="color:#a6e22e">currentSum</span> = <span style="color:#ae81ff">0</span>
+		}
+
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">maxSum</span>, <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>:<span style="color:#a6e22e">j</span>]
+}
+</code></pre></div>
 </div>
 
   
@@ -322,7 +358,7 @@ One min read
   <line x1="7" y1="7" x2="7" y2="7"/>
 
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/game/'>game</a>, <a class='tag' href='/tags/project/'>project</a>, <a class='tag' href='/tags/golang/'>golang</a>, <a class='tag' href='/tags/go/'>go</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/example/'>example</a>, <a class='tag' href='/tags/golang/'>golang</a>, <a class='tag' href='/tags/go/'>go</a></div>
 
   </div>
 </footer>
@@ -332,7 +368,7 @@ One min read
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/project/stockbot/'>
+      <a href='/docs/threesubsetequalsum/'>
         <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
     
     
@@ -341,7 +377,7 @@ One min read
 
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Simple Slack bot in Go using event API - Stock Bot</a>
+        <span class='screen-reader-text'>Previous post: </span>Divide an array into 3 subsets with equal sum - Dynamic Programming</a>
     </div></div>
 </nav>
 
@@ -387,7 +423,13 @@ One min read
     </div>
   </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script><link rel='stylesheet' href='//unpkg.com/katex/dist/katex.min.css'>
+<script src='//unpkg.com/katex/dist/katex.min.js'></script>
+<script src='//unpkg.com/katex/dist/contrib/auto-render.min.js'></script>
+
+<script type='text/javascript'>
+  renderMathInElement(document.querySelector('.entry-content'),{});
+</script>
 
 </body>
 
