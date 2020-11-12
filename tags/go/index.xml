@@ -20,15 +20,15 @@
     </item>
     
     <item>
-      <title>Define a sub-array with maximum sum</title>
+      <title>Define a subarray with largest sum</title>
       <link>http://www.example.com/docs/maxsubarray/</link>
       <pubDate>Wed, 11 Nov 2020 22:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/docs/maxsubarray/</guid>
       <description>Source code
-Problem description Given a non-empty array of integers. Define a sub-array with maximum sub-array sum. A sub-array of an array is a subset composed from a contiguous block of original array&amp;rsquo;s elements.
+Problem description Given a non-empty array of integers. Find a subarray with the largest sum. A subarray of an array is a subset composed from a contiguous block of original array&amp;rsquo;s elements. The sum of an array is the total sum of its elements.
 Input: \( arr = [a_1, a_2, ... , a_n] \), \( n  0 \)
-Output: maximum sub-array sum maxSum and subarray \( subarr = [a_i, a_{i+1}, ... , a_j] \) where \( 1 \leq i Implementation   In case elements of given array are all negative, then maxSum is the maximum element in the array</description>
+Output: Largest subarray sum maxSum and subarray \( subarr = [a_i, a_{i+1}, .</description>
     </item>
     
     <item>
