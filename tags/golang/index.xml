@@ -5,7 +5,7 @@
     <link>http://www.example.com/tags/golang/</link>
     <description>Recent content in golang on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 11 Nov 2020 22:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2020 12:00:00 +1100</lastBuildDate>
     
 	<atom:link href="http://www.example.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,6 +17,44 @@
       
       <guid>http://www.example.com/about/</guid>
       <description>Hello, I&amp;rsquo;m Tracey. I am a self-taught software engineer with applied mathematics background. After going through A Tour of Go, I found that Go was actually a neat and simple language to learn and started to develop more interest in programming. While still in my learning journey, I create this blog to share interesting problems and projects that I have done in Go, as well as some other useful resources.</description>
+    </item>
+    
+    <item>
+      <title>Define all maximum of all subarrays of sliding window size k</title>
+      <link>http://www.example.com/docs/maxvalueofslidingwindow/</link>
+      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/maxvalueofslidingwindow/</guid>
+      <description>Source code
+Problem description Given an array of n element. Define the maximum value of every sliding window size k of that array. A window size k of the array is any subarray of k elements of original array.
+Algorithm 1. Naive algorithm Naive algorithm is to scan each window separately, and find the maximum value of each window.
+Time complexity: \( O(n \times k) \)
+Space complexity: \( O(1) \)</description>
+    </item>
+    
+    <item>
+      <title>Design a Special Stack that supports finding max/min value in constant time</title>
+      <link>http://www.example.com/docs/specialstack/</link>
+      <pubDate>Wed, 18 Nov 2020 11:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/specialstack/</guid>
+      <description>Source code
+Description Our task is to design a stack that supports some operations such as push a key in, pop an element out, and return maximum and minimum values. We also need to make sure all those operations are done in constant of time.
+The program lets user type in queries, and only terminates when user stops the program or when user type in &amp;ldquo;stop&amp;rdquo; query.
+Algorithm The idea is to use 3 different stacks, one to store the actual elements, the other two are auxiliary stacks to store maximum and minimum elements at current state.</description>
+    </item>
+    
+    <item>
+      <title>Check for balanced brackets in a text - Stack</title>
+      <link>http://www.example.com/docs/brackets/</link>
+      <pubDate>Tue, 17 Nov 2020 21:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/brackets/</guid>
+      <description>Source code
+Given a text that contains any brackets from the set [], {}, (). Our program is to check whether the text uses brackets correctly. If there are no mistake, print out &amp;ldquo;Balanced&amp;rdquo;. Otherwise, find index of the first unmatched closing brackets, or the last opening bracket without corresponding closing one, and print out &amp;ldquo;Unbalanced at index index&amp;rdquo;.
+For example:
+[()] &amp;ndash;&amp;gt; Balanced
+[(] &amp;ndash;&amp;gt; Unbalanced at index 3</description>
     </item>
     
     <item>

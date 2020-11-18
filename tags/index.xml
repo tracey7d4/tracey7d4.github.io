@@ -5,15 +5,33 @@
     <link>http://www.example.com/tags/</link>
     <description>Recent content in Tags on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 11 Nov 2020 22:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2020 12:00:00 +1100</lastBuildDate>
     
 	<atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>data structure</title>
+      <link>http://www.example.com/tags/data-structure/</link>
+      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/data-structure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dequeue</title>
+      <link>http://www.example.com/tags/dequeue/</link>
+      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/dequeue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>example</title>
       <link>http://www.example.com/tags/example/</link>
-      <pubDate>Wed, 11 Nov 2020 22:00:00 +1100</pubDate>
+      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/example/</guid>
       <description></description>
@@ -22,7 +40,7 @@
     <item>
       <title>go</title>
       <link>http://www.example.com/tags/go/</link>
-      <pubDate>Wed, 11 Nov 2020 22:00:00 +1100</pubDate>
+      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/go/</guid>
       <description></description>
@@ -31,9 +49,18 @@
     <item>
       <title>golang</title>
       <link>http://www.example.com/tags/golang/</link>
-      <pubDate>Wed, 11 Nov 2020 22:00:00 +1100</pubDate>
+      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stack</title>
+      <link>http://www.example.com/tags/stack/</link>
+      <pubDate>Wed, 18 Nov 2020 11:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/stack/</guid>
       <description></description>
     </item>
     
@@ -155,7 +182,7 @@
     </item>
     
     <item>
-      <title>AVL Tree</title>
+      <title>AVL tree</title>
       <link>http://www.example.com/tags/avl-tree/</link>
       <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
       
@@ -164,7 +191,7 @@
     </item>
     
     <item>
-      <title>Balanced BST</title>
+      <title>balanced BST</title>
       <link>http://www.example.com/tags/balanced-bst/</link>
       <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
       

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stack on Tracey Hoang</title>
+    <link>http://www.example.com/tags/stack/</link>
+    <description>Recent content in stack on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 18 Nov 2020 11:00:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/stack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Design a Special Stack that supports finding max/min value in constant time</title>
+      <link>http://www.example.com/docs/specialstack/</link>
+      <pubDate>Wed, 18 Nov 2020 11:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/specialstack/</guid>
+      <description>Source code
+Description Our task is to design a stack that supports some operations such as push a key in, pop an element out, and return maximum and minimum values. We also need to make sure all those operations are done in constant of time.
+The program lets user type in queries, and only terminates when user stops the program or when user type in &amp;ldquo;stop&amp;rdquo; query.
+Algorithm The idea is to use 3 different stacks, one to store the actual elements, the other two are auxiliary stacks to store maximum and minimum elements at current state.</description>
+    </item>
+    
+    <item>
+      <title>Check for balanced brackets in a text - Stack</title>
+      <link>http://www.example.com/docs/brackets/</link>
+      <pubDate>Tue, 17 Nov 2020 21:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/brackets/</guid>
+      <description>Source code
+Given a text that contains any brackets from the set [], {}, (). Our program is to check whether the text uses brackets correctly. If there are no mistake, print out &amp;ldquo;Balanced&amp;rdquo;. Otherwise, find index of the first unmatched closing brackets, or the last opening bracket without corresponding closing one, and print out &amp;ldquo;Unbalanced at index index&amp;rdquo;.
+For example:
+[()] &amp;ndash;&amp;gt; Balanced
+[(] &amp;ndash;&amp;gt; Unbalanced at index 3</description>
+    </item>
+    
+  </channel>
+</rss>
