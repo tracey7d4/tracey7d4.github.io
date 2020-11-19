@@ -20,16 +20,16 @@
     </item>
     
     <item>
-      <title>Define all maximum of all subarrays of sliding window size k</title>
+      <title>Define all maximum of all sliding windows size k</title>
       <link>http://www.example.com/docs/maxvalueofslidingwindow/</link>
       <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/docs/maxvalueofslidingwindow/</guid>
       <description>Source code
-Problem description Given an array of n element. Define the maximum value of every sliding window size k of that array. A window size k of the array is any subarray of k elements of original array.
-Algorithm 1. Naive algorithm Naive algorithm is to scan each window separately, and find the maximum value of each window.
-Time complexity: \( O(n \times k) \)
-Space complexity: \( O(1) \)</description>
+Problem description Given an array of n elements. Define the maximum value of every sliding window size k of that array. A window size k of the array is any subarray of k elements of original array.
+Example:
+Input: arr = {7, 6, 5, 4, 8, 9, 1}, and window size k = 3 Output:	{7, 6, 8, 9, 9}
+Algorithm 1. Naive algorithm Naive algorithm is to scan each window separately, and find the maximum value of each window.</description>
     </item>
     
     <item>

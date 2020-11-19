@@ -5,7 +5,7 @@
 <meta name='description' content='Data structure - Dequeue'>
 <meta name='theme-color' content='blue'>
 
-<meta property='og:title' content='Define all maximum of all subarrays of sliding window size k • Tracey Hoang'>
+<meta property='og:title' content='Define all maximum of all sliding windows size k • Tracey Hoang'>
 <meta property='og:description' content='Data structure - Dequeue'>
 <meta property='og:url' content='http://www.example.com/docs/maxvalueofslidingwindow/'>
 <meta property='og:site_name' content='Tracey Hoang'>
@@ -13,7 +13,7 @@
 
 <meta name="generator" content="Hugo 0.74.3" />
 
-  <title>Define all maximum of all subarrays of sliding window size k • Tracey Hoang</title>
+  <title>Define all maximum of all sliding windows size k • Tracey Hoang</title>
   <link rel='canonical' href='http://www.example.com/docs/maxvalueofslidingwindow/'>
   
   
@@ -193,7 +193,7 @@
     <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/'>Home</a></li><li><a href='/docs/'>Posts</a></li><li><span>Define all maximum of all subarrays of sliding window size k</span></li></ol>
+      <ol><li><a href='/'>Home</a></li><li><a href='/docs/'>Posts</a></li><li><span>Define all maximum of all sliding windows size k</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -212,7 +212,7 @@
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Define all maximum of all subarrays of sliding window size k</h1>
+      <h1 class='title'>Define all maximum of all sliding windows size k</h1>
       
 <p class='desc'>Data structure - Dequeue</p>
 
@@ -280,7 +280,10 @@
   <div class='container entry-content'>
   <p><a href="https://github.com/tracey7d4/CommonExamples/tree/main/maxValueOfSlidingWindow"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
 <h3 id="problem-description">Problem description</h3>
-<p>Given an array of <code>n</code> element. Define the maximum value of every sliding window size <code>k</code> of that array. A window size <code>k</code> of the array is any subarray of <code>k</code> elements of original array.</p>
+<p>Given an array of <code>n</code> elements. Define the maximum value of every sliding window size <code>k</code> of that array. A window size <code>k</code> of the array is any subarray of <code>k</code> elements of original array.</p>
+<p>Example:<br>
+Input: 	<code>arr = {7, 6, 5, 4, 8, 9, 1}</code>, and window size <code>k = 3</code> <br>
+Output:	<code>{7, 6, 8, 9, 9}</code></p>
 <h3 id="algorithm">Algorithm</h3>
 <h4 id="1-naive-algorithm">1. Naive algorithm</h4>
 <p>Naive algorithm is to scan each window separately, and find the maximum value of each window.</p>
@@ -304,11 +307,13 @@ Space complexity: \(
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
 }
 </code></pre></div><h4 id="2-dequeue-algorithm">2. Dequeue algorithm</h4>
-<p>We&rsquo;re going to use dequeue to sovle this problem in \(
+<p>We&rsquo;re going to use dequeue to solvee this problem in \(
  O(n) \) in term of time complexity, and \(
  O(k) \) in term of space complexity. Dequeue is a double-ended queue, that allows us to pop element at its both ends.</p>
-<p>The idea is storing only relevant elements in a dequeue. Before adding a new element, we will drop all smaller elements in that dequeue. It is noted that the dequeue doesn&rsquo;t stores elements&rsquo; values but their indices.</p>
+<p>The idea is storing only relevant elements in a dequeue. Before adding a new element, we will drop all smaller elements in that dequeue. It is noted that the dequeue doesn&rsquo;t stores elements&rsquo; values but their indices in original array. The reason of storing the indices is to easily check whether an element belong to the current window.</p>
 <p>Please follow <a href="https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/">this link</a> for explanation of algorithm, and <a href="https://stackoverflow.com/questions/53094476/why-is-the-deque-solution-to-the-sliding-window-maximum-problem-on-instead-o">this link</a> in term of algorithm complexity.</p>
+<p>Let&rsquo;s go through an example to visualise the algorithm. Given an array <code>arr = {7, 6, 5, 4, 8, 9, 1}</code>, and <code>k = 3</code>. The current window size of 3 is display in orange, <code>dequeue</code> in blue, and result in green. It is noted that the <code>dequeue</code> in the illustration is holding the actual values of elements instead of their indices so that it&rsquo;s easier to follows.</p>
+<p><img src="/images/docs/dequeue.png" alt="Explanation"></p>
 <p><strong>Implementation</strong></p>
 <ul>
 <li>Create a struct <code>deque</code> and its methods <code>push()</code>, <code>popEnd()</code>, <code>popStart()</code></li>
@@ -344,7 +349,7 @@ Space complexity: \(
 		<span style="color:#a6e22e">dequeue</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>)
 	}
 </code></pre></div><ul>
-<li>After finishing interation through the first window, the most-left element in the dequeue is the index of maximum element of that window, we then append our result array <code>res</code> for that found maximum.</li>
+<li>After finishing interation through the first window, the most-left element in the dequeue is the index of maximum element of that window, we then include the found maximum to our array <code>res</code> that will be returned at the end of program.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int32</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">n</span>)
 <span style="color:#a6e22e">res</span> = append(<span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">dequeue</span>.<span style="color:#a6e22e">index</span>[<span style="color:#ae81ff">0</span>]])
