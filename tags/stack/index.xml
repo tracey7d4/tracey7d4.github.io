@@ -11,15 +11,15 @@
     
     
     <item>
-      <title>Design a Special Stack that supports finding max/min value in constant time</title>
+      <title>Design a special Stack that supports finding max/min values in constant time</title>
       <link>http://www.example.com/docs/specialstack/</link>
       <pubDate>Wed, 18 Nov 2020 11:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/docs/specialstack/</guid>
       <description>Source code
-Description Our task is to design a stack that supports some operations such as push a key in, pop an element out, and return maximum and minimum values. We also need to make sure all those operations are done in constant of time.
+Description Our task is to design a stack that supports some operations such as push a key in, pop an element out, and return maximum and minimum values. We also need to make sure all those operations are done in a constant time.
 The program lets user type in queries, and only terminates when user stops the program or when user type in &amp;ldquo;stop&amp;rdquo; query.
-Algorithm The idea is to use 3 different stacks, one to store the actual elements, the other two are auxiliary stacks to store maximum and minimum elements at current state.</description>
+Algorithm The idea is to use 3 different stacks, one to store the actual elements, the other two are auxiliary stacks to store maximum and minimum elements.</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@ Algorithm The idea is to use 3 different stacks, one to store the actual element
       
       <guid>http://www.example.com/docs/brackets/</guid>
       <description>Source code
-Given a text that contains any brackets from the set [], {}, (). Our program is to check whether the text uses brackets correctly. If there are no mistake, print out &amp;ldquo;Balanced&amp;rdquo;. Otherwise, find index of the first unmatched closing brackets, or the last opening bracket without corresponding closing one, and print out &amp;ldquo;Unbalanced at index index&amp;rdquo;.
+Given a text that contains any brackets from the set [], {}, (). Our program is to check whether the text uses brackets correctly. If there is no mistake, print out &amp;ldquo;Balanced&amp;rdquo;. Otherwise, find index of the first unmatched closing brackets, or the last opening bracket without corresponding closing one, and print out &amp;ldquo;Unbalanced at index index&amp;rdquo;.
 For example:
 [()] &amp;ndash;&amp;gt; Balanced
 [(] &amp;ndash;&amp;gt; Unbalanced at index 3</description>

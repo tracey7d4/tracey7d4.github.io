@@ -17,7 +17,7 @@
       
       <guid>http://www.example.com/docs/binarysearch/</guid>
       <description>Source code
-A linear search is a searching algorithm that find the position of an element from a list by sequentially comparing the elements of the list until finding the matching element. This is the simplest searching algorithm and is practical when the list has only a few elements or when performing a single search in an unsorted array. Linear search has worst-case and average-case time complexity \( O(n) \), and best case time complexity \( O(1) \).</description>
+Problem description A linear search is a searching algorithm that find the position of an element from an array by sequentially comparing to the elements of the array until finding the matching element. This is the simplest searching algorithm and is not practical for large problem. Linear search has worst case and average case time complexity \( O(n) \), and best case time complexity \( O(1) \). Its space complexity is \( O(1) \).</description>
     </item>
     
   </channel>

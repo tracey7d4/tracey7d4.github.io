@@ -264,20 +264,28 @@
   <summary class='title'>
     <span>Table of Contents</span>
   </summary>
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#problem-description">Problem description</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </details>
 
 
   <div class='container entry-content'>
   <p><a href="https://github.com/tracey7d4/CommonExamples/blob/main/binarySearch.go"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
-<p>A linear search is a searching algorithm that find the position of an element from a list by sequentially comparing the elements of the list until finding the matching element. This is the simplest searching algorithm and is practical when the list has only a few elements or when performing a single search in an unsorted array.
-Linear search has worst-case and average-case time complexity \(
+<h3 id="problem-description">Problem description</h3>
+<p>A linear search is a searching algorithm that find the position of an element from an array by sequentially comparing to the elements of the array until finding the matching element. This is the simplest searching algorithm and is not practical for large problem. Linear search has worst case and average case time complexity \(
  O(n) \), and best case time complexity \(
  O(1) \). Its space complexity is \(
  O(1) \).</p>
-<p>When the given array is sorted, binary search is more efficient algorithm. Binary search is based on the principle of divide and conquer by repeatedly dividing in half the portion of the list that could contain the item, until the possible locations is narrowed just to one.</p>
-<p>First, it compares the target value with the middle element of the array. If a match occurs, then the index of middle element is returned. If the middle item is greater than target value, then the search continues on the left sub-array. Otherwise, the item is searched on the right sub-array. Again, taking the middle element to compare to the target value, and process is repeated until the target value is found.</p>
-<p><strong>Implementation</strong></p>
+<p>When the given array is sorted, binary search is more efficient algorithm. Binary search is based on the principle of divide-and-conquer. It narrows the possible locations by repeatedly dividing in half the portion of the array that could contain the item. To do so, it first compares the target value with the middle element of the array. If a match occurs, then the index of middle element is returned. If the middle item is greater than target value, then the search continues on the left sub-array. Otherwise, the item is searched on the right sub-array. Again, taking the middle element to compare to the target value, and process is repeated until the target value is found.</p>
+<h3 id="implementation">Implementation</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">binarySearch</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int64</span>, <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">int64</span>) <span style="color:#66d9ef">int64</span> {
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">index</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">k</span>, int64(len(<span style="color:#a6e22e">arr</span>))<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>)
 }
@@ -299,7 +307,7 @@ Linear search has worst-case and average-case time complexity \(
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">index</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">mid</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">l</span>)
 }
-</code></pre></div><p>Binary search has worst-case and average case time complexity \(
+</code></pre></div><p>Binary search has worst case and average case time complexity \(
  O(\log n) \), and best case time complexity \(
  O(1) \). The best case occurs when the searching key is in the middle of the array. Its space complexity is \(
  O(1) \).</p>

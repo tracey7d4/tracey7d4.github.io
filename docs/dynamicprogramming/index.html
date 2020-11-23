@@ -284,12 +284,12 @@
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Fibonacci</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">Fibonacci</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)
 }
 </code></pre></div><p>The time complexity of this approach is nearly \(
- O(n^2) \) and space complexity is \(
+ O(2^n) \) and space complexity is \(
  O(n) \).</p>
 <p>We can observed that the implementation does a lot of repeated computation as shown in the following diagram.</p>
 <p><img src="/images/docs/Recursive.png" alt="Recursive Diagram"></p>
 <p>By using dynamic programming with memoisation we can reduce the time complexity to \(
- O(n) \) by just storing the computed Fibonacci numbers in a map (<a href="https://github.com/tracey7d4/CommonExamples/blob/main/fibonacciDP.go">source code</a>). However, we need to store computed value in a map, so space complexity for this algorithm is still \(
+ O(n) \) by just storing the computed Fibonacci numbers in a map (<a href="https://github.com/tracey7d4/CommonExamples/blob/main/fibonacciDP.go">source code</a>). However, storing <code>n</code> computed values in a map take extra <code>n</code> space, so space complexity for this algorithm is still \(
  O(n) \).</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FibonacciNumber</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int64</span> {
 	<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#66d9ef">int64</span>)

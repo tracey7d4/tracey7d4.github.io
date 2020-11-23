@@ -310,8 +310,8 @@ Space complexity: \(
 <p>We&rsquo;re going to use dequeue to solve this problem in \(
  O(n) \) in term of time complexity, and \(
  O(k) \) in term of space complexity. Dequeue is a double-ended queue, that allows removing element at its both ends.</p>
-<p>The idea is storing only relevant elements in a dequeue. Before adding a new element, we will drop all smaller elements in that dequeue. The dequeue, however, doesn&rsquo;t store elements&rsquo; values but their indices in original array. The reason of storing the indices is to easily check whether or not an element belong to the current window. More detail about algorithm and its complexity can be found at <a href="https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/">www.geeksforgeeks.org</a> and <a href="https://stackoverflow.com/questions/53094476/why-is-the-deque-solution-to-the-sliding-window-maximum-problem-on-instead-o">https://stackoverflow.com</a>)</p>
-<p>Let&rsquo;s go through an example to visualise the algorithm. Given an array <code>arr = {7, 6, 5, 4, 8, 9, 1}</code>, and <code>k = 3</code>. In the illustration below, the current window size of 3 is display in orange, <code>dequeue</code> in blue, and result in green. It is noted that the <code>dequeue</code> is holding the actual values of elements instead of their indices so that it&rsquo;s easier to follow.</p>
+<p>The idea is storing only relevant elements in a dequeue. Before adding a new element, we will drop all smaller elements in that dequeue. The dequeue, however, doesn&rsquo;t store elements&rsquo; values but their indices in original array. The reason of storing the indices is to easily check whether or not an element belong to the current window. More detail about algorithm and its complexity can be found at <a href="https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/">www.geeksforgeeks.org</a> and <a href="https://stackoverflow.com/questions/53094476/why-is-the-deque-solution-to-the-sliding-window-maximum-problem-on-instead-o">https://stackoverflow.com</a>.</p>
+<p>Let&rsquo;s go through an example to visualise the algorithm. Given an array <code>arr = {7, 6, 5, 4, 8, 9, 1}</code>, and window size <code>k = 3</code>. In the illustration below, the current window size of 3 is display in orange, <code>dequeue</code> in blue, and result in green. It is noted that the <code>dequeue</code> is holding the actual values of elements instead of their indices so that it&rsquo;s easier to follow.</p>
 <p><img src="/images/docs/dequeue.png" alt="Explanation"></p>
 <p><strong>Implementation</strong></p>
 <ul>
@@ -353,7 +353,7 @@ Space complexity: \(
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int32</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">n</span>)
 <span style="color:#a6e22e">res</span> = append(<span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">dequeue</span>.<span style="color:#a6e22e">index</span>[<span style="color:#ae81ff">0</span>]])
 </code></pre></div><ul>
-<li>Move to next window by running the loop from k to the end. First thing is to remove the front element of dequeue if it is out of the current window. Repeat all the steps that we have done for the first window.</li>
+<li>Move to next windows by running the loop from k to the end. First thing to do is to remove the front element of dequeue if it is out of the current window. Repeat all the steps that we have done for the first window.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">k</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
 		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">dequeue</span>.<span style="color:#a6e22e">index</span>[<span style="color:#ae81ff">0</span>] &lt; <span style="color:#a6e22e">i</span>  <span style="color:#f92672">-</span><span style="color:#a6e22e">k</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> {
@@ -403,7 +403,7 @@ Space complexity: \(
 
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Design a Special Stack that supports finding max/min value in constant time</a>
+        <span class='screen-reader-text'>Previous post: </span>Design a special Stack that supports finding max/min values in constant time</a>
     </div></div>
 </nav>
 

@@ -20,7 +20,7 @@
 Problem description An array is said to have a majority element if more than half of its elements are the same.
 Given a non-empty array arr. Check to see if the array has a majority element.
 Implementation Let&amp;rsquo;s have a look at some approaches of solving the given problem.
-1- Brute Force algorithm This approach is to find the occurrences of each element. As soon as there is an occurrence of an element is greater than a half, we know that this array has majority element and then return true.</description>
+1- Brute Force algorithm This approach is to find the occurrences of each element. As soon as an occurrence of an element is greater than a half, we know that this array has majority element and then return true.</description>
     </item>
     
     <item>

@@ -17,8 +17,8 @@
       
       <guid>http://www.example.com/docs/threesubsetequalsum/</guid>
       <description>Source code
-Description Given an array arr of n integers (n &amp;gt; 0). Our program is to check whether it is possible to divide the given array into three sets with equal sums.
-For example, Array arr = {1, 1, 2, 2, 3, 3} can be divided into 3 subsets with equal sum = 4 as follows: {1, 3}, {1, 3} and {2, 2}; while array arr = {1, 1, 2} can not be divided into such 3 subsets.</description>
+Description Given an array arr of n integers (n &amp;gt; 0). Find out that is it possible to divide the given array into three sets with equal sums.
+For example, array arr = {1, 1, 2, 2, 3, 3} can be divided into 3 subsets with equal sum = 4 as follows: {1, 3}, {1, 3} and {2, 2}; while array arr = {1, 1, 2} can not be divided into such 3 subsets.</description>
     </item>
     
     <item>
@@ -42,7 +42,7 @@ Problem Description The longest common subsequence (LCS) problem is to compute t
 Problem description An array is said to have a majority element if more than half of its elements are the same.
 Given a non-empty array arr. Check to see if the array has a majority element.
 Implementation Let&amp;rsquo;s have a look at some approaches of solving the given problem.
-1- Brute Force algorithm This approach is to find the occurrences of each element. As soon as there is an occurrence of an element is greater than a half, we know that this array has majority element and then return true.</description>
+1- Brute Force algorithm This approach is to find the occurrences of each element. As soon as an occurrence of an element is greater than a half, we know that this array has majority element and then return true.</description>
     </item>
     
     <item>
@@ -52,7 +52,7 @@ Implementation Let&amp;rsquo;s have a look at some approaches of solving the giv
       
       <guid>http://www.example.com/docs/binarysearch/</guid>
       <description>Source code
-A linear search is a searching algorithm that find the position of an element from a list by sequentially comparing the elements of the list until finding the matching element. This is the simplest searching algorithm and is practical when the list has only a few elements or when performing a single search in an unsorted array. Linear search has worst-case and average-case time complexity \( O(n) \), and best case time complexity \( O(1) \).</description>
+Problem description A linear search is a searching algorithm that find the position of an element from an array by sequentially comparing to the elements of the array until finding the matching element. This is the simplest searching algorithm and is not practical for large problem. Linear search has worst case and average case time complexity \( O(n) \), and best case time complexity \( O(1) \). Its space complexity is \( O(1) \).</description>
     </item>
     
     <item>

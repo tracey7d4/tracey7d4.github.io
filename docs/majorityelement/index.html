@@ -285,7 +285,7 @@
 <h3 id="implementation">Implementation</h3>
 <p>Let&rsquo;s have a look at some approaches of solving the given problem.</p>
 <h5 id="1--brute-force-algorithm">1- Brute Force algorithm</h5>
-<p>This approach is to find the occurrences of each element. As soon as there is an occurrence of an element is greater than a half, we know that this array has majority element and then return <code>true</code>. Otherwise, return <code>false</code></p>
+<p>This approach is to find the occurrences of each element. As soon as an occurrence of an element is greater than a half, we know that this array has majority element and then return <code>true</code>. Otherwise, return <code>false</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bruteForce</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">bool</span> {
 	<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">arr</span>)
 	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">v</span><span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">arr</span> {
@@ -328,7 +328,7 @@ Space complexity \(
 <p>You can reduce time complexity to \(
  O(n) \) while maintaining space complexity \(
  O(n) \) by using a map. I love this method, and it was the first one that came to my mind when I was given the problem.</p>
-<p>We will create a map with keys are array elements, and its values are element&rsquo;s occurrences. As soon as any value of a key is greater than <code>n/2</code>, the program returns.</p>
+<p>We will create a map with keys are elements from original array, and its values are elements&rsquo; occurrences. As soon as any value of a key is greater than <code>n/2</code>, the program returns.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">useMap</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">bool</span> {
 	<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> int32(len(<span style="color:#a6e22e">arr</span>))
 	<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int32</span>]<span style="color:#66d9ef">int32</span>)
@@ -341,7 +341,7 @@ Space complexity \(
 	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
 }
 </code></pre></div><h5 id="4--divide-and-conquer-technique">4- Divide and conquer technique</h5>
-<p>We repeatedly split the array into 2 sub-arrays and find the majority element of each array. After getting majority elements of both arrays, we do some comparisons.
+<p>We repeatedly split the array into 2 subarrays and find the majority element of each array. After getting majority elements of both arrays, we do some comparisons.
 If the left and right majority are the same, it will be the majority of the whole array. Otherwise, we will see which element appears more than <code>n/2</code> in the array by making call to <code>getFrequency()</code> function.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// This func is used to return bool value. Disregard this func if you want to return majority element
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">DivideAndConquer</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">bool</span> {
@@ -394,9 +394,9 @@ If the left and right majority are the same, it will be the majority of the whol
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>
 }
-</code></pre></div><p>Time complexity \(
+</code></pre></div><p>Time complexity: \(
  O(n \log n) \).<br>
-Space complexity \(
+Space complexity: \(
  O(\log n) \).</p>
 <h5 id="5--boyer-moore-voting-algorithm">5- Boyer-Moore voting algorithm</h5>
 <p>The idea of this method is that, if the array has majority element, so that element should be repeating more than <code>n/2</code> times. Hence, if at every occurrences of majority element we count 1, and the other elements we count -1, the total count should be greater than 0.</p>
@@ -427,9 +427,9 @@ Space complexity \(
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
 }
-</code></pre></div><p>Time complexity \(
+</code></pre></div><p>Time complexity: \(
  O(n) \).<br>
-Space complexity \(
+Space complexity: \(
  O(1) \).</p>
 
 </div>

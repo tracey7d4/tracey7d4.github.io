@@ -303,7 +303,7 @@ Output: Largest subarray sum maxSum and subarray \( subarr = [a_i, a_{i&#43;1}, 
 <p>If <code>currentSum &gt;= 0</code>, we need to compare <code>currentSum</code> and <code>maxSum</code> and update <code>maxSum</code> if needed. If the <code>currentSum &lt; maxSum</code>, we don&rsquo;t update the <code>maxSum</code> but will move to the next elements to see whether the total sum is greater than <code>maxSum</code>. The <code>maxSum</code> will be updated only if <code>currentSum &gt;= maxSum</code>. It is noted that I want to compose a subarray as long as possible, so I will update <code>maxSum</code> even when <code>currentSum = maxSum</code>.</p>
 </li>
 <li>
-<p>If at any iteration, adding the element to <code>currentSum</code> make it negative, that element is not going to be used for composing the sub-array. And hence, the subarray may be the block of elements before or after the iterated index. The <code>currentSum</code> is reset back to <code>0</code>, and continue to find other subarrays with non-negative sum.</p>
+<p>If at any iteration, adding the element to <code>currentSum</code> make it negative, that element is not going to be used on composing the subarray. And hence, the subarray may be the block of elements before or after the iterated index. The <code>currentSum</code> is reset back to <code>0</code>, and continue to find other subarrays with non-negative sum.</p>
 </li>
 </ul>
 </li>

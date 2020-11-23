@@ -5,7 +5,7 @@
 <meta name='description' content='Data structure - Stack'>
 <meta name='theme-color' content='blue'>
 
-<meta property='og:title' content='Design a Special Stack that supports finding max/min value in constant time • Tracey Hoang'>
+<meta property='og:title' content='Design a special Stack that supports finding max/min values in constant time • Tracey Hoang'>
 <meta property='og:description' content='Data structure - Stack'>
 <meta property='og:url' content='http://www.example.com/docs/specialstack/'>
 <meta property='og:site_name' content='Tracey Hoang'>
@@ -13,7 +13,7 @@
 
 <meta name="generator" content="Hugo 0.74.3" />
 
-  <title>Design a Special Stack that supports finding max/min value in constant time • Tracey Hoang</title>
+  <title>Design a special Stack that supports finding max/min values in constant time • Tracey Hoang</title>
   <link rel='canonical' href='http://www.example.com/docs/specialstack/'>
   
   
@@ -193,7 +193,7 @@
     <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/'>Home</a></li><li><a href='/docs/'>Posts</a></li><li><span>Design a Special Stack that supports finding max/min value in constant time</span></li></ol>
+      <ol><li><a href='/'>Home</a></li><li><a href='/docs/'>Posts</a></li><li><span>Design a special Stack that supports finding max/min values in constant time</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -212,7 +212,7 @@
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Design a Special Stack that supports finding max/min value in constant time</h1>
+      <h1 class='title'>Design a special Stack that supports finding max/min values in constant time</h1>
       
 <p class='desc'>Data structure - Stack</p>
 
@@ -281,13 +281,13 @@
   <div class='container entry-content'>
   <p><a href="https://github.com/tracey7d4/CommonExamples/blob/main/specialStack.go"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
 <h3 id="description">Description</h3>
-<p>Our task is to design a stack that supports some operations such as push a key in, pop an element out, and return maximum and minimum values. We also need to make sure all those operations are done in constant of time.</p>
+<p>Our task is to design a stack that supports some operations such as push a key in, pop an element out, and return maximum and minimum values. We also need to make sure all those operations are done in a  constant time.</p>
 <p>The program lets user type in queries, and only terminates when user stops the program or when user type in &ldquo;stop&rdquo; query.</p>
 <h3 id="algorithm">Algorithm</h3>
-<p>The idea is to use 3 different stacks, one to store the actual elements, the other two are auxiliary stacks to store maximum and minimum elements at current state. Stacks are built using array, and as access to an element at a given index of an array is in constant time, all operations of our stack is also in constant time. However, we use extra space to store maximum and minimum arrays, so we are trading space for time.</p>
-<p>I implement my program in a bit different way by creating a new struct that contains 3 stacks, so that when any of its methods called, 3 stacks are modified at the same time.</p>
+<p>The idea is to use 3 different stacks, one to store the actual elements, the other two are auxiliary stacks to store maximum and minimum elements. Stacks are built using array, and as access to an element of an array is in constant time, all operations of the stack is also in constant time. However, we use extra space to store maximum and minimum arrays, so we are trading space for time.</p>
+<p>I implement my program in a bit different way by creating a new struct that contains 3 stacks, so that when any of its methods called, all stacks are modified at the same time.</p>
 <h3 id="implementation">Implementation</h3>
-<p>Create a struct with 3 stacks. Instead of implementing 2 functions to get mininum and maximum values, I store those values in the struct.</p>
+<p>Create a struct with 3 stacks. Instead of implementing 2 functions to get minimum and maximum values, I store those values in the struct.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">stacks</span> <span style="color:#66d9ef">struct</span> {
 	<span style="color:#a6e22e">value</span>    []<span style="color:#66d9ef">int32</span>  <span style="color:#75715e">// stack of actual elements
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">maxArray</span> []<span style="color:#66d9ef">int32</span>  <span style="color:#75715e">// stack of max values
@@ -295,7 +295,7 @@
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">max</span>      <span style="color:#66d9ef">int32</span>    <span style="color:#75715e">// max value
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">min</span>      <span style="color:#66d9ef">int32</span>    <span style="color:#75715e">// min value
 </span><span style="color:#75715e"></span>}
-</code></pre></div><p>Now we are going to implement its methods.</p>
+</code></pre></div><p>Now implement its methods.</p>
 <ul>
 <li>to push a value into stacks</li>
 </ul>
@@ -356,6 +356,7 @@
 	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;	- Syntax `print` is to print out stack at current time&#34;</span>)
 	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;	- Syntax `max` is to print out max value of stack at current time&#34;</span>)
 	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;	- Syntax `min` is to print out min value of stack at current time&#34;</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;	- Syntax `stop` is to terminate the program&#34;</span>)
 
 	<span style="color:#a6e22e">stk</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">stacks</span>)
 	<span style="color:#a6e22e">stk</span>.<span style="color:#a6e22e">max</span> = <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>
@@ -395,7 +396,7 @@
 		}
 	}
 }
-</code></pre></div><p>As an example, we&rsquo;re going to do following sequence of queries: push 3, 2, 5 to stack, print stack, get max and min, then pop the last element, then get again want to see max and min, then pop twice to take all element out, then print the stack, and stop playing.</p>
+</code></pre></div><p>As an example, we&rsquo;re going to do following sequence of queries: push 3, 2, 5 to stack, print stack, get max and min, then pop the last element, then again get max and min, then pop twice to take all element out, then print the stack, and stop playing.</p>
 <p><img src="/images/docs/specialStack.png" alt="Result printed out"></p>
 
 </div>

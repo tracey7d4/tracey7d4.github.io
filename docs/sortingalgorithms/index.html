@@ -2,14 +2,14 @@
 <html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort'>
+<meta name='description' content='Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, Heap Sort'>
 <meta name='theme-color' content='blue'>
 
 <meta property='og:title' content='Sorting Algorithms • Tracey Hoang'>
-<meta property='og:description' content='Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort'>
+<meta property='og:description' content='Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, Heap Sort'>
 <meta property='og:url' content='http://www.example.com/docs/sortingalgorithms/'>
 <meta property='og:site_name' content='Tracey Hoang'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='sort'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-20T13:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-11-03T16:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/b905ff2223f2dadc0baab4b9e29dce88?s=256'><meta property='article:section' content='docs'><meta property='article:tag' content='sort'><meta property='article:tag' content='example'><meta property='article:tag' content='golang'><meta property='article:tag' content='go'><meta property='article:published_time' content='2020-10-20T13:00:00&#43;11:00'/><meta property='article:modified_time' content='2020-11-23T14:00:00&#43;11:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.74.3" />
 
@@ -214,7 +214,7 @@
     <div class='header-info'>
       <h1 class='title'>Sorting Algorithms</h1>
       
-<p class='desc'>Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort</p>
+<p class='desc'>Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, Heap Sort</p>
 
 
     </div>
@@ -248,7 +248,7 @@
   <polyline points="12 6 12 12 15 15"/>
 
 </svg>
-6 mins read
+8 mins read
 </span>
 
 
@@ -274,6 +274,7 @@
         <li><a href="#4--merge-sort">4- Merge Sort</a></li>
         <li><a href="#5--quicksort---2-ways-partition">5- QuickSort - 2 ways partition</a></li>
         <li><a href="#6--improved-quicksort---3-ways-partition">6- Improved QuickSort - 3 ways partition</a></li>
+        <li><a href="#7--heap-sort">7- Heap Sort</a></li>
       </ul>
     </li>
   </ul>
@@ -283,7 +284,7 @@
 
   <div class='container entry-content'>
   <p><a href="https://github.com/tracey7d4/CommonExamples/tree/main/sort"><img src="/images/github-logo.png" alt="Git Icon"> Source code</a></p>
-<p>We are going to have a look at several sorting algorithms, their implementation, and their performance. In particular, we will discuss about Bubble Sort, Insertion Sort, and Merge Sort.</p>
+<p>We are going to have a look at several sorting algorithms, their implementation, and their performance. In particular, we will discuss about Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, and Heap Sort.</p>
 <h3 id="1--bubble-sort">1- Bubble Sort</h3>
 <p>Bubble Sort is a sorting algorithm that repeatedly swap the adjacent elements if they are in wrong order. It repeatedly pass through the list until the list is sorted.</p>
 <p><img src="/images/docs/bubbleSort.gif" alt="Bubble Sort">
@@ -401,7 +402,7 @@ Space complexity \(
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
 }
 </code></pre></div><p>Merge sort has time complexity \(
- O(n \times \log n) \) in all the cases, and space complexity \(
+ O(n \log n) \) in all the cases, and space complexity \(
  O(n) \).</p>
 <h3 id="5--quicksort---2-ways-partition">5- QuickSort - 2 ways partition</h3>
 <p>QuickSort is a Divide and Conquer algorithm. It picks a random element as pivot, and rearranges the ordinary array based on that pivot number. The procedure of rearrange the elements in array as above is call partitioning. In 2 way partition QuickSort, the array is divided into 2 sub-arrays: the left one with all numbers less than pivot number, and the right one with all number greater than pivot number.After partitioning the pivot is in its final position. Recursively the above process for the left and right sub-arrays</p>
@@ -479,10 +480,83 @@ Space complexity \(
 At first, the <code>splitIndex</code> is given to be equal to the <code>start</code> variable. We then compare the value at <code>splitIndex</code> with pivot. After comparison, the value is moved to left sub-array if less than pivot, or to right sub-array if greater than pivot. After getting 3 sub-arrays, we recursively sort the left and right sub-arrays until the original array is sorted.</p>
 <p>The 3 way partition algorithm is an improved quicksort algorithm as it handles input with many replicated elements.</p>
 <p>Quicksort has time complexity \(
- O(n \times \log n) \), and space complexity \(
+ O(n\log n) \), and space complexity \(
  O(1) \).</p>
 <p>You can have a visual look at different sorting algorithms by visit the following link: <a href="https://www.toptal.com/developers/sorting-algorithms">Toptal Sorting Algorithms Animation</a></p>
+<h3 id="7--heap-sort">7- Heap Sort</h3>
+<p>Heap Sort is a sorting algorithm based on heap data structure. The idea of the heap sort is similar to selection sort, it repeatedly finds the largest value of the slides and place it at the end of the slide, hence divides the array into 2 subarray: sorted and unsorted. Heap sort maintains the unsorted subarray in heap data structure (<a href="https://en.wikipedia.org/wiki/Heapsort">wikipedia</a>). HeapSort are widely used for external sort, where the files are so huge that don&rsquo;t fit into memory of a computer.</p>
+<p>In Heap Sort algorithm, we first build a max Heap from the array. After that, the first element becomes the largest value. We then swap the first element with the last one in the array as we want to sort the array ascending. The unsorted subarray&rsquo;s size decreases by 1.</p>
+<p>After swapping, call <code>siftDown()</code> again for the <code>size-1</code> while its <code>size</code> is greater than 1.</p>
+<p>HeapSort has time complexity \(
+ O(n \log n) \), and space complexity \(
+ O(1) \).</p>
+<p><strong>Implementation</strong></p>
+<p>Build a maxHeap, and its methods.</p>
+<ul>
+<li><code>leaf()</code> - check whether an index is a leaf of a maxheap built from slice of <code>m.value[0:size]</code>, where <code>m</code> is a variable of type <code>*maxHeap</code></li>
+<li><code>leftChild()</code> and <code>rightChild()</code> returns left and right children&rsquo;s indices of given index</li>
+<li><code>swap(i,j)</code> swap values at index <code>i</code> and <code>j</code></li>
+<li><code>buildMaxHeap()</code> build a maxHeap from a given array</li>
+<li><code>siftDown()</code> - perform operations to make sure a subtree doesn&rsquo;t violate with heap&rsquo;s characteristic.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">maxHeap</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">value</span> []<span style="color:#66d9ef">int32</span>
+}
 
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">maxHeap</span>) <span style="color:#a6e22e">leaf</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">size</span> <span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">size</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">maxHeap</span>) <span style="color:#a6e22e">leftChild</span>(<span style="color:#a6e22e">index</span> <span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">int32</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">maxHeap</span>) <span style="color:#a6e22e">rightChild</span>(<span style="color:#a6e22e">index</span> <span style="color:#66d9ef">int32</span>) <span style="color:#66d9ef">int32</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">maxHeap</span>) <span style="color:#a6e22e">swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int32</span>) {
+	<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>[<span style="color:#a6e22e">i</span>]
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">maxHeap</span>) <span style="color:#a6e22e">buildMaxHeap</span>() {
+	<span style="color:#a6e22e">size</span> <span style="color:#f92672">:=</span> int32(len(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>))
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+		<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">siftDown</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">size</span>)
+	}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">maxHeap</span>) <span style="color:#a6e22e">siftDown</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">size</span> <span style="color:#66d9ef">int32</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">leaf</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">size</span>) {
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">leftChildIndex</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">leftChild</span>(<span style="color:#a6e22e">index</span>)
+	<span style="color:#a6e22e">rightChildIndex</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">rightChild</span>(<span style="color:#a6e22e">index</span>)
+	<span style="color:#a6e22e">largest</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">index</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">leftChildIndex</span> &lt; <span style="color:#a6e22e">size</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>[<span style="color:#a6e22e">leftChildIndex</span>] &gt; <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>[<span style="color:#a6e22e">largest</span>] {
+		<span style="color:#a6e22e">largest</span> = <span style="color:#a6e22e">leftChildIndex</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">rightChildIndex</span> &lt; <span style="color:#a6e22e">size</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>[<span style="color:#a6e22e">rightChildIndex</span>] &gt; <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>[<span style="color:#a6e22e">largest</span>] {
+		<span style="color:#a6e22e">largest</span> = <span style="color:#a6e22e">rightChildIndex</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">largest</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">index</span> {
+		<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">swap</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">largest</span>)
+		<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">siftDown</span>(<span style="color:#a6e22e">largest</span>, <span style="color:#a6e22e">size</span>)
+	}
+}
+</code></pre></div><p>Implement <code>heapSort()</code> function</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">maxHeap</span>) <span style="color:#a6e22e">heapSort</span>() {
+	<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">buildMaxHeap</span>()
+	<span style="color:#a6e22e">size</span> <span style="color:#f92672">:=</span> int32(len(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">value</span>))
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">size</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &gt; <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+		<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">swap</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">i</span>)
+		<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">siftDown</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">i</span>)
+	}
+}
+</code></pre></div>
 </div>
 
   
@@ -495,7 +569,7 @@ At first, the <code>splitIndex</code> is given to be equal to the <code>start</c
 
 </svg>
 <span class='screen-reader-text'>Last updated: </span>
-      <time class='entry-date' datetime='2020-11-03T16:00:00&#43;11:00'>2020, Nov 03</time>
+      <time class='entry-date' datetime='2020-11-23T14:00:00&#43;11:00'>2020, Nov 23</time>
     </div><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
     
     
