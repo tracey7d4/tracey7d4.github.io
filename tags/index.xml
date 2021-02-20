@@ -5,10 +5,91 @@
     <link>http://www.example.com/tags/</link>
     <description>Recent content in Tags on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 18 Nov 2020 12:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 20 Feb 2021 14:00:00 +1100</lastBuildDate>
     
 	<atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>binary tree</title>
+      <link>http://www.example.com/tags/binary-tree/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/binary-tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>breadth-first traversal</title>
+      <link>http://www.example.com/tags/breadth-first-traversal/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/breadth-first-traversal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>depth-first traversal</title>
+      <link>http://www.example.com/tags/depth-first-traversal/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/depth-first-traversal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>http://www.example.com/tags/go/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>http://www.example.com/tags/golang/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iterative</title>
+      <link>http://www.example.com/tags/iterative/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/iterative/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>queue</title>
+      <link>http://www.example.com/tags/queue/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stack</title>
+      <link>http://www.example.com/tags/stack/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/stack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>traverse</title>
+      <link>http://www.example.com/tags/traverse/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/traverse/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>data structure</title>
@@ -34,33 +115,6 @@
       <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/example/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>http://www.example.com/tags/go/</link>
-      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>http://www.example.com/tags/golang/</link>
-      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>stack</title>
-      <link>http://www.example.com/tags/stack/</link>
-      <pubDate>Wed, 18 Nov 2020 11:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/stack/</guid>
       <description></description>
     </item>
     
@@ -205,33 +259,6 @@
       <pubDate>Sat, 17 Oct 2020 23:10:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/bst/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>breadth-first traversal</title>
-      <link>http://www.example.com/tags/breadth-first-traversal/</link>
-      <pubDate>Sat, 17 Oct 2020 22:30:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/breadth-first-traversal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>depth-first traversal</title>
-      <link>http://www.example.com/tags/depth-first-traversal/</link>
-      <pubDate>Sat, 17 Oct 2020 22:30:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/depth-first-traversal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>traverse</title>
-      <link>http://www.example.com/tags/traverse/</link>
-      <pubDate>Sat, 17 Oct 2020 22:30:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/traverse/</guid>
       <description></description>
     </item>
     

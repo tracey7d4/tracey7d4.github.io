@@ -5,10 +5,21 @@
     <link>http://www.example.com/tags/traverse/</link>
     <description>Recent content in traverse on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 17 Oct 2020 22:30:00 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 20 Feb 2021 14:00:00 +1100</lastBuildDate>
     
 	<atom:link href="http://www.example.com/tags/traverse/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Iterative method to traverse a tree</title>
+      <link>http://www.example.com/docs/iterativetreetraversal/</link>
+      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/iterativetreetraversal/</guid>
+      <description>Source code
+Problem description In previous post we have already traversed the tree using recursive method (see link). Recursive method is neat in term of length of code, and easy to understand. Recursion, however, runs slower than iteration, especially when the tree is very deep that requires a considerable number of recursive calls.
+In this post, we will traverse a binary tree using iterative method, in which all tree nodes are iterated over in some manner.</description>
+    </item>
     
     <item>
       <title>Binary Search Tree - Part II</title>
