@@ -312,13 +312,16 @@
 	<span style="color:#66d9ef">return</span> len(<span style="color:#f92672">*</span><span style="color:#a6e22e">s</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
 }
 </code></pre></div><h5 id="in-order-traversal">In-order traversal</h5>
-<p>1 - Create an empty stack <code>s</code>, and initialise current node <code>curr</code> as root;<br>
-2 - While <code>curr</code> is not <code>nil</code> or stack is not empty, then:</p>
+<ol>
+<li>Create an empty stack <code>s</code>, and initialise current node as root;</li>
+<li>While <code>curr</code> is not <code>nil</code> or stack is not empty, then:
 <ul>
-<li>push the current node to stack <code>s</code>, and set <code>curr = curr.left</code> until reaching the leaf node;</li>
+<li>push the current node to stack <code>s</code>, and set <code>curr = curr.left</code> until there is no left child;</li>
 <li>pop the item from <code>s</code> and set <code>curr = s.pop</code>, either put item&rsquo;s key to our answer array (if you want return an array) nor just print out the item&rsquo;s key;</li>
 <li>set <code>curr = curr.right</code></li>
 </ul>
+</li>
+</ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">inOrderTraversal</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#a6e22e">node</span>) []<span style="color:#66d9ef">string</span> {
 	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">stack</span>{}
 	<span style="color:#a6e22e">curr</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
@@ -335,13 +338,16 @@
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">answer</span>
 }
 </code></pre></div><h5 id="pre-order-traversal">Pre-order traversal</h5>
-<p>1 - Create an empty stack <code>s</code> and push the root node to the stack;<br>
-2 - While the stack <code>s</code> is not empty:</p>
+<ol>
+<li>Create an empty stack <code>s</code> and push the root node to the stack;</li>
+<li>While the stack <code>s</code> is not empty:
 <ul>
 <li>pop the item from stack <code>s</code>, and put it (or print it out) to the answer array;</li>
 <li>push the right child of the popped item to stack;</li>
 <li>push the left child of the popped item to stack.</li>
 </ul>
+</li>
+</ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">preOrderTraversal</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#a6e22e">node</span>) []<span style="color:#66d9ef">string</span> {
 	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">stack</span>{}
 	<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>])
@@ -359,17 +365,20 @@
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">answer</span>
 }
 </code></pre></div><h5 id="post-order-traversal">Post-order traversal</h5>
-<p>For post-order traversal, we use 2 stacks: <code>s</code> as the one in the pre-order traversal, and <code>s1</code> to store the reverse post-order traversal.</p>
-<p>1 - Create 2 stacks <code>s</code> and <code>s1</code>;<br>
-2 - Push root node the first stack <code>s</code>;<br>
-3 - While <code>s</code> is not empty:</p>
+<p>For post-order traversal, we use 2 stacks: first stack <code>s</code> to store the deferred node as the one in the pre-order traversal, and a second stack <code>s1</code> to store the reverse post-order traversal.</p>
+<ol>
+<li>Create 2 stacks <code>s</code> and <code>s1</code>;</li>
+<li>Push root node into the first stack <code>s</code>;</li>
+<li>While <code>s</code> is not empty:
 <ul>
 <li>pop an item from first stack <code>s</code>;</li>
 <li>instead of print out the popped item (or put it into the answer array), we push it into the second stack <code>s1</code>;</li>
 <li>push the left child of the popped item into first stack <code>s</code>;</li>
-<li>push the right child of the popped item into first stack <code>s</code>;
-4 - While <code>s1</code> is not empty, we keep popping the item from it and put the item to the answer array or print it out.</li>
+<li>push the right child of the popped item into first stack <code>s</code>;</li>
 </ul>
+</li>
+<li>While <code>s1</code> is not empty, we keep popping the item from it and put the item to the answer array or print it out.</li>
+</ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">postOrderTraversal</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#a6e22e">node</span>) []<span style="color:#66d9ef">string</span> {
 	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">stack</span>{}
 	<span style="color:#a6e22e">s1</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">stack</span>{}
@@ -394,7 +403,7 @@
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">answer</span>
 }
 </code></pre></div><h4 id="breadth-first-traversal">Breadth-first traversal</h4>
-<p>For breadth-first traversal of the tree we are going to use <code>queue</code></p>
+<p>For breadth-first traversal of the tree we are going to use <code>queue</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">queue</span> []<span style="color:#a6e22e">node</span>
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">newQueue</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">queue</span>{
 	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">queue</span>{}
@@ -410,13 +419,16 @@
 	<span style="color:#f92672">*</span><span style="color:#a6e22e">q</span> = (<span style="color:#f92672">*</span><span style="color:#a6e22e">q</span>)[<span style="color:#ae81ff">1</span>:]
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
 }
-</code></pre></div><p>1 - Create a queue <code>q</code>, then push the root tree into the queue, and put its value into the answer array;<br>
-2 - While the queue is not empty:</p>
+</code></pre></div><ol>
+<li>Create a queue <code>q</code>, then push the root tree into the queue, and put its value into the answer array;</li>
+<li>While the queue is not empty:
 <ul>
 <li>pop the item from <code>q</code>;</li>
 <li>if left child is not <code>nil</code>, push the left child to the queue and its value to the answer array;</li>
 <li>if right child is not <code>nil</code>, push the right child to the queue and its value to the answer array.</li>
 </ul>
+</li>
+</ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bfs</span>(<span style="color:#a6e22e">arr</span> []<span style="color:#a6e22e">node</span>) []<span style="color:#66d9ef">string</span> {
 	<span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">newQueue</span>()
 	<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>])
@@ -435,7 +447,8 @@
 	}
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">answer</span>
 }
-</code></pre></div><p>Our program will read the input from <code>STDIN</code> and then print out the output.
+</code></pre></div><hr>
+<p>Our program will read the input from <code>STDIN</code> and then print out the output.
 We are given a binary tree. The nodes of the tree are numbered from <code>0</code> to <code>n-1</code>. Node <code>0</code> is the root.
 The first line contains the number of nodes <code>n</code>. The next <code>n</code> lines contain information about nodes. In each line, the first value is the node&rsquo;s key, then follows by 2 other values: keys of the node&rsquo;s left child and right child. If the node doesn&rsquo;t have left or right child, the corresponding key will be <code>-1</code>.</p>
 <p>For example, the following input can be illustrated with corresponding tree:</p>
