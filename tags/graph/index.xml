@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>graph on Tracey Hoang</title>
+    <link>http://www.example.com/tags/graph/</link>
+    <description>Recent content in graph on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 21 Apr 2021 10:00:00 +1000</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/graph/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data structure - Graph</title>
+      <link>http://www.example.com/docs/graph/</link>
+      <pubDate>Wed, 21 Apr 2021 10:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/docs/graph/</guid>
+      <description>Source code
+Graph is a data structure that represents pairwise relationships between vertices. It has two basic components - vertices and edges. The edges are used to connect pairs of vertices.
+A graph can be directed or undirected. In an undirected graph, all the edges are bi-directional. It means that in an undirected graph, you can traverse in both directions from a vertex to the other one as long as there is an edge between them.</description>
+    </item>
+    
+  </channel>
+</rss>

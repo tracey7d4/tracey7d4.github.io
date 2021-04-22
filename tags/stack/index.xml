@@ -28,7 +28,7 @@ In this post, we will traverse a binary tree using iterative method, in which al
       
       <guid>http://www.example.com/docs/specialstack/</guid>
       <description>Source code
-Description Our task is to design a stack that supports some operations such as push a key in, pop an element out, and return maximum and minimum values. We also need to make sure all those operations are done in a constant time.
+Description Our task is to design a stack that supports some operations such as push a key in, pop the last element out, and return maximum and minimum values. We also need to make sure all those operations are done in a constant time.
 The program lets user type in queries, and only terminates when user stops the program or when user type in &amp;ldquo;stop&amp;rdquo; query.
 Algorithm The idea is to use 3 different stacks, one to store the actual elements, the other two are auxiliary stacks to store maximum and minimum elements.</description>
     </item>

@@ -5,10 +5,32 @@
     <link>http://www.example.com/tags/data-structure/</link>
     <description>Recent content in data structure on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 18 Nov 2020 12:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 21 Apr 2021 21:00:00 +1000</lastBuildDate>
     
 	<atom:link href="http://www.example.com/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data structure - Disjoint Set</title>
+      <link>http://www.example.com/docs/disjoint-set/</link>
+      <pubDate>Wed, 21 Apr 2021 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/docs/disjoint-set/</guid>
+      <description>Source code
+Disjoint Set A disjoint set is a data structure that stores a collection of non-overlapping sets. It supports the following operations:
+ makeSet(x) - makes new set \( \{x\} \); union(x,y) - merges two sets \( \{x\} \) and \( \{y\} \); find(x) - finds a representative member of a set. If \( x \) and \( y \) lie in the same set, then find(x) = find(y), otherwise find(x) !</description>
+    </item>
+    
+    <item>
+      <title>Data structure - Graph</title>
+      <link>http://www.example.com/docs/graph/</link>
+      <pubDate>Wed, 21 Apr 2021 10:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/docs/graph/</guid>
+      <description>Source code
+Graph is a data structure that represents pairwise relationships between vertices. It has two basic components - vertices and edges. The edges are used to connect pairs of vertices.
+A graph can be directed or undirected. In an undirected graph, all the edges are bi-directional. It means that in an undirected graph, you can traverse in both directions from a vertex to the other one as long as there is an edge between them.</description>
+    </item>
     
     <item>
       <title>Define all maximum of all sliding windows size k</title>
@@ -30,7 +52,7 @@ Algorithm 1. Naive algorithm Naive algorithm is to scan each window separately, 
       
       <guid>http://www.example.com/docs/specialstack/</guid>
       <description>Source code
-Description Our task is to design a stack that supports some operations such as push a key in, pop an element out, and return maximum and minimum values. We also need to make sure all those operations are done in a constant time.
+Description Our task is to design a stack that supports some operations such as push a key in, pop the last element out, and return maximum and minimum values. We also need to make sure all those operations are done in a constant time.
 The program lets user type in queries, and only terminates when user stops the program or when user type in &amp;ldquo;stop&amp;rdquo; query.
 Algorithm The idea is to use 3 different stacks, one to store the actual elements, the other two are auxiliary stacks to store maximum and minimum elements.</description>
     </item>

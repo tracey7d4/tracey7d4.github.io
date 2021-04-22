@@ -5,10 +5,82 @@
     <link>http://www.example.com/tags/</link>
     <description>Recent content in Tags on Tracey Hoang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 20 Feb 2021 14:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 21 Apr 2021 21:00:00 +1000</lastBuildDate>
     
 	<atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>data structure</title>
+      <link>http://www.example.com/tags/data-structure/</link>
+      <pubDate>Wed, 21 Apr 2021 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/data-structure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>disjoint set</title>
+      <link>http://www.example.com/tags/disjoint-set/</link>
+      <pubDate>Wed, 21 Apr 2021 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/disjoint-set/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>http://www.example.com/tags/go/</link>
+      <pubDate>Wed, 21 Apr 2021 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>http://www.example.com/tags/golang/</link>
+      <pubDate>Wed, 21 Apr 2021 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>path compression</title>
+      <link>http://www.example.com/tags/path-compression/</link>
+      <pubDate>Wed, 21 Apr 2021 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/path-compression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>union</title>
+      <link>http://www.example.com/tags/union/</link>
+      <pubDate>Wed, 21 Apr 2021 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/union/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graph</title>
+      <link>http://www.example.com/tags/graph/</link>
+      <pubDate>Wed, 21 Apr 2021 10:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/graph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>undirected graph</title>
+      <link>http://www.example.com/tags/undirected-graph/</link>
+      <pubDate>Wed, 21 Apr 2021 10:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/tags/undirected-graph/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>binary tree</title>
@@ -34,24 +106,6 @@
       <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/depth-first-traversal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>http://www.example.com/tags/go/</link>
-      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>http://www.example.com/tags/golang/</link>
-      <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/golang/</guid>
       <description></description>
     </item>
     
@@ -88,15 +142,6 @@
       <pubDate>Sat, 20 Feb 2021 14:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/traverse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data structure</title>
-      <link>http://www.example.com/tags/data-structure/</link>
-      <pubDate>Wed, 18 Nov 2020 12:00:00 +1100</pubDate>
-      
-      <guid>http://www.example.com/tags/data-structure/</guid>
       <description></description>
     </item>
     
@@ -187,6 +232,60 @@
       <pubDate>Tue, 20 Oct 2020 15:00:00 +1100</pubDate>
       
       <guid>http://www.example.com/tags/sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bubble sort</title>
+      <link>http://www.example.com/tags/bubble-sort/</link>
+      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/bubble-sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heap sort</title>
+      <link>http://www.example.com/tags/heap-sort/</link>
+      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/heap-sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>insertion sort</title>
+      <link>http://www.example.com/tags/insertion-sort/</link>
+      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/insertion-sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quick sort</title>
+      <link>http://www.example.com/tags/quick-sort/</link>
+      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/quick-sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>selection sort</title>
+      <link>http://www.example.com/tags/selection-sort/</link>
+      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/selection-sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sorting</title>
+      <link>http://www.example.com/tags/sorting/</link>
+      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/tags/sorting/</guid>
       <description></description>
     </item>
     

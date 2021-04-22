@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>disjoint set on Tracey Hoang</title>
+    <link>http://www.example.com/tags/disjoint-set/</link>
+    <description>Recent content in disjoint set on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 21 Apr 2021 21:00:00 +1000</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/disjoint-set/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data structure - Disjoint Set</title>
+      <link>http://www.example.com/docs/disjoint-set/</link>
+      <pubDate>Wed, 21 Apr 2021 21:00:00 +1000</pubDate>
+      
+      <guid>http://www.example.com/docs/disjoint-set/</guid>
+      <description>Source code
+Disjoint Set A disjoint set is a data structure that stores a collection of non-overlapping sets. It supports the following operations:
+ makeSet(x) - makes new set \( \{x\} \); union(x,y) - merges two sets \( \{x\} \) and \( \{y\} \); find(x) - finds a representative member of a set. If \( x \) and \( y \) lie in the same set, then find(x) = find(y), otherwise find(x) !</description>
+    </item>
+    
+  </channel>
+</rss>

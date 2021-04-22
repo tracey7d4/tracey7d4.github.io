@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>heap sort on Tracey Hoang</title>
+    <link>http://www.example.com/tags/heap-sort/</link>
+    <description>Recent content in heap sort on Tracey Hoang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 20 Oct 2020 13:00:00 +1100</lastBuildDate>
+    
+	<atom:link href="http://www.example.com/tags/heap-sort/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sorting Algorithms</title>
+      <link>http://www.example.com/docs/sortingalgorithms/</link>
+      <pubDate>Tue, 20 Oct 2020 13:00:00 +1100</pubDate>
+      
+      <guid>http://www.example.com/docs/sortingalgorithms/</guid>
+      <description>Source code
+We are going to have a look at several sorting algorithms, their implementation, and their performance. In particular, we will discuss about Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, and Heap Sort.
+1- Bubble Sort Bubble Sort is a sorting algorithm that repeatedly swap the adjacent elements if they are in wrong order. It repeatedly pass through the list until the list is sorted.
+&amp;ldquo;File:Bubble-sort-example-300px.gif&amp;rdquo; by Swfung8 is licensed under CC BY-SA 3.</description>
+    </item>
+    
+  </channel>
+</rss>
