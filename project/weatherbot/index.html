@@ -371,8 +371,9 @@ In this repository, I&rsquo;m going to create a weatherbot for querying weather 
 <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;%s&#34;</span>, <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;challenge&#34;</span>])
 }
 </code></pre></div><p>Deploy this function by following command</p>
-<pre><code>gcloud functions deploy AppWeatherMentionHandler --runtime go111 --trigger-http
-</code></pre><p>Answer <code>y</code> to the question about unauthenticated access.
+<pre><code>gcloud functions deploy AppWeatherMentionHandler --runtime go113 --trigger-http
+</code></pre><p>Please check for the Go runtime and make appropriate change if needed.</p>
+<p>Answer <code>y</code> to the question about unauthenticated access.
 <img src="/images/project/answerY.png" alt="answerY"></p>
 <p>In the returning log you can see the URL that points to your newly created cloud function as an endpoint for your web service. Copy and paste this link to the <code>Request URL</code> panel on web Slack app till the field turned to <code>Verified</code></p>
 <p><img src="/images/project/enableEventSubscription.png" alt="enable Events image"></p>
@@ -429,7 +430,7 @@ In this repository, I&rsquo;m going to create a weatherbot for querying weather 
 the message can be prettied by using some special symbols such as <code>*</code> (for <strong>Bold</strong>), <code>_</code> (for <em>Italic</em>). I even created an <code>emojimap</code> to add some <a href="https://openweathermap.org/weather-conditions">weather</a>
 <a href="https://www.webfx.com/tools/emoji-cheat-sheet/">emoji icons</a>.</p>
 <p>Our <code>AppWeatherMentionHandler</code> function is now ready to deploy to GCP.</p>
-<pre><code>gcloud functions deploy AppWeatherMentionHandler --runtime go111 --trigger-http
+<pre><code>gcloud functions deploy AppWeatherMentionHandler --runtime go113 --trigger-http
 </code></pre><p>Once it is successfully deployed, you can try the bot out on your Slack channel. For instance, if you want to know how the weather at Melbourne, Australia is, you mention your bot like follows.</p>
 <pre><code>@weatherbot Melbourne, Au
 </code></pre><p>And this is what will be displayed in your Slack channel</p>
